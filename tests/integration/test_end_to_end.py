@@ -29,7 +29,8 @@ def test_end_to_end_transformation():
         transformer.load("resume_text", f)
 
     # Test export (which calls transform automatically)
-    results = transformer.export()
+    transformer.build()
+    results = transformer.project(config.output)
 
     # Basic structural assertions
     assert len(results) > 0

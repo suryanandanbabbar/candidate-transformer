@@ -80,3 +80,18 @@ class Candidate(BaseModel):
     languages: list[str] = Field(default_factory=list)
     provenance: list[Provenance] = Field(default_factory=list)
     overall_confidence: float = 0.0
+
+class CanonicalDataset(BaseModel):
+    """
+    Immutable representation of a completely built canonical transformation run.
+    Contains candidates, diagnostics, statistics, and run metadata.
+    """
+    
+    candidates: list[Candidate] = Field(default_factory=list)
+    diagnostics: list[str] = Field(default_factory=list)
+    statistics: dict[str, float | int | str] = Field(default_factory=dict)
+    build_metadata: dict[str, float | int | str] = Field(default_factory=dict)
+    connector_metadata: dict[str, int] = Field(default_factory=dict)
+    schema_version: str = "1.0"
+    build_timestamp: str = ""
+    build_id: str = ""

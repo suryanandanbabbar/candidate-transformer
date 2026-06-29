@@ -17,6 +17,8 @@ dependencies = [
     "typer>=0.9.0",
     "structlog>=23.1.0",
     "phonenumbers>=8.13.0",
+    "prompt_toolkit>=3.0.0",
+    "rich>=13.0.0",
 ]
 
 [project.optional-dependencies]
@@ -30,6 +32,7 @@ dev = [
 
 [project.scripts]
 candidate-transformer = "candidate_transformer.cli.main:app"
+ctsh = "candidate_transformer.cli.shell:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/candidate_transformer"]

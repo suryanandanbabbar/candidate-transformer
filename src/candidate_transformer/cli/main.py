@@ -79,7 +79,11 @@ def transform(
                 logger.error("File not found", error=str(e), file=file_path)
                 raise typer.Exit(code=1)
 
-        result = transformer.export(override_config)
+        transformer.build()
+        
+        # In the shell API, 'export' writes to file, 'project' returns list
+        cfg = override_config or transformer.config.output
+        result = transformer.project(cfg)
 
         logger.info("Transformation successful")
         # Pretty print output array
