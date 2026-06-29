@@ -182,15 +182,19 @@ class CommandDispatcher:
         console.print(table)
 
     def handle_show(self, args: list[str]) -> None:
-        if not args:
-            console.print("[red]Usage:[/red] show <Candidate ID or Name or Index>")
+        verbose = "--verbose" in args
+        as_json = "--json" in args
+        clean_args = [a for a in args if a not in ("--verbose", "--json")]
+        
+        if not clean_args:
+            console.print("[red]Usage:[/red] show <Candidate ID or Name or Index> [--verbose] [--json]")
             return
             
         if not self.context.dataset or not self.context.dataset.candidates:
             console.print("[red]No canonical dataset built.[/red]")
             return
             
-        query = " ".join(args)
+        query = " ".join(clean_args)
         found = None
         
         if query.isdigit():
@@ -204,7 +208,8 @@ class CommandDispatcher:
                     break
                     
         if found:
-            console.print(Panel(json.dumps(found.model_dump(), indent=2), title=found.full_name, border_style="blue"))
+            from candidate_transformer.cli.candidate_renderer import display_candidate
+            display_candidate(found, as_json=as_json, verbose=verbose)
         else:
             console.print(f"[yellow]Candidate not found:[/yellow] {query}")
 
