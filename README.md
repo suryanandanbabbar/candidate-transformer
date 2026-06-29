@@ -1,221 +1,243 @@
 # Candidate Transformer
 
-A production-grade Python framework for converting heterogeneous candidate information into unified canonical profiles.
+An enterprise-grade, production-ready Python framework for canonical candidate normalization. Candidate Transformer processes heterogeneous candidate profiles (resumes, ATS exports, recruiter spreadsheets) into a unified, highly structured canonical candidate dataset.
 
-## Installation
+The framework provides an intelligent entity resolution engine, deterministic deduplication, configurable merge strategies, and an advanced projection engine to serve multiple downstream consumers from a single source of truth.
 
-```bash
-# Standard installation
-pip install candidate-transformer
-
-# Development installation
-git clone https://github.com/example/candidate-transformer.git
-cd candidate-transformer
-pip install -e ".[dev]"
-```
-
-## Architecture
-
-```mermaid
-flowchart TD
-    A[Connectors (CSV, JSON, Text)] -->|RawRecord| B[Extraction]
-    B -->|Dict| C[Normalization]
-    C -->|Dict| D[Entity Resolution]
-    D -->|Dict| E[Conflict Resolution]
-    E -->|Candidate| F[Confidence Scoring]
-    F -->|Candidate| G[Validation]
-    G -->|Candidate| H[Projection Layer]
-    H -->|Projected JSON| I[Output]
-```
-
-## Quick Start
-
-### Python API
-
-```python
-from candidate_transformer import CandidateTransformer, PipelineConfig
-import json
-
-# Initialize the facade (loads default.json automatically if no config provided)
-transformer = CandidateTransformer()
-
-# Load heterogeneous data sources
-with open('sample_data/recruiter.csv', 'r') as f:
-    transformer.load('recruiter_csv', f)
-
-with open('sample_data/ats.json', 'r') as f:
-    transformer.load('ats_json', f)
-
-# Execute pipeline and export JSON
-output = transformer.export()
-print(json.dumps(output, indent=2))
-```
-
-### CLI Execution
-
-The CLI offers a powerful and flexible interface for transforming, projecting, and validating candidate data from heterogeneous sources. Below are the most common workflows, command patterns, and options.
-
-#### 1. Transform data (single source)
-
-To transform a single data source, specify the connector and file path using the `--source` argument:
-```bash
-candidate-transformer transform \
-    --source recruiter_csv=sample_data/recruiter.csv
-```
-Here, `connector=file_path` (e.g., `recruiter_csv=sample_data/recruiter.csv`) selects the connector used to parse the file. Supported connectors include `recruiter_csv`, `ats_json`, `resume_text`, etc.
-
-#### 2. Transform data (multiple heterogeneous sources)
-
-You can ingest and merge multiple data sources in a single command. All sources are loaded together and merged into canonical candidate profiles:
-```bash
-candidate-transformer transform \
-    --source recruiter_csv=sample_data/recruiter.csv \
-    --source ats_json=sample_data/ats.json \
-    --source resume_text=sample_data/resume.txt \
-    --config configs/default.json
-```
-Each `--source` specifies a connector and file. The system deduplicates and merges all incoming records into unified candidates.
-
-#### 3. Use runtime projections
-
-You can specify different projection schemas at runtime using the `--projection` argument to control the output shape:
-
-- **Minimal projection** (outputs only minimal identity fields):
-    ```bash
-    candidate-transformer transform \
-        --source recruiter_csv=sample_data/recruiter.csv \
-        --projection configs/projections/minimal.json
-    ```
-    Produces a minimal JSON output with only the most essential candidate fields.
-
-- **Recruiter projection** (fields tailored for recruiter workflows):
-    ```bash
-    candidate-transformer transform \
-        --source recruiter_csv=sample_data/recruiter.csv \
-        --projection configs/projections/recruiter.json
-    ```
-    Outputs all fields typically required by recruiters.
-
-- **ATS projection** (fields for applicant tracking systems):
-    ```bash
-    candidate-transformer transform \
-        --source recruiter_csv=sample_data/recruiter.csv \
-        --projection configs/projections/ats.json
-    ```
-    Produces output compatible with ATS data models.
-
-- **Analytics projection** (fields for analytics/reporting):
-    ```bash
-    candidate-transformer transform \
-        --source recruiter_csv=sample_data/recruiter.csv \
-        --projection configs/projections/analytics.json
-    ```
-    Outputs fields optimized for downstream analytics and reporting.
-
-#### 4. Validate generated output
-
-After running a transformation, you can validate the output JSON against the requested projection schema:
-```bash
-# First, generate output
-candidate-transformer transform \
-    --source recruiter_csv=sample_data/recruiter.csv \
-    --projection configs/projections/minimal.json > output.json
-
-# Then, validate
-candidate-transformer validate \
-    --config configs/projections/minimal.json \
-    --input output.json
-```
-Validation checks that the projected JSON conforms to the schema defined by the projection configuration.
-
-#### Available CLI Commands
-
-| Command    | Description                                      |
-|------------|--------------------------------------------------|
-| transform  | Ingest, merge and project candidate profiles.     |
-| validate   | Validate projected JSON output.                  |
-
-#### Common Options
-
-| Option           | Description                                                                                 |
-|------------------|--------------------------------------------------------------------------------------------|
-| `--source`       | Specify a data source as `connector=file_path`. Can be repeated for multiple sources.       |
-| `--config`, `-c` | Path to pipeline or projection configuration JSON.                                          |
-| `--projection`, `-p` | Path to projection configuration JSON (overrides projection in pipeline config).        |
-| `--input`        | Input JSON file to validate (used with `validate`).                                         |
-| `--help`         | Show CLI help and usage information.                                                        |
-
-**Note:** If `--source` CLI arguments are provided, they will strictly override the `sources` array in your JSON configuration.
-
-### Configurable Projection
-The projection layer is entirely runtime-configurable without any code changes. It supports:
-- **Field selection**: Output only requested fields.
-- **Field remapping**: Support `path` and `from` (e.g., `contact.emails[0]`, `experience[].company`).
-- **Runtime Normalization**: Define normalizers directly in JSON (`normalize: "E164"`, `normalize: "canonical"`, `lowercase`, `trim`).
-- **Missing Value Policies**: Define `on_missing` as `null`, `omit`, or `error`.
-
-Example usage with `--projection`:
-```bash
-candidate-transformer transform \
-    --source recruiter_csv=sample_data/recruiter.csv \
-    --source ats_json=sample_data/ats.json \
-    --projection configs/projections/recruiter.json
-```
-
-See `configs/projections/` for canonical, recruiter, ats, minimal, and analytics examples.
-
-Configurations dictate how the internal `CanonicalCandidate` is reshaped (projected) into the final JSON output, as well as resolving conflict priorities.
-See `configs/default.json` and `configs/minimal.json` for examples.
+It includes both a production-ready batch CLI (`candidate-transformer`) and a professional interactive REPL workspace (`ctsh`).
 
 ## Core Features
 
-### Entity Resolution
-The framework deterministically merges candidate profiles based on a strict priority cascade, avoiding fragile fuzzy-matching or ML-based heuristics. Records are merged if they share:
-1. Exact Phone Match
-2. Exact Email Match
-3. Exact Name Match (case-insensitive)
+### Data Ingestion
+* **Multiple Formats**: Natively parses CSV, ATS JSON, and unstructured Resume text.
+* **Simultaneous Inputs**: Ingest from dozens of heterogeneous sources at once.
+* **Connector Registry**: Extensible plugin architecture makes adding custom connectors trivial.
 
-### Deterministic Deduplication & ID Generation
-- Candidates are assigned a stable `UUIDv5` based on their name and contact information. Identical data yields identical IDs across runs.
-- Education and Experience arrays are merged deterministically using composite keys (e.g. `(company, title)` or `(institution, degree, field)`) instead of string equivalence.
-- All lists (`emails`, `phones`, `certifications`, `languages`) and `provenance` metadata are sorted deterministically, ensuring perfectly reproducible JSON output.
+### Canonicalization
+* **Canonical Candidate Model**: A strongly typed, immutable intermediate schema for all candidates.
+* **Entity Resolution**: Deterministically merges candidate profiles using strict contact and identity heuristics.
+* **Field Normalization**: Automatically normalizes fields including ISO-3166 country codes, E.164 phone numbers, and lowercased emails.
+* **Confidence Scoring**: Rigorously evaluates profile completeness and cross-source corroboration to assign confidence scores (0.0 - 1.0).
 
-### Structural Extraction & Normalization
-- **Locations**: Mapped to standard ISO-3166 alpha-2 country codes and state/region abbreviations.
-- **Links**: Robustly parsed to classify specific URL types (LinkedIn, GitHub, Portfolio) while preserving their full path schema.
-- **Projects**: Raw project descriptions are intelligently decomposed into structured `name`, `description`, and `technologies` fields.
+### Merge Engine
+* **Intelligent Strategies**: Employs priority resolution for scalars, union merges for lists, and deep dictionary merges.
+* **Deduplication**: Eliminates duplicate work experiences, education history, and projects deterministically.
+* **Deterministic IDs**: Generates stable `UUIDv5` candidate IDs across runs based on identity properties.
 
-### Confidence Scoring
-Each resolved candidate receives a rigorous confidence score (0.0 to 1.0) based on:
-- **Profile Completeness (Max 0.5)**: Evaluates presence of Name, Contact, Location, Skills, Experience, Education, and Projects.
-- **Source Corroboration (Max 0.5)**: Heavily rewards candidates that appear consistently across multiple sources (e.g. found in ATS, Resume, and CSV simultaneously).
+### Provenance Tracking
+Every single merged field automatically tracks:
+* The contributing **connector**
+* The **merge strategy** used
+* The assigned **confidence**
+* A precise **timestamp**
+* *Skill-level source tracking* ensures you know exactly where every skill was discovered.
 
-### Output Validation
-The projected JSON outputs are validated strictly against the dynamic schema defined in your configuration:
-- Strongly typed fields (`string`, `number`, `string[]`)
-- Strict requirement enforcement
-- Deep nesting validation
+---
 
-Use `candidate-transformer validate` to ensure downstream systems receive perfectly formatted data.
+## Projection Engine
 
-## Testing & Quality
+Projections allow multiple downstream consumers to seamlessly reuse the same canonical dataset without modifying the transformation engine. Output shapes can be dynamically altered at runtime.
 
-To run the exhaustive test suite and quality checks:
+Available Built-in Projections:
+* **Minimal**: Outputs only essential identity fields (Name, Contact).
+* **Recruiter**: Tailored with extensive fields for recruiter workflows.
+* **ATS**: Outputs a schema strictly compatible with Applicant Tracking Systems.
+* **Analytics**: Flattens nested data for downstream data warehouses and reporting tools.
+
+---
+
+## Interactive Shell (`ctsh`)
+
+Candidate Transformer features `ctsh`, a powerful interactive REPL workspace similar to `cqlsh`, `psql`, or `mongosh`. It provides an isolated runtime environment for developers and data engineers to experiment with candidate data.
+
+With `ctsh`, you can load sources, build canonical datasets, explore Candidates using beautifully formatted **Rich tables**, switch active projections dynamically, and manage persistent workspaces—all without restarting the application.
+
+### Example `ctsh` Workflow
+
+Start the interactive shell:
 ```bash
-pytest
-ruff check .
-black --check .
-mypy src
+ctsh
 ```
 
-## Plugin Development
-You can register new Connectors, Normalizers, or Strategies dynamically using the registries.
-```python
-from candidate_transformer.connectors import connector_registry
-from candidate_transformer.interfaces.connector import BaseConnector
-
-@connector_registry("my_custom_source")
-class CustomConnector(BaseConnector):
-    pass
+Execute your workflow interactively:
+```bash
+ctsh> workspace list
+ctsh> workspace new recruitment-q3
+ctsh> workspace open recruitment-q3
+ctsh> load recruiter_csv sample_data/recruiter.csv
+ctsh> load ats_json sample_data/ats.json
+ctsh> load resume_text sample_data/resume.txt
+ctsh> build
+ctsh> status
+ctsh> show 0
+ctsh> project analytics
+ctsh> export analytics output.json
 ```
 
+### Command Reference
+
+**Loading**
+* `load <connector> <file>`
+
+**Pipeline**
+* `build`
+* `project <projection_name>`
+
+**Inspection**
+* `status`
+* `stats`
+* `show <name|id|index>`
+* `sources`
+* `projections`
+* `connectors`
+
+**Configuration**
+* `config show`
+* `config begin`
+* `config set <key> <value>`
+* `config apply`
+
+**Persistence**
+* `save canonical <file>`
+* `loadcanonical <file>`
+* `export <projection_name> <file>`
+
+**Workspace**
+* `workspace new <name>`
+* `workspace open <name>`
+* `workspace list`
+* `workspace delete <name>`
+
+**Utility**
+* `help`
+* `history`
+* `reset`
+* `clear`
+* `exit`
+
+*(Tip: You can use `--verbose` or `--json` flags with the `show` command).*
+
+---
+
+## Runtime Configuration
+
+The `ctsh` shell supports powerful runtime configuration. After loading data, you can seamlessly modify the behavior of the framework without restarting:
+* Switch active projections to preview different downstream outputs.
+* Load additional connectors on the fly.
+* Re-run transformations (`build`) to instantly see the impact of new data.
+* Manage, save, and switch between persistent Workspace states (`workspace new`, `workspace open`).
+
+This interactive tuning loop drastically reduces the iteration cycle when onboarding new heterogeneous data sources in production.
+
+---
+
+## Command-Line Interface (CLI)
+
+For batch processing and CI/CD pipelines, the framework provides the non-interactive `candidate-transformer` CLI.
+
+**Transforming multiple sources into a canonical dataset:**
+```bash
+candidate-transformer transform \
+  --source recruiter_csv=sample_data/recruiter.csv \
+  --source ats_json=sample_data/ats.json \
+  --source resume_text=sample_data/resume.txt
+```
+*`--source <connector>=<filepath>` defines the parser and file.*
+
+**Applying a specific projection:**
+```bash
+candidate-transformer transform \
+  --source recruiter_csv=sample_data/recruiter.csv \
+  --projection configs/projections/recruiter.json
+```
+*`--projection <path>` overrides the output shape without changing pipeline logic.*
+
+---
+
+## Architecture
+
+The framework enforces a strict separation of concerns, decoupling raw ingestion from canonicalization and final downstream projection.
+
+```mermaid
+flowchart TD
+    A[Recruiter CSV] --> |RawRecord| D
+    B[ATS JSON] --> |RawRecord| D
+    C[Resume Text] --> |RawRecord| D
+    D[Connector Registry] --> E[Individual Connectors]
+    E --> F[Raw Candidate Records]
+    F --> G[Canonical Transformer]
+    G --> H[Entity Resolution Engine]
+    H --> I[Merge Engine]
+    I --> J[Canonical Candidate Model]
+    J --> K[Provenance Generator]
+    K --> L[Projection Engine]
+    L --> M[CLI]
+    L --> N[Interactive ctsh Workspace]
+```
+
+---
+
+## Extending the Framework
+
+Candidate Transformer is highly modular and heavily utilizes a Plugin Registry pattern. Developers can easily extend functionality by dropping new Python classes into the source tree. 
+
+The framework automatically discovers extensions wrapped in decorators:
+* **Connectors** (`@connector_registry("name")`)
+* **Merge Strategies** (`@strategy_registry("name")`)
+
+Adding a new connector simply requires inheriting from `BaseConnector` and implementing the `fetch()` iterator. Similarly, projections are purely JSON-driven, meaning you can add entirely new schemas without writing any Python code.
+
+---
+
+## Project Structure
+
+```text
+src/
+    candidate_transformer/
+        api/                  # Public Facades
+        cli/                  # Command definitions and shell REPL
+        config/               # Pipeline configurations
+        connectors/           # CSV, JSON, Text Connectors and Registry
+        domain/               # Core Canonical Models
+        pipeline/             # Resolution, Normalization, extraction stages
+        projection/           # Configurable JSON Projection Engine
+        strategies/           # Conflict Resolution Strategies
+        utils/                # Utilities
+        validation/           # Output validation
+configs/                      # Configuration and projection JSONs
+sample_data/                  # Example inputs
+tests/                        # Test suites
+```
+
+---
+
+## Production Features
+
+This framework is built strictly for production enterprise environments:
+* **Deterministic Candidate IDs**: UUIDv5 ensures exact reproducibility.
+* **Provenance Tracking**: Absolute auditability back to raw origins.
+* **Confidence Scoring**: Heuristics to grade merged reliability.
+* **Connector Registry**: Scalable plugin discovery.
+* **Runtime Workspace**: Persisted REPL state using local `.ctsh/workspaces`.
+* **Configurable Projections**: Schema adaptability without code changes.
+* **Modular Architecture**: Decoupled ingestion, transformation, and presentation.
+
+---
+
+## Installation
+
+Both installation methods securely provide access to the `candidate-transformer` CLI and the `ctsh` interactive shell.
+
+**From GitHub (Development & Source)**
+```bash
+git clone https://github.com/example/candidate-transformer.git
+cd candidate-transformer
+python -m venv venv
+source venv/bin/activate
+pip install -e .
+```
+
+**From PyPI (Future)**
+```bash
+pip install candidate-transformer
+```
