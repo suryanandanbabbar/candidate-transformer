@@ -14,7 +14,7 @@ console = Console()
 COMMANDS = [
     "load", "build", "project", "status", "stats", "show", "sources",
     "projections", "connectors", "config", "save", "loadcanonical",
-    "export", "workspace", "help", "history", "clear", "exit"
+    "export", "workspace", "help", "history", "reset", "clear", "exit"
 ]
 
 def main() -> None:

@@ -57,6 +57,8 @@ class CommandDispatcher:
                 self.handle_help()
             elif command == "history":
                 self.handle_history()
+            elif command == "reset":
+                self.handle_reset()
             elif command == "clear":
                 console.clear()
             else:
@@ -70,9 +72,23 @@ class CommandDispatcher:
             return
             
         connector, file_path = args
+        
+        # Validate connector exists
+        from candidate_transformer.connectors import connector_registry
+        if connector not in connector_registry.all():
+            console.print(f"[red]Error:[/red] Connector '{connector}' not found. Use 'connectors' to see available options.")
+            return
+            
         self.context.loaded_sources.append((connector, file_path))
         self.context.mark_dirty(DirtyState.CANONICAL)
         console.print(f"[green]Loaded[/green] {connector} from {file_path}")
+
+    def handle_reset(self) -> None:
+        self.context.loaded_sources.clear()
+        self.context.dataset = None
+        self.context.clear_dirty()
+        workspace_manager.save(self.context)
+        console.print("[green]Workspace reset: Sources cleared and canonical dataset dropped.[/green]")
         
     def handle_build(self) -> None:
         if not self.context.loaded_sources:
@@ -420,6 +436,7 @@ workspace delete <name>
 -------
 help
 history
+reset
 clear
 exit
 """
