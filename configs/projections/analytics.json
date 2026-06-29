@@ -1,0 +1,34 @@
+{
+  "include_confidence": true,
+  "include_provenance": true,
+  "on_missing": "omit",
+  "fields": [
+    {
+      "path": "candidate_id",
+      "type": "string",
+      "required": true
+    },
+    {
+      "path": "total_experience",
+      "from": "years_experience",
+      "type": "number"
+    },
+    {
+      "path": "skill_names",
+      "from": "skills",
+      "type": "array",
+      "normalize": "lowercase"
+    },
+    {
+      "path": "companies_worked_at",
+      "from": "experience[].company",
+      "type": "array",
+      "normalize": "canonical"
+    },
+    {
+      "path": "degrees",
+      "from": "education[].degree",
+      "type": "array"
+    }
+  ]
+}

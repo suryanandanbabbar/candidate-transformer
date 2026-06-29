@@ -1,0 +1,6 @@
+name,primary_email,secondary_email,primary_phone,secondary_phone,current_company,title,skills,years_experience,city,region,country,linkedin,github,portfolio,headline
+"Alice Smith","alice.smith@example.com","alice@techcorp.com","+14155551234","555-555-1234","TechCorp","Senior Engineer","Python; Kubernetes; Docker",7,"San Francisco","CA","US","https://linkedin.com/in/alicesmith","https://github.com/alicesmith","https://alicesmith.dev","Senior Backend Engineer building scalable systems"
+"Robert Jones","bobjones@gmail.com","","555-987-6543","","StartUp Inc","Data Scientist","Machine Learning; Pandas; SQL",3,"New York","NY","US","https://linkedin.com/in/bobjones","","",
+"Alice Smith-Doe","alice@techcorp.com","","(415) 555-1234","","TechCorp Inc.","Staff Engineer","Python; Go; AWS",8,"","","","","","",
+"Carol White","","","1234567890","","Unknown","Developer","","","London","ENG","GB","","","",
+"Dave","dave.dev@example.org","","+44 20 7123 4567","","","Backend Developer","Java",5,"","","","","","",

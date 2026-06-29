@@ -1,0 +1,25 @@
+{
+  "output": {
+    "include_confidence": false,
+    "include_provenance": false,
+    "on_missing": "omit",
+    "fields": [
+      {
+        "path": "name",
+        "from": "full_name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "path": "emails",
+        "from": "contact.emails",
+        "type": "array",
+        "required": true
+      }
+    ]
+  },
+  "source_priorities": [
+    "recruiter_csv",
+    "ats_json"
+  ]
+}

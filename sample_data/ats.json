@@ -1,0 +1,82 @@
+[
+  {
+    "candidate_id": "ats-101",
+    "first_name": "Alice",
+    "last_name": "Smith",
+    "headline": "Staff Software Engineer / Distributed Systems",
+    "years_experience": 7.5,
+    "contact": {
+      "email": "alice.smith@example.com",
+      "alternate_email": "alicesmith@alumni.state.edu",
+      "mobile": "4155551234",
+      "home_phone": "+1-415-555-9999",
+      "location": {
+        "city": "San Francisco",
+        "region": "California",
+        "country": "USA"
+      }
+    },
+    "employment_history": [
+      {
+        "employer": "TechCorp",
+        "job_title": "Sr. Software Engineer",
+        "start_date": "2018-01-01",
+        "end_date": "2021-12-31",
+        "summary": "Led the backend team transitioning from monolithic architectures to microservices. Optimized API response times by 40%."
+      },
+      {
+        "employer": "Legacy Systems LLC",
+        "job_title": "Software Developer",
+        "start_date": "2017-06-01",
+        "end_date": "2017-12-31",
+        "summary": "Maintained core legacy infrastructure and internal tooling."
+      }
+    ],
+    "education": [
+      {
+        "school": "State University",
+        "degree": "B.S. Computer Science",
+        "field": "Computer Science",
+        "grad_year": 2017
+      },
+      {
+        "school": "State University",
+        "degree": "Minor in Mathematics",
+        "field": "Mathematics",
+        "grad_year": 2017
+      }
+    ]
+  },
+  {
+    "candidate_id": "ats-102",
+    "first_name": "Robert",
+    "last_name": "Jones",
+    "headline": "Data Scientist",
+    "years_experience": 3,
+    "contact": {
+      "email": "robert.jones@example.com",
+      "location": {
+        "city": "New York",
+        "region": "NY",
+        "country": "USA"
+      }
+    },
+    "employment_history": [
+      {
+        "employer": "StartUp Inc",
+        "job_title": "Data Scientist",
+        "start_date": "2021-01-01",
+        "summary": "Building predictive models."
+      }
+    ]
+  },
+  {
+    "candidate_id": "ats-103",
+    "first_name": "Carol",
+    "last_name": "White",
+    "contact": {
+      "mobile": "+1-123-456-7890"
+    },
+    "skills": ["JavaScript", "React"]
+  }
+]

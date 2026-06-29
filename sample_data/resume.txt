@@ -1,0 +1,39 @@
+Alice Smith
+Email: alice.smith@example.com
+Phone: 415.555.1234
+
+LOCATION
+San Francisco, California, US
+
+LINKS
+LinkedIn
+GitHub
+Portfolio
+
+PROFESSIONAL SUMMARY
+Built highly scalable distributed microservices serving millions of requests per day.
+Led backend platform modernization resulting in 40% performance gains.
+
+EXPERIENCE
+TechCorp - Staff Software Engineer
+Developed highly scalable microservices in Python and Go.
+Deployed using Kubernetes and AWS.
+
+PROJECTS
+Fraud Detection Platform
+Built using Kafka, Spark and Python.
+
+EDUCATION
+State University
+B.S. Computer Science
+
+CERTIFICATIONS
+AWS Certified Solutions Architect
+CKA
+
+LANGUAGES
+English
+German
+
+SKILLS
+Python, Go, Kubernetes, AWS, Docker

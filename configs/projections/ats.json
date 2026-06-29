@@ -1,0 +1,39 @@
+{
+  "include_confidence": true,
+  "include_provenance": false,
+  "on_missing": "null",
+  "fields": [
+    {
+      "path": "id",
+      "from": "candidate_id",
+      "type": "string",
+      "required": true
+    },
+    {
+      "path": "candidate_name",
+      "from": "full_name",
+      "type": "string",
+      "required": true
+    },
+    {
+      "path": "email",
+      "from": "contact.emails[0]",
+      "type": "string"
+    },
+    {
+      "path": "mobile",
+      "from": "contact.phones[0]",
+      "type": "string"
+    },
+    {
+      "path": "all_skills",
+      "from": "skills",
+      "type": "array"
+    },
+    {
+      "path": "highest_education",
+      "from": "education[0].degree",
+      "type": "string"
+    }
+  ]
+}

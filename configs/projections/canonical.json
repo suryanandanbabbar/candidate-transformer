@@ -1,0 +1,74 @@
+{
+  "include_confidence": true,
+  "include_provenance": true,
+  "on_missing": "null",
+  "fields": [
+    {
+      "path": "candidate_id",
+      "type": "string",
+      "required": true
+    },
+    {
+      "path": "full_name",
+      "type": "string",
+      "required": true,
+      "normalize": "canonical"
+    },
+    {
+      "path": "emails",
+      "from": "contact.emails",
+      "type": "array"
+    },
+    {
+      "path": "phones",
+      "from": "contact.phones",
+      "type": "array",
+      "normalize": "E164"
+    },
+    {
+      "path": "location",
+      "from": "contact.location",
+      "type": "object"
+    },
+    {
+      "path": "links",
+      "type": "object"
+    },
+    {
+      "path": "headline",
+      "type": "string"
+    },
+    {
+      "path": "summary",
+      "type": "string"
+    },
+    {
+      "path": "years_experience",
+      "type": "number"
+    },
+    {
+      "path": "skills",
+      "type": "array"
+    },
+    {
+      "path": "experience",
+      "type": "array"
+    },
+    {
+      "path": "education",
+      "type": "array"
+    },
+    {
+      "path": "certifications",
+      "type": "array"
+    },
+    {
+      "path": "projects",
+      "type": "array"
+    },
+    {
+      "path": "languages",
+      "type": "array"
+    }
+  ]
+}
