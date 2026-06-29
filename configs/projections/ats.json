@@ -35,5 +35,67 @@
       "from": "education[0].degree",
       "type": "string"
     }
-  ]
+  ],
+  "display": {
+    "title": "ATS Projection",
+    "overview_columns": [
+      {
+        "header": "Candidate",
+        "path": "candidate_name"
+      },
+      {
+        "header": "Email",
+        "path": "email"
+      },
+      {
+        "header": "Phone",
+        "path": "mobile"
+      },
+      {
+        "header": "Highest Education",
+        "path": "highest_education"
+      },
+      {
+        "header": "Confidence",
+        "path": "overall_confidence",
+        "format": "{val:.2f}"
+      }
+    ],
+    "detail_sections": [
+      {
+        "title": "Candidate",
+        "fields": [
+          {
+            "label": "Candidate ID",
+            "path": "id"
+          },
+          {
+            "label": "Name",
+            "path": "candidate_name"
+          },
+          {
+            "label": "Email",
+            "path": "email"
+          },
+          {
+            "label": "Phone",
+            "path": "mobile"
+          },
+          {
+            "label": "Highest Education",
+            "path": "highest_education"
+          },
+          {
+            "label": "Confidence",
+            "path": "overall_confidence",
+            "format": "{val:.2f}"
+          }
+        ]
+      },
+      {
+        "title": "All Skills",
+        "list_path": "all_skills"
+      }
+    ]
+  }
 }

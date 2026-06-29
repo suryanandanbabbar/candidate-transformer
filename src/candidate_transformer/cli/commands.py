@@ -116,8 +116,11 @@ class CommandDispatcher:
         console.print(f"Duration: {dataset.build_metadata.get('duration', 0):.2f}s")
         
     def handle_project(self, args: list[str]) -> None:
-        if not args:
-            console.print("[red]Usage:[/red] project <projection_name>")
+        as_json = "--json" in args
+        clean_args = [a for a in args if a != "--json"]
+        
+        if not clean_args:
+            console.print("[red]Usage:[/red] project <projection_name> [index] [--json]")
             return
             
         if self.context.dirty_state in (DirtyState.CANONICAL, DirtyState.WORKSPACE):
@@ -128,7 +131,7 @@ class CommandDispatcher:
             console.print("[red]No canonical dataset built. Run 'build' first.[/red]")
             return
             
-        proj_name = args[0]
+        proj_name = clean_args[0]
         self.context.current_projection = proj_name
         self.context.mark_dirty(DirtyState.PROJECTION)
         workspace_manager.save(self.context)
@@ -136,12 +139,44 @@ class CommandDispatcher:
         engine = CandidateTransformer(self.context.runtime_config)
         engine._dataset = self.context.dataset
         
-        console.print(f"[blue]Projecting using[/blue] {proj_name}...")
+        index_to_show = None
+        if len(clean_args) > 1:
+            # Check for `project analytics 0` or `project analytics show 0`
+            if clean_args[1].lower() == "show" and len(clean_args) > 2:
+                idx_str = clean_args[2]
+            else:
+                idx_str = clean_args[1]
+                
+            if idx_str.isdigit():
+                index_to_show = int(idx_str)
+            else:
+                console.print(f"[red]Invalid index:[/red] {idx_str}")
+                return
+        
         try:
             results = engine.project(proj_name)
-            console.print(f"[green]Previewing first 10 candidates:[/green]")
-            preview = results[:10]
-            console.print(json.dumps(preview, indent=2))
+            config = engine._resolve_projection_config(proj_name)
+            
+            if as_json:
+                if index_to_show is not None:
+                    if 0 <= index_to_show < len(results):
+                        console.print(json.dumps(results[index_to_show], indent=2))
+                    else:
+                        console.print(f"[red]Index out of bounds:[/red] {index_to_show}")
+                else:
+                    console.print(json.dumps(results[:10], indent=2))
+                return
+                
+            from candidate_transformer.cli.projection_renderer import display_projection_overview, display_projection_detail
+            
+            if index_to_show is not None:
+                if 0 <= index_to_show < len(results):
+                    display_projection_detail(results[index_to_show], index_to_show, config, engine._dataset.candidates)
+                else:
+                    console.print(f"[red]Index out of bounds:[/red] {index_to_show}")
+            else:
+                display_projection_overview(results, config, engine._dataset.candidates)
+                
         except Exception as e:
             console.print(f"[red]Projection failed:[/red] {str(e)}")
 
@@ -406,13 +441,13 @@ load <connector> <file>
 [bold cyan]Pipeline[/bold cyan]
 --------
 build
-project <projection_name>
+project <projection_name> [index] [--json]
 
 [bold cyan]Inspection[/bold cyan]
 ----------
 status
 stats
-show <name|id|index>
+show <name|id|index> [--verbose] [--json]
 sources
 projections
 connectors

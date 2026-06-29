@@ -15,5 +15,33 @@
       "type": "string",
       "required": true
     }
-  ]
+  ],
+  "display": {
+    "title": "Minimal Projection",
+    "overview_columns": [
+      {
+        "header": "Candidate ID",
+        "path": "id"
+      },
+      {
+        "header": "Name",
+        "path": "name"
+      }
+    ],
+    "detail_sections": [
+      {
+        "title": "Candidate",
+        "fields": [
+          {
+            "label": "Candidate ID",
+            "path": "id"
+          },
+          {
+            "label": "Name",
+            "path": "name"
+          }
+        ]
+      }
+    ]
+  }
 }

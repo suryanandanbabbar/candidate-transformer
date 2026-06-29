@@ -81,12 +81,12 @@ ctsh> export analytics output.json
 
 **Pipeline**
 * `build`
-* `project <projection_name>`
+* `project <projection_name> [index] [--json]`
 
 **Inspection**
 * `status`
 * `stats`
-* `show <name|id|index>`
+* `show <name|id|index> [--verbose] [--json]`
 * `sources`
 * `projections`
 * `connectors`

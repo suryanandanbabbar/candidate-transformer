@@ -1,4 +1,4 @@
-from typing import Literal
+from typing import Literal, Any
 
 from pydantic import BaseModel, ConfigDict, Field
 
@@ -22,10 +22,26 @@ class SourceConfig(BaseModel):
     input: str
 
 
+class DisplayColumnConfig(BaseModel):
+    header: str
+    path: str
+    format: str | None = None
+
+class DisplaySectionConfig(BaseModel):
+    title: str
+    fields: list[dict[str, str]] | None = None
+    list_path: str | None = None
+
+class DisplayConfig(BaseModel):
+    title: str = "Projection Results"
+    overview_columns: list[DisplayColumnConfig] = Field(default_factory=list)
+    detail_sections: list[DisplaySectionConfig] = Field(default_factory=list)
+
 class OutputConfig(BaseModel):
     """Configuration for the final projected output."""
 
     fields: list[FieldProjectionConfig]
+    display: DisplayConfig | None = None
     include_confidence: bool = True
     include_provenance: bool = True
     on_missing: Literal["null", "omit", "error"] = "null"

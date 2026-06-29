@@ -30,5 +30,71 @@
       "from": "education[].degree",
       "type": "array"
     }
-  ]
+  ],
+  "display": {
+    "title": "Analytics Projection",
+    "overview_columns": [
+      {
+        "header": "Candidate",
+        "path": "candidate_id"
+      },
+      {
+        "header": "Experience",
+        "path": "total_experience",
+        "format": "{val} yrs"
+      },
+      {
+        "header": "Skill Count",
+        "path": "skill_names",
+        "format": "len"
+      },
+      {
+        "header": "Companies",
+        "path": "companies_worked_at",
+        "format": "len"
+      },
+      {
+        "header": "Confidence",
+        "path": "overall_confidence",
+        "format": "{val:.2f}"
+      }
+    ],
+    "detail_sections": [
+      {
+        "title": "Candidate",
+        "fields": [
+          {
+            "label": "Candidate ID",
+            "path": "candidate_id"
+          },
+          {
+            "label": "Experience",
+            "path": "total_experience",
+            "format": "{val} yrs"
+          },
+          {
+            "label": "Overall Confidence",
+            "path": "overall_confidence",
+            "format": "{val:.2f}"
+          }
+        ]
+      },
+      {
+        "title": "Skills",
+        "list_path": "skill_names"
+      },
+      {
+        "title": "Companies",
+        "list_path": "companies_worked_at"
+      },
+      {
+        "title": "Degrees",
+        "list_path": "degrees"
+      },
+      {
+        "title": "Provenance Summary",
+        "list_path": "provenance"
+      }
+    ]
+  }
 }

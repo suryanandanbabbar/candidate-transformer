@@ -33,5 +33,62 @@
       "type": "string",
       "normalize": "canonical"
     }
-  ]
+  ],
+  "display": {
+    "title": "Recruiter Projection",
+    "overview_columns": [
+      {
+        "header": "Name",
+        "path": "name"
+      },
+      {
+        "header": "Primary Email",
+        "path": "primary_email"
+      },
+      {
+        "header": "Primary Phone",
+        "path": "primary_phone"
+      },
+      {
+        "header": "Recent Employer",
+        "path": "recent_employer"
+      },
+      {
+        "header": "Recent Title",
+        "path": "recent_title"
+      }
+    ],
+    "detail_sections": [
+      {
+        "title": "Candidate",
+        "fields": [
+          {
+            "label": "Name",
+            "path": "name"
+          },
+          {
+            "label": "Primary Email",
+            "path": "primary_email"
+          },
+          {
+            "label": "Primary Phone",
+            "path": "primary_phone"
+          }
+        ]
+      },
+      {
+        "title": "Recent Experience",
+        "fields": [
+          {
+            "label": "Employer",
+            "path": "recent_employer"
+          },
+          {
+            "label": "Title",
+            "path": "recent_title"
+          }
+        ]
+      }
+    ]
+  }
 }
