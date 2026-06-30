@@ -71,6 +71,10 @@ src/
         config/               # Pipeline configurations
         connectors/           # CSV, JSON, Text Connectors and Registry
         domain/               # Core Canonical Models
+        exceptions/           # Custom error types
+        export/               # JSON Server and export pipeline
+        interfaces/           # Base classes and protocols
+        normalizers/          # Field normalization (e.g., E.164 phones)
         pipeline/             # Resolution, Normalization, extraction stages
         projection/           # Configurable JSON Projection Engine
         strategies/           # Conflict Resolution Strategies
