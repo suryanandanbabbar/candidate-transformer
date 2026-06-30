@@ -1,5 +1,6 @@
 # Candidate Transformer
-![Python](https://img.shields.io/badge/Python-3.11+-blue)
+[![PyPI](https://img.shields.io/pypi/v/profilefusion)](https://pypi.org/project/profilefusion/)
+[![Python Versions](https://img.shields.io/pypi/pyversions/profilefusion)](https://pypi.org/project/profilefusion/)
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![CLI](https://img.shields.io/badge/CLI-Typer-orange)
 ![REPL](https://img.shields.io/badge/Shell-ctsh-purple)
@@ -8,6 +9,8 @@
 An enterprise-grade, production-ready Python framework for canonical candidate normalization. Candidate Transformer processes heterogeneous candidate profiles (resumes, ATS exports, recruiter spreadsheets) into a unified, highly structured canonical candidate dataset.
 
 The framework provides an intelligent entity resolution engine, deterministic deduplication, configurable merge strategies, and an advanced projection engine to serve multiple downstream consumers from a single source of truth. It includes both a production-ready batch CLI (`profilefusion`) and a professional interactive REPL workspace (`ctsh`).
+
+**PyPI Package:** https://pypi.org/project/profilefusion/
 
 ## Table of Contents
 

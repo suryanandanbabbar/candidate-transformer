@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
 authors = [
-    { name = "Principal Engineer", email = "engineering@example.com" },
+    { name = "Suryanandan Babbar", email = "suryanandanbabbar@gmail.com" },
 ]
 keywords = [
     "candidate",
