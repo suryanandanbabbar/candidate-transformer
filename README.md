@@ -141,10 +141,13 @@ ctsh> export analytics output.json
 * `config set <key> <value>`
 * `config apply`
 
-**Persistence**
+**Persistence & Export**
 * `save canonical <file>`
 * `loadcanonical <file>`
 * `export <projection_name> <file>`
+* `export server`
+* `server status`
+* `stop server`
 
 **Workspace**
 * `workspace new <name>`
@@ -160,6 +163,30 @@ ctsh> export analytics output.json
 * `exit`
 
 *(Tip: You can use `--verbose` or `--json` flags with the `show` command).*
+
+---
+
+### JSON Server Export
+
+You can export the canonical dataset and launch a persistent REST API directly from the workspace.
+
+```bash
+ctsh> export server
+```
+
+This will automatically:
+1. Export `candidates.json`, `analytics.json`, and `metadata.json` to the `exports/` directory.
+2. Launch a background `json-server` instance.
+3. Expose the data as HTTP endpoints:
+   - `GET /candidates`
+   - `GET /analytics`
+   - `GET /metadata`
+
+Manage the server lifecycle using:
+* `server status`: View the running port and available endpoints.
+* `stop server`: Gracefully terminate the background instance.
+
+*Troubleshooting: If `json-server` fails to start, ensure it is installed globally via `npm install -g json-server`.*
 
 ---
 

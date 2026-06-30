@@ -1,0 +1,2730 @@
+[
+  {
+    "candidate_id": "4b7dd07f-e630-5793-add4-47dba617bf8c",
+    "total_experience": 3.0,
+    "skill_names": [
+      "python",
+      "devops"
+    ],
+    "companies_worked_at": [
+      "Consulting Corp"
+    ],
+    "overall_confidence": 0.93,
+    "provenance": [
+      {
+        "field": "emails",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478460",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.476864",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.479658",
+        "confidence": 1.0
+      },
+      {
+        "field": "experience",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.479658",
+        "confidence": 1.0
+      },
+      {
+        "field": "full_name",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.476864",
+        "confidence": 1.0
+      },
+      {
+        "field": "headline",
+        "source": "resume_text",
+        "method": "derived_from_summary",
+        "timestamp": "2026-06-30T05:40:43.479658",
+        "confidence": 0.8
+      },
+      {
+        "field": "links",
+        "source": "recruiter_csv",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.476864",
+        "confidence": 1.0
+      },
+      {
+        "field": "links",
+        "source": "resume_text",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.479658",
+        "confidence": 1.0
+      },
+      {
+        "field": "location",
+        "source": "resume_text",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.479658",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478460",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.476864",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.479658",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478460",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.479658",
+        "confidence": 1.0
+      },
+      {
+        "field": "summary",
+        "source": "resume_text",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.479658",
+        "confidence": 1.0
+      },
+      {
+        "field": "years_experience",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.476864",
+        "confidence": 1.0
+      }
+    ]
+  },
+  {
+    "candidate_id": "ba32d29d-61eb-5d4a-b3b5-761701cea17f",
+    "total_experience": 6.0,
+    "skill_names": [
+      "machine learning",
+      "data engineering"
+    ],
+    "companies_worked_at": [
+      "Freelance",
+      "Consulting Corp"
+    ],
+    "overall_confidence": 0.78,
+    "provenance": [
+      {
+        "field": "emails",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477695",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.479741",
+        "confidence": 1.0
+      },
+      {
+        "field": "experience",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.479741",
+        "confidence": 1.0
+      },
+      {
+        "field": "full_name",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477695",
+        "confidence": 1.0
+      },
+      {
+        "field": "headline",
+        "source": "resume_text",
+        "method": "derived_from_summary",
+        "timestamp": "2026-06-30T05:40:43.479741",
+        "confidence": 0.8
+      },
+      {
+        "field": "links",
+        "source": "recruiter_csv",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.477695",
+        "confidence": 1.0
+      },
+      {
+        "field": "links",
+        "source": "resume_text",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.479741",
+        "confidence": 1.0
+      },
+      {
+        "field": "location",
+        "source": "resume_text",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.479741",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477695",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.479741",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.479741",
+        "confidence": 1.0
+      },
+      {
+        "field": "summary",
+        "source": "resume_text",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.479741",
+        "confidence": 1.0
+      },
+      {
+        "field": "years_experience",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477695",
+        "confidence": 1.0
+      }
+    ]
+  },
+  {
+    "candidate_id": "572382c5-5b37-54c2-b0b1-1a5a81c6a3ea",
+    "total_experience": 3.0,
+    "skill_names": [
+      "devops",
+      "docker",
+      "machine learning",
+      "nosql",
+      "leadership, devops, docker, machine learning, nosql"
+    ],
+    "companies_worked_at": [
+      "MSFT"
+    ],
+    "overall_confidence": 0.86,
+    "provenance": [
+      {
+        "field": "emails",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478473",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477711",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.479816",
+        "confidence": 1.0
+      },
+      {
+        "field": "experience",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.479816",
+        "confidence": 1.0
+      },
+      {
+        "field": "full_name",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477711",
+        "confidence": 1.0
+      },
+      {
+        "field": "links",
+        "source": "recruiter_csv",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.477711",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477711",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.479816",
+        "confidence": 1.0
+      },
+      {
+        "field": "projects",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.479816",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478473",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.479816",
+        "confidence": 1.0
+      },
+      {
+        "field": "years_experience",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477711",
+        "confidence": 1.0
+      }
+    ]
+  },
+  {
+    "candidate_id": "b3ad3500-f82d-5270-9ab7-f463690dfaec",
+    "total_experience": 6.0,
+    "skill_names": [
+      "nosql",
+      "postgres",
+      "javascript",
+      "postgresql",
+      "machine learning"
+    ],
+    "companies_worked_at": [
+      "Amazon",
+      "Apple"
+    ],
+    "degrees": [
+      "PhD in Computer Vision",
+      "Master of Science in ML"
+    ],
+    "overall_confidence": 1.0,
+    "provenance": [
+      {
+        "field": "education",
+        "source": "ats_json",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.478478",
+        "confidence": 1.0
+      },
+      {
+        "field": "education",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.479903",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478478",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477727",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.479903",
+        "confidence": 1.0
+      },
+      {
+        "field": "experience",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.479903",
+        "confidence": 1.0
+      },
+      {
+        "field": "full_name",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477727",
+        "confidence": 1.0
+      },
+      {
+        "field": "headline",
+        "source": "resume_text",
+        "method": "derived_from_summary",
+        "timestamp": "2026-06-30T05:40:43.479903",
+        "confidence": 0.8
+      },
+      {
+        "field": "links",
+        "source": "recruiter_csv",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.477727",
+        "confidence": 1.0
+      },
+      {
+        "field": "links",
+        "source": "resume_text",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.479903",
+        "confidence": 1.0
+      },
+      {
+        "field": "location",
+        "source": "resume_text",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.479903",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478478",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477727",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.479903",
+        "confidence": 1.0
+      },
+      {
+        "field": "projects",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.479903",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478478",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.479903",
+        "confidence": 1.0
+      },
+      {
+        "field": "summary",
+        "source": "resume_text",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.479903",
+        "confidence": 1.0
+      },
+      {
+        "field": "years_experience",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477727",
+        "confidence": 1.0
+      }
+    ]
+  },
+  {
+    "candidate_id": "8f4833eb-c8cf-5442-b00f-9a50c32bbede",
+    "total_experience": 4.0,
+    "skill_names": [
+      "postgres",
+      "aws"
+    ],
+    "overall_confidence": 0.64,
+    "provenance": [
+      {
+        "field": "emails",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478489",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477743",
+        "confidence": 1.0
+      },
+      {
+        "field": "full_name",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477743",
+        "confidence": 1.0
+      },
+      {
+        "field": "links",
+        "source": "recruiter_csv",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.477743",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478483",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477743",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478489",
+        "confidence": 1.0
+      },
+      {
+        "field": "years_experience",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477743",
+        "confidence": 1.0
+      }
+    ]
+  },
+  {
+    "candidate_id": "e2e3e17e-fc6a-53db-9ceb-5cd9b3ff442f",
+    "total_experience": 8.99,
+    "skill_names": [
+      "leadership",
+      "react"
+    ],
+    "companies_worked_at": [
+      "Netflix",
+      "Startup Inc."
+    ],
+    "degrees": [
+      "High School Diploma",
+      "Minor in Mathematics"
+    ],
+    "overall_confidence": 1.0,
+    "provenance": [
+      {
+        "field": "education",
+        "source": "ats_json",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.478494",
+        "confidence": 1.0
+      },
+      {
+        "field": "education",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.480024",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477759",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.480024",
+        "confidence": 1.0
+      },
+      {
+        "field": "experience",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.480024",
+        "confidence": 1.0
+      },
+      {
+        "field": "full_name",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477759",
+        "confidence": 1.0
+      },
+      {
+        "field": "headline",
+        "source": "resume_text",
+        "method": "derived_from_summary",
+        "timestamp": "2026-06-30T05:40:43.480024",
+        "confidence": 0.8
+      },
+      {
+        "field": "links",
+        "source": "recruiter_csv",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.477759",
+        "confidence": 1.0
+      },
+      {
+        "field": "links",
+        "source": "resume_text",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.480024",
+        "confidence": 1.0
+      },
+      {
+        "field": "location",
+        "source": "resume_text",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.480024",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478494",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477759",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.480024",
+        "confidence": 1.0
+      },
+      {
+        "field": "projects",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.480024",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478494",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.480024",
+        "confidence": 1.0
+      },
+      {
+        "field": "summary",
+        "source": "resume_text",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.480024",
+        "confidence": 1.0
+      },
+      {
+        "field": "years_experience",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477759",
+        "confidence": 1.0
+      }
+    ]
+  },
+  {
+    "candidate_id": "2a20b350-3484-5e66-93c0-afbdba1aaedd",
+    "total_experience": 11.99,
+    "skill_names": [
+      "java, kubernetes"
+    ],
+    "companies_worked_at": [
+      "Amazon",
+      "Consulting Corp",
+      "Freelance"
+    ],
+    "degrees": [
+      "PhD in Computer Vision",
+      "B.S. Computer Science"
+    ],
+    "overall_confidence": 0.78,
+    "provenance": [
+      {
+        "field": "education",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.480123",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477772",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.480123",
+        "confidence": 1.0
+      },
+      {
+        "field": "experience",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.480123",
+        "confidence": 1.0
+      },
+      {
+        "field": "full_name",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477772",
+        "confidence": 1.0
+      },
+      {
+        "field": "links",
+        "source": "recruiter_csv",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.477772",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477772",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.480123",
+        "confidence": 1.0
+      },
+      {
+        "field": "projects",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.480123",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.480123",
+        "confidence": 1.0
+      },
+      {
+        "field": "years_experience",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477772",
+        "confidence": 1.0
+      }
+    ]
+  },
+  {
+    "candidate_id": "fb525520-55b5-5d27-96ad-546156140031",
+    "total_experience": 11.49,
+    "skill_names": [
+      "postgresql",
+      "leadership"
+    ],
+    "companies_worked_at": [
+      "Startup Inc.",
+      "Freelance",
+      "Apple"
+    ],
+    "degrees": [
+      "Master of Science in ML"
+    ],
+    "overall_confidence": 1.0,
+    "provenance": [
+      {
+        "field": "education",
+        "source": "ats_json",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.478503",
+        "confidence": 1.0
+      },
+      {
+        "field": "education",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.480462",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478503",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477789",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.480462",
+        "confidence": 1.0
+      },
+      {
+        "field": "experience",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.480462",
+        "confidence": 1.0
+      },
+      {
+        "field": "full_name",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477789",
+        "confidence": 1.0
+      },
+      {
+        "field": "headline",
+        "source": "resume_text",
+        "method": "derived_from_summary",
+        "timestamp": "2026-06-30T05:40:43.480462",
+        "confidence": 0.8
+      },
+      {
+        "field": "links",
+        "source": "recruiter_csv",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.477789",
+        "confidence": 1.0
+      },
+      {
+        "field": "links",
+        "source": "resume_text",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.480462",
+        "confidence": 1.0
+      },
+      {
+        "field": "location",
+        "source": "resume_text",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.480462",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477789",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.480462",
+        "confidence": 1.0
+      },
+      {
+        "field": "projects",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.480462",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478503",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.480462",
+        "confidence": 1.0
+      },
+      {
+        "field": "summary",
+        "source": "resume_text",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.480462",
+        "confidence": 1.0
+      },
+      {
+        "field": "years_experience",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477789",
+        "confidence": 1.0
+      }
+    ]
+  },
+  {
+    "candidate_id": "020c335c-8bc6-54d2-9e4f-a07883a65977",
+    "total_experience": 11.49,
+    "skill_names": [
+      "machine learning",
+      "azure",
+      "nosql",
+      "security",
+      "react"
+    ],
+    "companies_worked_at": [
+      "Netflix",
+      "Freelance",
+      "Consulting Corp"
+    ],
+    "degrees": [
+      "B.S. Computer Science",
+      "Master of Science in ML"
+    ],
+    "overall_confidence": 0.85,
+    "provenance": [
+      {
+        "field": "education",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.480560",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477803",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.480560",
+        "confidence": 1.0
+      },
+      {
+        "field": "experience",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.480560",
+        "confidence": 1.0
+      },
+      {
+        "field": "full_name",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477803",
+        "confidence": 1.0
+      },
+      {
+        "field": "headline",
+        "source": "resume_text",
+        "method": "derived_from_summary",
+        "timestamp": "2026-06-30T05:40:43.480560",
+        "confidence": 0.8
+      },
+      {
+        "field": "links",
+        "source": "recruiter_csv",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.477803",
+        "confidence": 1.0
+      },
+      {
+        "field": "links",
+        "source": "resume_text",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.480560",
+        "confidence": 1.0
+      },
+      {
+        "field": "location",
+        "source": "resume_text",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.480560",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477803",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.480560",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.480560",
+        "confidence": 1.0
+      },
+      {
+        "field": "summary",
+        "source": "resume_text",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.480560",
+        "confidence": 1.0
+      },
+      {
+        "field": "years_experience",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477803",
+        "confidence": 1.0
+      }
+    ]
+  },
+  {
+    "candidate_id": "4089fdb5-2067-5643-839b-3132c7206700",
+    "total_experience": 12.0,
+    "skill_names": [
+      "leadership",
+      "go"
+    ],
+    "companies_worked_at": [
+      "Amazon",
+      "Startup Inc.",
+      "Freelance",
+      "Netflix"
+    ],
+    "degrees": [
+      "Minor in Mathematics"
+    ],
+    "overall_confidence": 1.0,
+    "provenance": [
+      {
+        "field": "education",
+        "source": "ats_json",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.478508",
+        "confidence": 1.0
+      },
+      {
+        "field": "education",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.480654",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478508",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477817",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.480654",
+        "confidence": 1.0
+      },
+      {
+        "field": "experience",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.480654",
+        "confidence": 1.0
+      },
+      {
+        "field": "full_name",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477817",
+        "confidence": 1.0
+      },
+      {
+        "field": "headline",
+        "source": "resume_text",
+        "method": "derived_from_summary",
+        "timestamp": "2026-06-30T05:40:43.480654",
+        "confidence": 0.8
+      },
+      {
+        "field": "links",
+        "source": "recruiter_csv",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.477817",
+        "confidence": 1.0
+      },
+      {
+        "field": "links",
+        "source": "resume_text",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.480654",
+        "confidence": 1.0
+      },
+      {
+        "field": "location",
+        "source": "resume_text",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.480654",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478508",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477817",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.480654",
+        "confidence": 1.0
+      },
+      {
+        "field": "projects",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.480654",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478508",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.480654",
+        "confidence": 1.0
+      },
+      {
+        "field": "summary",
+        "source": "resume_text",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.480654",
+        "confidence": 1.0
+      },
+      {
+        "field": "years_experience",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477817",
+        "confidence": 1.0
+      }
+    ]
+  },
+  {
+    "candidate_id": "32bb3994-3d92-5f41-b124-6056d244e8ed",
+    "total_experience": 11.49,
+    "skill_names": [
+      "machine learning",
+      "react",
+      "java",
+      "aws",
+      "rust, machine learning, react, java, aws"
+    ],
+    "companies_worked_at": [
+      "Freelance",
+      "Apple",
+      "Consulting Corp"
+    ],
+    "degrees": [
+      "B.S. Computer Science"
+    ],
+    "overall_confidence": 0.93,
+    "provenance": [
+      {
+        "field": "education",
+        "source": "ats_json",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.478517",
+        "confidence": 1.0
+      },
+      {
+        "field": "education",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.480839",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478517",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477831",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.480839",
+        "confidence": 1.0
+      },
+      {
+        "field": "experience",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.480839",
+        "confidence": 1.0
+      },
+      {
+        "field": "full_name",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477831",
+        "confidence": 1.0
+      },
+      {
+        "field": "links",
+        "source": "recruiter_csv",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.477831",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478517",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477831",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.480839",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478517",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.480839",
+        "confidence": 1.0
+      },
+      {
+        "field": "years_experience",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477831",
+        "confidence": 1.0
+      }
+    ]
+  },
+  {
+    "candidate_id": "eba2b2ae-0954-59de-b701-897a9131cb7b",
+    "total_experience": 11.49,
+    "skill_names": [
+      "rust",
+      "postgres",
+      "aws",
+      "go",
+      "rust, gcp, postgresql, aws, java, go"
+    ],
+    "companies_worked_at": [
+      "Netflix"
+    ],
+    "degrees": [
+      "Master of Science in ML",
+      "High School Diploma"
+    ],
+    "overall_confidence": 0.93,
+    "provenance": [
+      {
+        "field": "education",
+        "source": "ats_json",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.478522",
+        "confidence": 1.0
+      },
+      {
+        "field": "education",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.480922",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477843",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.480922",
+        "confidence": 1.0
+      },
+      {
+        "field": "experience",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.480922",
+        "confidence": 1.0
+      },
+      {
+        "field": "full_name",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477843",
+        "confidence": 1.0
+      },
+      {
+        "field": "links",
+        "source": "recruiter_csv",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.477843",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478522",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477843",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.480922",
+        "confidence": 1.0
+      },
+      {
+        "field": "projects",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.480922",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478522",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.480922",
+        "confidence": 1.0
+      },
+      {
+        "field": "years_experience",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477843",
+        "confidence": 1.0
+      }
+    ]
+  },
+  {
+    "candidate_id": "4e64ba72-e45a-5423-aabd-65a27a95dddc",
+    "total_experience": 11.49,
+    "skill_names": [
+      "leadership",
+      "devops",
+      "machine learning",
+      "nosql",
+      "data engineering",
+      "postgres"
+    ],
+    "companies_worked_at": [
+      "Freelance",
+      "Amazon",
+      "Startup Inc."
+    ],
+    "overall_confidence": 0.93,
+    "provenance": [
+      {
+        "field": "emails",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477856",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.481020",
+        "confidence": 1.0
+      },
+      {
+        "field": "experience",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.481020",
+        "confidence": 1.0
+      },
+      {
+        "field": "full_name",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477856",
+        "confidence": 1.0
+      },
+      {
+        "field": "headline",
+        "source": "resume_text",
+        "method": "derived_from_summary",
+        "timestamp": "2026-06-30T05:40:43.481020",
+        "confidence": 0.8
+      },
+      {
+        "field": "links",
+        "source": "recruiter_csv",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.477856",
+        "confidence": 1.0
+      },
+      {
+        "field": "links",
+        "source": "resume_text",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.481020",
+        "confidence": 1.0
+      },
+      {
+        "field": "location",
+        "source": "resume_text",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.481020",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478528",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477856",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.481020",
+        "confidence": 1.0
+      },
+      {
+        "field": "projects",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.481020",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478528",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.481020",
+        "confidence": 1.0
+      },
+      {
+        "field": "summary",
+        "source": "resume_text",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.481020",
+        "confidence": 1.0
+      },
+      {
+        "field": "years_experience",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477856",
+        "confidence": 1.0
+      }
+    ]
+  },
+  {
+    "candidate_id": "d3bc8f59-86a0-538a-8957-2cef8f537f6b",
+    "total_experience": 6.0,
+    "skill_names": [
+      "kubernetes",
+      "nosql",
+      "azure",
+      "docker"
+    ],
+    "companies_worked_at": [
+      "Apple",
+      "Microsoft"
+    ],
+    "overall_confidence": 0.93,
+    "provenance": [
+      {
+        "field": "emails",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478537",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477868",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.481098",
+        "confidence": 1.0
+      },
+      {
+        "field": "experience",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.481098",
+        "confidence": 1.0
+      },
+      {
+        "field": "full_name",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477868",
+        "confidence": 1.0
+      },
+      {
+        "field": "headline",
+        "source": "resume_text",
+        "method": "derived_from_summary",
+        "timestamp": "2026-06-30T05:40:43.481098",
+        "confidence": 0.8
+      },
+      {
+        "field": "links",
+        "source": "recruiter_csv",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.477868",
+        "confidence": 1.0
+      },
+      {
+        "field": "links",
+        "source": "resume_text",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.481098",
+        "confidence": 1.0
+      },
+      {
+        "field": "location",
+        "source": "resume_text",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.481098",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478537",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477868",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.481098",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478537",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.481098",
+        "confidence": 1.0
+      },
+      {
+        "field": "summary",
+        "source": "resume_text",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.481098",
+        "confidence": 1.0
+      },
+      {
+        "field": "years_experience",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477868",
+        "confidence": 1.0
+      }
+    ]
+  },
+  {
+    "candidate_id": "bde440fd-20a6-579a-b554-a3c48f02f6c5",
+    "total_experience": 8.99,
+    "skill_names": [
+      "sql",
+      "docker",
+      "azure",
+      "node.js"
+    ],
+    "companies_worked_at": [
+      "Consulting Corp",
+      "Netflix",
+      "Google, LLC"
+    ],
+    "degrees": [
+      "Master of Science in ML"
+    ],
+    "overall_confidence": 1.0,
+    "provenance": [
+      {
+        "field": "education",
+        "source": "ats_json",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.478546",
+        "confidence": 1.0
+      },
+      {
+        "field": "education",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.481192",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477881",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.481192",
+        "confidence": 1.0
+      },
+      {
+        "field": "experience",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.481192",
+        "confidence": 1.0
+      },
+      {
+        "field": "full_name",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477881",
+        "confidence": 1.0
+      },
+      {
+        "field": "headline",
+        "source": "resume_text",
+        "method": "derived_from_summary",
+        "timestamp": "2026-06-30T05:40:43.481192",
+        "confidence": 0.8
+      },
+      {
+        "field": "links",
+        "source": "recruiter_csv",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.477881",
+        "confidence": 1.0
+      },
+      {
+        "field": "links",
+        "source": "resume_text",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.481192",
+        "confidence": 1.0
+      },
+      {
+        "field": "location",
+        "source": "resume_text",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.481192",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478546",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477881",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.481192",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478546",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.481192",
+        "confidence": 1.0
+      },
+      {
+        "field": "summary",
+        "source": "resume_text",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.481192",
+        "confidence": 1.0
+      },
+      {
+        "field": "years_experience",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477881",
+        "confidence": 1.0
+      }
+    ]
+  },
+  {
+    "candidate_id": "174cbab2-cfb2-5d3e-a0eb-3e380285b1cc",
+    "total_experience": 8.0,
+    "overall_confidence": 0.31,
+    "provenance": [
+      {
+        "field": "emails",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477910",
+        "confidence": 1.0
+      },
+      {
+        "field": "full_name",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477910",
+        "confidence": 1.0
+      },
+      {
+        "field": "links",
+        "source": "recruiter_csv",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.477910",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477910",
+        "confidence": 1.0
+      },
+      {
+        "field": "years_experience",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477910",
+        "confidence": 1.0
+      }
+    ]
+  },
+  {
+    "candidate_id": "087d9e69-0b3a-5fd4-82cb-f5b26ab655d8",
+    "total_experience": 3.0,
+    "skill_names": [
+      "machine learning",
+      "react",
+      "machine learning, react"
+    ],
+    "companies_worked_at": [
+      "Apple"
+    ],
+    "degrees": [
+      "Online Bootcamp"
+    ],
+    "overall_confidence": 0.93,
+    "provenance": [
+      {
+        "field": "education",
+        "source": "ats_json",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.478550",
+        "confidence": 1.0
+      },
+      {
+        "field": "education",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.481362",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478550",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477923",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.481362",
+        "confidence": 1.0
+      },
+      {
+        "field": "experience",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.481362",
+        "confidence": 1.0
+      },
+      {
+        "field": "full_name",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477923",
+        "confidence": 1.0
+      },
+      {
+        "field": "links",
+        "source": "recruiter_csv",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.477923",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478550",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477923",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.481362",
+        "confidence": 1.0
+      },
+      {
+        "field": "projects",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.481362",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478550",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.481362",
+        "confidence": 1.0
+      },
+      {
+        "field": "years_experience",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477923",
+        "confidence": 1.0
+      }
+    ]
+  },
+  {
+    "candidate_id": "a84057d9-c317-5b3b-9b27-cb22b2dfec9f",
+    "total_experience": 8.0,
+    "skill_names": [
+      "java",
+      "kubernetes",
+      "node.js",
+      "javascript"
+    ],
+    "overall_confidence": 0.64,
+    "provenance": [
+      {
+        "field": "emails",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477937",
+        "confidence": 1.0
+      },
+      {
+        "field": "full_name",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477937",
+        "confidence": 1.0
+      },
+      {
+        "field": "links",
+        "source": "recruiter_csv",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.477937",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478554",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477937",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478554",
+        "confidence": 1.0
+      },
+      {
+        "field": "years_experience",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477937",
+        "confidence": 1.0
+      }
+    ]
+  },
+  {
+    "candidate_id": "fc4d1d22-d075-53ea-9ca6-20db2ad836e6",
+    "total_experience": 11.49,
+    "skill_names": [
+      "gcp, postgresql, leadership, go"
+    ],
+    "companies_worked_at": [
+      "Netflix"
+    ],
+    "overall_confidence": 0.71,
+    "provenance": [
+      {
+        "field": "emails",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477950",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.481525",
+        "confidence": 1.0
+      },
+      {
+        "field": "experience",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.481525",
+        "confidence": 1.0
+      },
+      {
+        "field": "full_name",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477950",
+        "confidence": 1.0
+      },
+      {
+        "field": "links",
+        "source": "recruiter_csv",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.477950",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477950",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.481525",
+        "confidence": 1.0
+      },
+      {
+        "field": "projects",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.481525",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.481525",
+        "confidence": 1.0
+      },
+      {
+        "field": "years_experience",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477950",
+        "confidence": 1.0
+      }
+    ]
+  },
+  {
+    "candidate_id": "89b49836-c40b-5dbd-a347-11522e3f9b2d",
+    "total_experience": 3.0,
+    "skill_names": [
+      "react",
+      "rust",
+      "nosql"
+    ],
+    "companies_worked_at": [
+      "Amazon"
+    ],
+    "degrees": [
+      "High School Diploma",
+      "Minor in Mathematics"
+    ],
+    "overall_confidence": 1.0,
+    "provenance": [
+      {
+        "field": "education",
+        "source": "ats_json",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.478563",
+        "confidence": 1.0
+      },
+      {
+        "field": "education",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.481587",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477963",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.481587",
+        "confidence": 1.0
+      },
+      {
+        "field": "experience",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.481587",
+        "confidence": 1.0
+      },
+      {
+        "field": "full_name",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477963",
+        "confidence": 1.0
+      },
+      {
+        "field": "headline",
+        "source": "resume_text",
+        "method": "derived_from_summary",
+        "timestamp": "2026-06-30T05:40:43.481587",
+        "confidence": 0.8
+      },
+      {
+        "field": "links",
+        "source": "recruiter_csv",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.477963",
+        "confidence": 1.0
+      },
+      {
+        "field": "links",
+        "source": "resume_text",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.481587",
+        "confidence": 1.0
+      },
+      {
+        "field": "location",
+        "source": "resume_text",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.481587",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478563",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "recruiter_csv",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.477963",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.481587",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478563",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.481587",
+        "confidence": 1.0
+      },
+      {
+        "field": "summary",
+        "source": "resume_text",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.481587",
+        "confidence": 1.0
+      },
+      {
+        "field": "years_experience",
+        "source": "recruiter_csv",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.477963",
+        "confidence": 1.0
+      }
+    ]
+  },
+  {
+    "candidate_id": "8ebc1010-9039-5f92-b3a1-796b411df124",
+    "total_experience": 3.0,
+    "skill_names": [
+      "devops",
+      "gcp"
+    ],
+    "companies_worked_at": [
+      "Apple"
+    ],
+    "overall_confidence": 0.78,
+    "provenance": [
+      {
+        "field": "emails",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478499",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.480312",
+        "confidence": 1.0
+      },
+      {
+        "field": "experience",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.480312",
+        "confidence": 1.0
+      },
+      {
+        "field": "full_name",
+        "source": "ats_json",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.478499",
+        "confidence": 1.0
+      },
+      {
+        "field": "headline",
+        "source": "resume_text",
+        "method": "derived_from_summary",
+        "timestamp": "2026-06-30T05:40:43.480312",
+        "confidence": 0.8
+      },
+      {
+        "field": "links",
+        "source": "resume_text",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.480312",
+        "confidence": 1.0
+      },
+      {
+        "field": "location",
+        "source": "resume_text",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.480312",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478499",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.480312",
+        "confidence": 1.0
+      },
+      {
+        "field": "projects",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.480312",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478499",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.480312",
+        "confidence": 1.0
+      },
+      {
+        "field": "summary",
+        "source": "resume_text",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.480312",
+        "confidence": 1.0
+      }
+    ]
+  },
+  {
+    "candidate_id": "17c6788e-2662-55b3-a9ae-c3297f3c4c5a",
+    "total_experience": 6.0,
+    "skill_names": [
+      "data engineering",
+      "machine learning"
+    ],
+    "companies_worked_at": [
+      "Netflix",
+      "Legacy Systems LLC"
+    ],
+    "degrees": [
+      "B.S. Computer Science"
+    ],
+    "overall_confidence": 0.85,
+    "provenance": [
+      {
+        "field": "education",
+        "source": "ats_json",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.478512",
+        "confidence": 1.0
+      },
+      {
+        "field": "education",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.480748",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478512",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.480748",
+        "confidence": 1.0
+      },
+      {
+        "field": "experience",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.480748",
+        "confidence": 1.0
+      },
+      {
+        "field": "full_name",
+        "source": "ats_json",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.478512",
+        "confidence": 1.0
+      },
+      {
+        "field": "headline",
+        "source": "resume_text",
+        "method": "derived_from_summary",
+        "timestamp": "2026-06-30T05:40:43.480748",
+        "confidence": 0.8
+      },
+      {
+        "field": "links",
+        "source": "resume_text",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.480748",
+        "confidence": 1.0
+      },
+      {
+        "field": "location",
+        "source": "resume_text",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.480748",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.480748",
+        "confidence": 1.0
+      },
+      {
+        "field": "projects",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.480748",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478512",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.480748",
+        "confidence": 1.0
+      },
+      {
+        "field": "summary",
+        "source": "resume_text",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.480748",
+        "confidence": 1.0
+      }
+    ]
+  },
+  {
+    "candidate_id": "78d2bb3d-d6f4-5948-ac8f-50c62a1db0b7",
+    "skill_names": [
+      "aws",
+      "c++",
+      "azure",
+      "security"
+    ],
+    "overall_confidence": 0.39,
+    "provenance": [
+      {
+        "field": "emails",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478532",
+        "confidence": 1.0
+      },
+      {
+        "field": "full_name",
+        "source": "ats_json",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.478532",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478532",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478532",
+        "confidence": 1.0
+      }
+    ]
+  },
+  {
+    "candidate_id": "f8a47ba4-72eb-5f9a-9c83-36bbf799258e",
+    "skill_names": [
+      "devops",
+      "java",
+      "python",
+      "leadership",
+      "docker"
+    ],
+    "overall_confidence": 0.39,
+    "provenance": [
+      {
+        "field": "education",
+        "source": "ats_json",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.478541",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478541",
+        "confidence": 1.0
+      },
+      {
+        "field": "full_name",
+        "source": "ats_json",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.478541",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478541",
+        "confidence": 1.0
+      }
+    ]
+  },
+  {
+    "candidate_id": "40e1bb95-f68d-522b-9a59-7e1b074b65a6",
+    "total_experience": 11.99,
+    "skill_names": [
+      "security",
+      "node.js",
+      "leadership",
+      "react",
+      "nosql",
+      "docker"
+    ],
+    "companies_worked_at": [
+      "Startup Inc.",
+      "Legacy Systems LLC",
+      "Google",
+      "Facebook"
+    ],
+    "degrees": [
+      "Master of Science in ML",
+      "Online Bootcamp"
+    ],
+    "overall_confidence": 0.85,
+    "provenance": [
+      {
+        "field": "education",
+        "source": "ats_json",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.478558",
+        "confidence": 1.0
+      },
+      {
+        "field": "education",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.481452",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478558",
+        "confidence": 1.0
+      },
+      {
+        "field": "emails",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.481452",
+        "confidence": 1.0
+      },
+      {
+        "field": "experience",
+        "source": "resume_text",
+        "method": "deduplication",
+        "timestamp": "2026-06-30T05:40:43.481452",
+        "confidence": 1.0
+      },
+      {
+        "field": "full_name",
+        "source": "ats_json",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.478558",
+        "confidence": 1.0
+      },
+      {
+        "field": "headline",
+        "source": "resume_text",
+        "method": "derived_from_summary",
+        "timestamp": "2026-06-30T05:40:43.481452",
+        "confidence": 0.8
+      },
+      {
+        "field": "links",
+        "source": "resume_text",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.481452",
+        "confidence": 1.0
+      },
+      {
+        "field": "location",
+        "source": "resume_text",
+        "method": "dict_merge",
+        "timestamp": "2026-06-30T05:40:43.481452",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478558",
+        "confidence": 1.0
+      },
+      {
+        "field": "phones",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.481452",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "ats_json",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.478558",
+        "confidence": 1.0
+      },
+      {
+        "field": "skills",
+        "source": "resume_text",
+        "method": "union_merge",
+        "timestamp": "2026-06-30T05:40:43.481452",
+        "confidence": 1.0
+      },
+      {
+        "field": "summary",
+        "source": "resume_text",
+        "method": "priority_resolution",
+        "timestamp": "2026-06-30T05:40:43.481452",
+        "confidence": 1.0
+      }
+    ]
+  }
+]

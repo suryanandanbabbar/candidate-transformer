@@ -7,6 +7,8 @@ from rich.panel import Panel
 from candidate_transformer.api.transformer import CandidateTransformer
 from candidate_transformer.cli.context import PipelineContext, DirtyState
 from candidate_transformer.cli.workspace import WorkspaceManager
+from candidate_transformer.export.exporter import export_all
+from candidate_transformer.export.json_server import JsonServerManager
 
 console = Console()
 workspace_manager = WorkspaceManager()
@@ -51,6 +53,8 @@ class CommandDispatcher:
                 self.handle_loadcanonical(args)
             elif command == "export":
                 self.handle_export(args)
+            elif command == "server":
+                self.handle_server(args)
             elif command == "workspace":
                 self.handle_workspace(args)
             elif command in ("help", "?"):
@@ -363,6 +367,14 @@ class CommandDispatcher:
             console.print(f"[red]Failed to load:[/red] {str(e)}")
 
     def handle_export(self, args: list[str]) -> None:
+        if len(args) == 0:
+            console.print("[red]Usage:[/red] export <projection_name> <filename> OR export server")
+            return
+            
+        if args[0] == "server":
+            self._handle_export_server()
+            return
+            
         if len(args) < 2:
             console.print("[red]Usage:[/red] export <projection_name> <filename>")
             return
@@ -383,6 +395,89 @@ class CommandDispatcher:
             console.print(f"[green]Exported to[/green] {filename}")
         except Exception as e:
             console.print(f"[red]Export failed:[/red] {str(e)}")
+
+    def _handle_export_server(self) -> None:
+        status_info = JsonServerManager.status()
+        if status_info["status"] == "Running":
+            console.print("JSON Server is already running.\n")
+            console.print(f"Port : {status_info['port']}")
+            console.print(f"PID  : {status_info['pid']}\n")
+            console.print("Use:\n")
+            console.print("server stop")
+            console.print("server restart")
+            return
+            
+        if self.context.dirty_state in (DirtyState.CANONICAL, DirtyState.WORKSPACE):
+            console.print("[yellow]Configuration changed. Canonical model is stale. Run BUILD.[/yellow]")
+            return
+            
+        if not self.context.dataset:
+            console.print("[red]No canonical dataset built. Run 'build' first.[/red]")
+            return
+            
+        console.print("\n[blue]Exporting workspace...[/blue]\n")
+        try:
+            export_all(self.context)
+            console.print("[green]✓ candidates.json[/green]")
+            console.print("[green]✓ analytics.json[/green]")
+            console.print("[green]✓ metadata.json[/green]\n")
+        except Exception as e:
+            console.print(f"[red]Failed to export datasets:[/red] {str(e)}")
+            return
+            
+        console.print("Starting JSON Server...")
+        try:
+            status_res = JsonServerManager.start(self.context.workspace_name)
+            port = status_res["port"]
+            
+            console.print(f"Workspace : {self.context.workspace_name}")
+            console.print(f"Port      : {port}\n")
+            
+            console.print("Endpoints")
+            console.print("────────────────────────────────────")
+            console.print("GET /candidates")
+            console.print("GET /analytics")
+            console.print("GET /metadata\n")
+            
+            console.print("Server running in background.\n")
+        except Exception as e:
+            console.print(f"{str(e)}")
+
+    def handle_server(self, args: list[str]) -> None:
+        if not args:
+            console.print("[red]Usage:[/red] server [status|stop|restart]")
+            return
+            
+        subcmd = args[0]
+        if subcmd == "status":
+            status_info = JsonServerManager.status()
+            if status_info["status"] == "Stopped":
+                console.print("JSON Server is not running.")
+                return
+                
+            console.print("\n[bold]JSON Server[/bold]\n")
+            console.print(f"Status     : [green]{status_info['status']}[/green]")
+            console.print(f"Workspace  : {status_info['workspace']}")
+            console.print(f"PID        : {status_info['pid']}")
+            console.print(f"Port       : {status_info['port']}\n")
+            
+            console.print("Endpoints\n")
+            console.print("GET /candidates")
+            console.print("GET /analytics")
+            console.print("GET /metadata\n")
+            
+        elif subcmd == "stop":
+            console.print("Stopping JSON Server...\n")
+            if JsonServerManager.stop():
+                console.print("Server stopped successfully.")
+            else:
+                console.print("No JSON Server instance is running.")
+                
+        elif subcmd == "restart":
+            JsonServerManager.stop()
+            self._handle_export_server()
+        else:
+            console.print(f"[red]Unknown server command:[/red] {subcmd}")
 
     def handle_workspace(self, args: list[str]) -> None:
         if not args:
@@ -464,6 +559,10 @@ config apply
 save canonical <file>
 loadcanonical <file>
 export <projection_name> <file>
+export server
+server status
+server stop
+server restart
 
 [bold cyan]Workspace[/bold cyan]
 ---------
