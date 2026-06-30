@@ -62,11 +62,11 @@ Available Built-in Projections:
 * **Analytics**: Flattens nested data for downstream data warehouses and reporting tools.
 
 ---
-## Installation
 
-Installing from source provides both the `candidate-transformer` CLI and the interactive `ctsh` shell.
+## Getting Started
 
-**From GitHub (Development & Source)**
+### Installation from GitHub (Development & Source)
+
 ```bash
 git clone https://github.com/suryanandanbabbar/candidate-transformer.git
 cd candidate-transformer
@@ -75,17 +75,69 @@ source venv/bin/activate
 pip install -e .
 ```
 
-### Launch
+### Preparing Input Data
 
-Start the interactive workspace:
-```bash
-ctsh
+Place your input files inside the `sample_data/` directory (or another directory of your choice). For example:
+
+```
+sample_data/
+├── recruiter.csv
+├── ats.json
+└── resume.txt
 ```
 
-Run a one-shot batch transformation:
+Reference these file paths in your CLI or `ctsh` commands as needed.
+
+### Quick Start
+
+1. Start the interactive shell:
+   ```bash
+   ctsh
+   ```
+2. Create or open a workspace:
+   ```
+   ctsh> workspace new recruitment-q3
+   ctsh> workspace open recruitment-q3
+   ```
+3. Load the three sources from `sample_data`:
+   ```
+   ctsh> load recruiter_csv sample_data/recruiter.csv
+   ctsh> load ats_json sample_data/ats.json
+   ctsh> load resume_text sample_data/resume.txt
+   ```
+4. Build the canonical dataset:
+   ```
+   ctsh> build
+   ```
+5. Show the first candidate:
+   ```
+   ctsh> show 0
+   ```
+6. Switch to the analytics projection:
+   ```
+   ctsh> project analytics
+   ```
+
+### Batch CLI
+
+Run a one-shot batch transformation from the command line:
+
 ```bash
-candidate-transformer transform --source recruiter_csv=sample_data/recruiter.csv
+candidate-transformer transform \
+  --source recruiter_csv=sample_data/recruiter.csv \
+  --source ats_json=sample_data/ats.json \
+  --source resume_text=sample_data/resume.txt
 ```
+*`--source <connector>=<filepath>` defines the parser and file.*
+
+**Applying a specific projection:**
+```bash
+candidate-transformer transform \
+  --source recruiter_csv=sample_data/recruiter.csv \
+  --projection configs/projections/recruiter.json
+```
+*`--projection <path>` overrides the output shape without changing pipeline logic.*
+
 ---
 
 ## Interactive Shell (`ctsh`)
@@ -96,73 +148,64 @@ Workspace state is persisted locally, allowing users to save, reopen, and contin
 
 With `ctsh`, you can load sources, build canonical datasets, explore Candidates using beautifully formatted **Rich tables**, switch active projections dynamically, and manage persistent workspaces—all without restarting the application.
 
-### Example `ctsh` Workflow
-
-Start the interactive shell:
-```bash
-ctsh
-```
-
-Execute your workflow interactively:
-```bash
-ctsh> workspace list
-ctsh> workspace new recruitment-q3
-ctsh> workspace open recruitment-q3
-ctsh> load recruiter_csv sample_data/recruiter.csv
-ctsh> load ats_json sample_data/ats.json
-ctsh> load resume_text sample_data/resume.txt
-ctsh> build
-ctsh> status
-ctsh> show 0
-ctsh> project analytics
-ctsh> export analytics output.json
-```
 
 ### Command Reference
 
-**Loading**
-* `load <connector> <file>`
+#### Data Ingestion
+| Command | Description |
+|---------|-------------|
+| `load <connector> <file>` | Load a data source through a connector. |
+| `sources` | List loaded sources. |
+| `connectors` | List registered connectors. |
 
-**Pipeline**
-* `build`
-* `project <projection_name> [index] [--json]`
+#### Pipeline & Projections
+| Command | Description |
+|---------|-------------|
+| `build` | Build the canonical dataset. |
+| `project <projection_name> [index] [--json]` | Run or preview a projection. |
+| `projections` | List available projections. |
+| `stats` | Show dataset statistics. |
+| `status` | Show current workspace status. |
 
-**Inspection**
-* `status`
-* `stats`
-* `show <name|id|index> [--verbose] [--json]`
-* `sources`
-* `projections`
-* `connectors`
+#### Candidate Inspection
+| Command | Description |
+|---------|-------------|
+| `show <name|id|index> [--verbose] [--json]` | Inspect a candidate. |
 
-**Configuration**
-* `config show`
-* `config begin`
-* `config set <key> <value>`
-* `config apply`
+#### Runtime Configuration
+| Command | Description |
+|---------|-------------|
+| `config show` | Display runtime configuration. |
+| `config begin` | Start a configuration edit session. |
+| `config set <key> <value>` | Modify a configuration value. |
+| `config apply` | Apply pending configuration changes. |
 
-**Persistence & Export**
-* `save canonical <file>`
-* `loadcanonical <file>`
-* `export <projection_name> <file>`
-* `export server`
-* `server status`
-* `stop server`
+#### Persistence & Export
+| Command | Description |
+|---------|-------------|
+| `save canonical <file>` | Persist the canonical dataset. |
+| `loadcanonical <file>` | Load a saved canonical dataset. |
+| `export <projection_name> <file>` | Export a projection to disk. |
+| `export server` | Launch the background JSON Server. |
+| `server status` | Show JSON Server status. |
+| `stop server` | Stop the background JSON Server. |
 
-**Workspace**
-* `workspace new <name>`
-* `workspace open <name>`
-* `workspace list`
-* `workspace delete <name>`
+#### Workspace Management
+| Command | Description |
+|---------|-------------|
+| `workspace new <name>` | Create a new workspace. |
+| `workspace open <name>` | Open an existing workspace. |
+| `workspace list` | List available workspaces. |
+| `workspace delete <name>` | Delete a workspace. |
+| `reset` | Clear the current workspace state. |
 
-**Utility**
-* `help`
-* `history`
-* `reset`
-* `clear`
-* `exit`
-
-*(Tip: You can use `--verbose` or `--json` flags with the `show` command).*
+#### Utility
+| Command | Description |
+|---------|-------------|
+| `history` | Show command history. |
+| `clear` | Clear the terminal screen. |
+| `help` | Display command help. |
+| `exit` | Exit ctsh. |
 
 ---
 
@@ -175,9 +218,9 @@ ctsh> export server
 ```
 
 This will automatically:
-1. Export `candidates.json`, `analytics.json`, and `metadata.json` to the `exports/` directory.
-2. Launch a background `json-server` instance.
-3. Expose the data as HTTP endpoints:
+
+1. Launch a background `json-server` instance.
+2. Expose the data as HTTP endpoints:
    - `GET /candidates`
    - `GET /analytics`
    - `GET /metadata`
@@ -294,7 +337,6 @@ tests/                        # Test suites
 
 ---
 
-
 ## Production Features
 
 * Deterministic Candidate IDs: UUIDv5 ensures exact reproducibility.
@@ -311,4 +353,3 @@ tests/                        # Test suites
 * Identical inputs always produce identical canonical outputs.
 
 ---
-</file>
