@@ -49,8 +49,26 @@ class ConflictResolutionStage(PipelineStage):
 
             full_name = resolve_and_prov("full_name")
             years_experience = resolve_and_prov("years_experience")
-            headline = resolve_and_prov("headline")
             summary = resolve_and_prov("summary")
+            headline = resolve_and_prov("headline")
+            
+            if not headline and summary:
+                first_sent = summary.split(".")[0].strip()
+                if first_sent:
+                    headline = first_sent
+                    # Add provenance manually for this derived field
+                    summary_provs = [p for p in provenance if p.field == "summary"]
+                    if summary_provs:
+                        p = summary_provs[0]
+                        provenance.append(
+                            Provenance(
+                                field="headline",
+                                source=p.source,
+                                method="derived_from_summary",
+                                timestamp=p.timestamp,
+                                confidence=0.8
+                            )
+                        )
 
             # Lists
             emails, email_prov = self._collect_list_with_prov(group, "emails")
@@ -82,6 +100,8 @@ class ConflictResolutionStage(PipelineStage):
 
             # Dict merges
             location, loc_prov = self._merge_dict_with_prov(group, "location")
+            if not location:
+                location = None
             links, links_prov = self._merge_dict_with_prov(group, "links")
             provenance.extend(loc_prov)
             provenance.extend(links_prov)
@@ -121,6 +141,7 @@ class ConflictResolutionStage(PipelineStage):
                 languages=languages,
                 provenance=unique_prov,
             )
+            candidate.years_experience = candidate.computed_experience
             candidates.append(candidate)
 
         return candidates
@@ -160,20 +181,30 @@ class ConflictResolutionStage(PipelineStage):
 
     def _collect_list_with_prov(self, group: list[dict[str, Any]], field: str) -> tuple[list[Any], list[Provenance]]:
         result = []
+        prov_sources = set()
         provs = []
         for record in group:
             if record.get(field) and isinstance(record[field], list):
+                has_contribution = False
                 for item in record[field]:
                     if item not in result:
                         result.append(item)
-                provs.append(
-                    Provenance(
-                        field=field,
-                        source=record.get("__source__", "unknown"),
-                        method="union_merge",
-                        timestamp=record.get("__timestamp__"),
-                    )
-                )
+                        has_contribution = True
+                    elif item in result:
+                        has_contribution = True
+                
+                if has_contribution:
+                    source = record.get("__source__", "unknown")
+                    if source not in prov_sources:
+                        prov_sources.add(source)
+                        provs.append(
+                            Provenance(
+                                field=field,
+                                source=source,
+                                method="union_merge",
+                                timestamp=record.get("__timestamp__"),
+                            )
+                        )
         return result, provs
 
     def _collect_experience_with_prov(self, group: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], list[Provenance]]:
@@ -272,18 +303,36 @@ class ConflictResolutionStage(PipelineStage):
 
     def _merge_dict_with_prov(self, group: list[dict[str, Any]], field: str) -> tuple[dict[str, Any], list[Provenance]]:
         result = {}
+        prov_sources = set()
         provs = []
         for record in group:
             if record.get(field) and isinstance(record[field], dict):
-                result.update(record[field])
-                provs.append(
-                    Provenance(
-                        field=field,
-                        source=record.get("__source__", "unknown"),
-                        method="dict_merge",
-                        timestamp=record.get("__timestamp__"),
-                    )
-                )
+                has_contribution = False
+                for k, v in record[field].items():
+                    if v is not None and v != "" and v != []:
+                        has_contribution = True
+                        if isinstance(v, list):
+                            existing = result.setdefault(k, [])
+                            for item in v:
+                                if item not in existing:
+                                    existing.append(item)
+                        else:
+                            result[k] = v
+                    elif k not in result:
+                        result[k] = v
+                
+                if has_contribution:
+                    source = record.get("__source__", "unknown")
+                    if source not in prov_sources:
+                        prov_sources.add(source)
+                        provs.append(
+                            Provenance(
+                                field=field,
+                                source=source,
+                                method="dict_merge",
+                                timestamp=record.get("__timestamp__"),
+                            )
+                        )
         return result, provs
 
     def _collect_skills_with_prov(self, group: list[dict[str, Any]]) -> tuple[list[Skill], list[Provenance]]:

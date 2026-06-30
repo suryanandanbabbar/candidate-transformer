@@ -15,5 +15,5 @@ def test_phone_normalizer_invalid():
     normalizer = E164PhoneNormalizer()
     with pytest.raises(NormalizationError):
         normalizer.normalize("not-a-phone-number")
-    with pytest.raises(NormalizationError):
-        normalizer.normalize("123")  # Too short
+    # "123" shouldn't raise NormalizationError anymore due to fallback digit normalization
+    assert normalizer.normalize("123") == "123"

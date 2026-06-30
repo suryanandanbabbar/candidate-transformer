@@ -12,11 +12,34 @@ class E164PhoneNormalizer(Normalizer[str]):
     """
 
     def normalize(self, value: str) -> str:
+        import re
+        
+        # Keep only digits and leading plus if present
+        clean_val = re.sub(r'[^\d+]', '', value)
+        if not clean_val:
+            raise NormalizationError(f"No digits found in phone number: {value}")
+            
         try:
-            # Assume US/CA as default region if country code is missing
-            parsed = phonenumbers.parse(value, "US")
-            if not phonenumbers.is_valid_number(parsed):
-                raise NormalizationError(f"Invalid phone number: {value}")
-            return phonenumbers.format_number(parsed, phonenumbers.PhoneNumberFormat.E164)
-        except phonenumbers.NumberParseException as e:
-            raise NormalizationError(f"Could not parse phone number {value}: {e}") from e
+            # 1. Attempt parsing. `phonenumbers` automatically infers region if '+' is present.
+            # We supply None as default region so it strictly requires a + code first.
+            parsed = phonenumbers.parse(clean_val, None)
+            if phonenumbers.is_valid_number(parsed):
+                return phonenumbers.format_number(parsed, phonenumbers.PhoneNumberFormat.E164)
+        except phonenumbers.NumberParseException:
+            pass
+            
+        try:
+            # 2. If it failed, attempt with a default configured region (US for now)
+            parsed = phonenumbers.parse(clean_val, "US")
+            if phonenumbers.is_valid_number(parsed):
+                return phonenumbers.format_number(parsed, phonenumbers.PhoneNumberFormat.E164)
+        except phonenumbers.NumberParseException:
+            pass
+
+        # 3. Fallback canonical digit normalization.
+        # Strips all non-numeric characters (including +) and returns the last 10 digits
+        # (the typical subscriber length globally). This guarantees deduplication across formats.
+        digits = re.sub(r'\D', '', value)
+        if len(digits) >= 10:
+            return digits[-10:]
+        return digits

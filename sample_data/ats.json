@@ -1,82 +1,864 @@
 [
   {
-    "candidate_id": "ats-101",
-    "first_name": "Alice",
-    "last_name": "Smith",
-    "headline": "Staff Software Engineer / Distributed Systems",
-    "years_experience": 7.5,
+    "id": "ATS-0-968",
+    "candidate_name": "Bob Jones",
     "contact": {
-      "email": "alice.smith@example.com",
-      "alternate_email": "alicesmith@alumni.state.edu",
-      "mobile": "4155551234",
-      "home_phone": "+1-415-555-9999",
-      "location": {
-        "city": "San Francisco",
-        "region": "California",
-        "country": "USA"
-      }
+      "email": "robertjones@company.com",
+      "phone": "4155551000"
     },
-    "employment_history": [
+    "location": "New York",
+    "skills": [
+      "Python",
+      "DevOps"
+    ],
+    "experience": [
       {
-        "employer": "TechCorp",
-        "job_title": "Sr. Software Engineer",
-        "start_date": "2018-01-01",
-        "end_date": "2021-12-31",
-        "summary": "Led the backend team transitioning from monolithic architectures to microservices. Optimized API response times by 40%."
+        "company_name": "Consulting Corp",
+        "role": "Senior Engineer",
+        "from_date": "2015-01-01",
+        "to_date": "2017-12-31"
+      }
+    ],
+    "education": [],
+    "metadata": {
+      "salary": "$150,000",
+      "visa": "US Citizen",
+      "recruiter_notes": "Great candidate, follow up."
+    }
+  },
+  {
+    "id": "ATS-2-616",
+    "candidate_name": "Carol White",
+    "contact": {
+      "email": "carol.white@gmail.com",
+      "phone": null
+    },
+    "location": "San Francisco, California",
+    "skills": [
+      "DevOps",
+      "Docker",
+      "Machine learning",
+      "NoSQL"
+    ],
+    "experience": [
+      {
+        "company_name": "MSFT",
+        "role": "Product Manager",
+        "from_date": "2015-01-01",
+        "to_date": "2017-12-31"
+      }
+    ],
+    "education": [],
+    "metadata": {
+      "salary": "$150,000",
+      "visa": "US Citizen",
+      "recruiter_notes": "Great candidate, follow up."
+    }
+  },
+  {
+    "id": "ATS-3-653",
+    "candidate_name": "Dave Johnson",
+    "contact": {
+      "email": "davejohnson@company.com",
+      "phone": "09811111003"
+    },
+    "location": "Austin",
+    "skills": [
+      "NoSQL",
+      "Postgres",
+      "javascript"
+    ],
+    "experience": [
+      {
+        "company_name": "Apple",
+        "role": "Senior Engineer",
+        "from_date": "2015-01-01",
+        "to_date": "2017-12-31"
       },
       {
-        "employer": "Legacy Systems LLC",
-        "job_title": "Software Developer",
-        "start_date": "2017-06-01",
-        "end_date": "2017-12-31",
-        "summary": "Maintained core legacy infrastructure and internal tooling."
+        "company_name": "Amazon",
+        "role": "DevOps Engineer",
+        "from_date": "2018-01-01",
+        "to_date": "2020-12-31"
       }
     ],
     "education": [
       {
+        "degree_name": "PhD in Computer Vision",
         "school": "State University",
-        "degree": "B.S. Computer Science",
-        "field": "Computer Science",
-        "grad_year": 2017
+        "grad_year": "2014"
       },
       {
+        "degree_name": "Master of Science in ML",
         "school": "State University",
-        "degree": "Minor in Mathematics",
-        "field": "Mathematics",
-        "grad_year": 2017
+        "grad_year": "2010"
       }
-    ]
+    ],
+    "metadata": {
+      "salary": "$150,000",
+      "visa": "US Citizen",
+      "recruiter_notes": "Great candidate, follow up."
+    }
   },
   {
-    "candidate_id": "ats-102",
-    "first_name": "Robert",
-    "last_name": "Jones",
-    "headline": "Data Scientist",
-    "years_experience": 3,
+    "id": "ATS-4-883",
+    "candidate_name": "Eve Adams",
     "contact": {
-      "email": "robert.jones@example.com",
-      "location": {
-        "city": "New York",
-        "region": "NY",
-        "country": "USA"
-      }
+      "email": null,
+      "phone": "09811111004"
     },
-    "employment_history": [
+    "location": "Seattle",
+    "skills": [],
+    "experience": [
       {
-        "employer": "StartUp Inc",
-        "job_title": "Data Scientist",
-        "start_date": "2021-01-01",
-        "summary": "Building predictive models."
+        "company_name": "Startup Inc.",
+        "role": "DevOps Engineer",
+        "from_date": "2015-01-01",
+        "to_date": "2017-12-31"
+      },
+      {
+        "company_name": "Consulting Corp",
+        "role": "Principal Engineer",
+        "from_date": "2018-01-01",
+        "to_date": "2020-12-31"
       }
-    ]
+    ],
+    "education": [],
+    "metadata": {
+      "salary": "$150,000",
+      "visa": "US Citizen",
+      "recruiter_notes": "Great candidate, follow up."
+    }
   },
   {
-    "candidate_id": "ats-103",
-    "first_name": "Carol",
-    "last_name": "White",
+    "id": "ATS-4-651",
+    "candidate_name": "Eve Adams",
     "contact": {
-      "mobile": "+1-123-456-7890"
+      "email": "eve.adams@gmail.com",
+      "phone": "4155551004"
     },
-    "skills": ["JavaScript", "React"]
+    "location": "Seattle",
+    "skills": [
+      "postgres",
+      "AWS"
+    ],
+    "experience": [
+      {
+        "company_name": "Startup Inc.",
+        "role": "DevOps Engineer",
+        "from_date": "2015-01-01",
+        "to_date": "2017-12-31"
+      },
+      {
+        "company_name": "Consulting Corp",
+        "role": "Principal Engineer",
+        "from_date": "2018-01-01",
+        "to_date": "2020-12-31"
+      }
+    ],
+    "education": [],
+    "metadata": {
+      "salary": "$150,000",
+      "visa": "US Citizen",
+      "recruiter_notes": "Great candidate, follow up."
+    }
+  },
+  {
+    "id": "ATS-5-230",
+    "candidate_name": "Frank Wright",
+    "contact": {
+      "email": null,
+      "phone": "+1 415 555 1005"
+    },
+    "location": "London",
+    "skills": [
+      "Leadership",
+      "React"
+    ],
+    "experience": [
+      {
+        "company_name": "Netflix",
+        "role": "CTO",
+        "from_date": "2015-01-01",
+        "to_date": "2017-12-31"
+      },
+      {
+        "company_name": "Startup Inc.",
+        "role": "Staff Engineer",
+        "from_date": "2018-01-01",
+        "to_date": "2020-12-31"
+      },
+      {
+        "company_name": "Netflix",
+        "role": "Intern",
+        "from_date": "2021-01-01",
+        "to_date": "2023-12-31"
+      }
+    ],
+    "education": [
+      {
+        "degree_name": "High School Diploma",
+        "school": "State University",
+        "grad_year": "2014"
+      },
+      {
+        "degree_name": "Minor in Mathematics",
+        "school": "State University",
+        "grad_year": "2010"
+      }
+    ],
+    "metadata": {
+      "salary": "$150,000",
+      "visa": "US Citizen",
+      "recruiter_notes": "Great candidate, follow up."
+    }
+  },
+  {
+    "id": "ATS-7-286",
+    "candidate_name": "Heidi Cruz",
+    "contact": {
+      "email": "heidi.cruz@gmail.com",
+      "phone": "+1 415 555 1007"
+    },
+    "location": "New York",
+    "skills": [
+      "DevOps",
+      "GCP"
+    ],
+    "experience": [
+      {
+        "company_name": "Apple",
+        "role": "Intern",
+        "from_date": "2015-01-01",
+        "to_date": "2017-12-31"
+      }
+    ],
+    "education": [],
+    "metadata": {
+      "salary": "$150,000",
+      "visa": "US Citizen",
+      "recruiter_notes": "Great candidate, follow up."
+    }
+  },
+  {
+    "id": "ATS-8-358",
+    "candidate_name": "Ivan Drago",
+    "contact": {
+      "email": "ivan.drago@gmail.com",
+      "phone": null
+    },
+    "location": "Delhi",
+    "skills": [
+      "PostgreSQL",
+      "Leadership"
+    ],
+    "experience": [
+      {
+        "company_name": "Apple",
+        "role": "Principal Engineer",
+        "from_date": "2015-01-01",
+        "to_date": null
+      },
+      {
+        "company_name": "Freelance",
+        "role": "Senior Engineer",
+        "from_date": "2018-01-01",
+        "to_date": null
+      },
+      {
+        "company_name": "Startup Inc.",
+        "role": "Senior Engineer",
+        "from_date": "2021-01-01",
+        "to_date": "2023-12-31"
+      }
+    ],
+    "education": [
+      {
+        "degree_name": "Master of Science in ML",
+        "school": "State University",
+        "grad_year": "2014"
+      },
+      {
+        "degree_name": "Master of Science in ML",
+        "school": "State University",
+        "grad_year": "2010"
+      }
+    ],
+    "metadata": {
+      "salary": "$150,000",
+      "visa": "US Citizen",
+      "recruiter_notes": "Great candidate, follow up."
+    }
+  },
+  {
+    "id": "ATS-10-304",
+    "candidate_name": "Ken Thompson",
+    "contact": {
+      "email": "kenthompson@company.com",
+      "phone": "+1-415-555-1010"
+    },
+    "location": "Seattle",
+    "skills": [
+      "Leadership",
+      "Go"
+    ],
+    "experience": [
+      {
+        "company_name": "Netflix",
+        "role": "Intern",
+        "from_date": "2015-01-01",
+        "to_date": null
+      },
+      {
+        "company_name": "Freelance",
+        "role": "CTO",
+        "from_date": "2018-01-01",
+        "to_date": "2020-12-31"
+      },
+      {
+        "company_name": "Startup Inc.",
+        "role": "DevOps Engineer",
+        "from_date": "2021-01-01",
+        "to_date": null
+      },
+      {
+        "company_name": "Amazon",
+        "role": "DevOps Engineer",
+        "from_date": "2024-01-01",
+        "to_date": "2026-12-31"
+      }
+    ],
+    "education": [
+      {
+        "degree_name": "Minor in Mathematics",
+        "school": "State University",
+        "grad_year": "2014"
+      }
+    ],
+    "metadata": {
+      "salary": "$150,000",
+      "visa": "US Citizen",
+      "recruiter_notes": "Great candidate, follow up."
+    }
+  },
+  {
+    "id": "ATS-11-720",
+    "candidate_name": "Liam Neeson",
+    "contact": {
+      "email": "liam.neeson@example.com",
+      "phone": null
+    },
+    "location": "New York",
+    "skills": [
+      "Data Engineering",
+      "machine learning"
+    ],
+    "experience": [
+      {
+        "company_name": "Legacy Systems LLC",
+        "role": "Staff Engineer",
+        "from_date": "2015-01-01",
+        "to_date": "2017-12-31"
+      },
+      {
+        "company_name": "Netflix",
+        "role": "Senior Engineer",
+        "from_date": "2018-01-01",
+        "to_date": "2020-12-31"
+      }
+    ],
+    "education": [
+      {
+        "degree_name": "B.S. Computer Science",
+        "school": "State University",
+        "grad_year": "2014"
+      },
+      {
+        "degree_name": "B.S. Computer Science",
+        "school": "State University",
+        "grad_year": "2010"
+      }
+    ],
+    "metadata": {
+      "salary": "$150,000",
+      "visa": "US Citizen",
+      "recruiter_notes": "Great candidate, follow up."
+    }
+  },
+  {
+    "id": "ATS-12-484",
+    "candidate_name": "Mia Wallace",
+    "contact": {
+      "email": "mia.wallace@example.com",
+      "phone": "+91-9811111012"
+    },
+    "location": "New Delhi",
+    "skills": [
+      "machine learning",
+      "React",
+      "Java",
+      "AWS"
+    ],
+    "experience": [
+      {
+        "company_name": "Apple",
+        "role": "CTO",
+        "from_date": "2015-01-01",
+        "to_date": "2017-12-31"
+      },
+      {
+        "company_name": "Consulting Corp",
+        "role": "CTO",
+        "from_date": "2018-01-01",
+        "to_date": null
+      },
+      {
+        "company_name": "Apple",
+        "role": "Principal Engineer",
+        "from_date": "2021-01-01",
+        "to_date": "2023-12-31"
+      },
+      {
+        "company_name": "Freelance",
+        "role": "Intern",
+        "from_date": "2024-01-01",
+        "to_date": null
+      }
+    ],
+    "education": [
+      {
+        "degree_name": "B.S. Computer Science",
+        "school": "State University",
+        "grad_year": "2014"
+      }
+    ],
+    "metadata": {
+      "salary": "$150,000",
+      "visa": "US Citizen",
+      "recruiter_notes": "Great candidate, follow up."
+    }
+  },
+  {
+    "id": "ATS-13-618",
+    "candidate_name": "Noah N. Carter",
+    "contact": {
+      "email": null,
+      "phone": "+1-415-555-1013"
+    },
+    "location": "New York",
+    "skills": [
+      "Rust",
+      "postgres",
+      "AWS",
+      "Go"
+    ],
+    "experience": [
+      {
+        "company_name": "Netflix",
+        "role": "DevOps Engineer",
+        "from_date": "2015-01-01",
+        "to_date": null
+      }
+    ],
+    "education": [
+      {
+        "degree_name": "Master of Science in ML",
+        "school": "State University",
+        "grad_year": "2014"
+      },
+      {
+        "degree_name": "High School Diploma",
+        "school": "State University",
+        "grad_year": "2010"
+      }
+    ],
+    "metadata": {
+      "salary": "$150,000",
+      "visa": "US Citizen",
+      "recruiter_notes": "Great candidate, follow up."
+    }
+  },
+  {
+    "id": "ATS-14-945",
+    "candidate_name": "Olivia H. Pope",
+    "contact": {
+      "email": null,
+      "phone": "(415)5551014"
+    },
+    "location": "New Delhi, India",
+    "skills": [
+      "Leadership",
+      "DevOps",
+      "Machine learning",
+      "NoSQL",
+      "Data Engineering",
+      "postgres"
+    ],
+    "experience": [
+      {
+        "company_name": "Startup Inc.",
+        "role": "Product Manager",
+        "from_date": "2015-01-01",
+        "to_date": "2017-12-31"
+      },
+      {
+        "company_name": "Amazon",
+        "role": "Software Engineer",
+        "from_date": "2018-01-01",
+        "to_date": "2020-12-31"
+      },
+      {
+        "company_name": "Freelance",
+        "role": "Senior Engineer",
+        "from_date": "2021-01-01",
+        "to_date": null
+      }
+    ],
+    "education": [],
+    "metadata": {
+      "salary": "$150,000",
+      "visa": "US Citizen",
+      "recruiter_notes": "Great candidate, follow up."
+    }
+  },
+  {
+    "id": "ATS-15-629",
+    "candidate_name": "Peter X. Parker",
+    "contact": {
+      "email": "peterparker@company.com",
+      "phone": "4155551015"
+    },
+    "location": "Seattle",
+    "skills": [
+      "AWS",
+      "C++",
+      "Azure",
+      "Security"
+    ],
+    "experience": [
+      {
+        "company_name": "Consulting Corp",
+        "role": "Data Scientist",
+        "from_date": "2015-01-01",
+        "to_date": "2017-12-31"
+      }
+    ],
+    "education": [],
+    "metadata": {
+      "salary": "$150,000",
+      "visa": "US Citizen",
+      "recruiter_notes": "Great candidate, follow up."
+    }
+  },
+  {
+    "id": "ATS-16-349",
+    "candidate_name": "Quinn Fabray",
+    "contact": {
+      "email": "quinnfabray@company.com",
+      "phone": "+1 415 555 1016"
+    },
+    "location": "London",
+    "skills": [
+      "Kubernetes",
+      "NoSQL",
+      "Azure",
+      "Docker"
+    ],
+    "experience": [
+      {
+        "company_name": "Microsoft Corp",
+        "role": "Principal Engineer",
+        "from_date": "2015-01-01",
+        "to_date": "2017-12-31"
+      },
+      {
+        "company_name": "Apple",
+        "role": "Intern",
+        "from_date": "2018-01-01",
+        "to_date": "2020-12-31"
+      }
+    ],
+    "education": [],
+    "metadata": {
+      "salary": "$150,000",
+      "visa": "US Citizen",
+      "recruiter_notes": "Great candidate, follow up."
+    }
+  },
+  {
+    "id": "ATS-17-880",
+    "candidate_name": "Rachel X. Green",
+    "contact": {
+      "email": "rachel.green@example.com",
+      "phone": null
+    },
+    "location": "Austin",
+    "skills": [
+      "DevOps",
+      "Java",
+      "python",
+      "Leadership",
+      "Docker"
+    ],
+    "experience": [
+      {
+        "company_name": "Startup Inc.",
+        "role": "Intern",
+        "from_date": "2015-01-01",
+        "to_date": "2017-12-31"
+      },
+      {
+        "company_name": "Consulting Corp",
+        "role": "Software Engineer",
+        "from_date": "2018-01-01",
+        "to_date": null
+      }
+    ],
+    "education": [
+      {
+        "degree_name": "Master of Science in ML",
+        "school": "State University",
+        "grad_year": "2014"
+      },
+      {
+        "degree_name": "High School Diploma",
+        "school": "State University",
+        "grad_year": "2010"
+      }
+    ],
+    "metadata": {
+      "salary": "$150,000",
+      "visa": "US Citizen",
+      "recruiter_notes": "Great candidate, follow up."
+    }
+  },
+  {
+    "id": "ATS-18-229",
+    "candidate_name": "Steve Rogers",
+    "contact": {
+      "email": null,
+      "phone": "+1 415 555 1018"
+    },
+    "location": "New York",
+    "skills": [
+      "SQL",
+      "Docker"
+    ],
+    "experience": [
+      {
+        "company_name": "Google",
+        "role": "Product Manager",
+        "from_date": "2015-01-01",
+        "to_date": "2017-12-31"
+      },
+      {
+        "company_name": "Netflix",
+        "role": "Senior Engineer",
+        "from_date": "2018-01-01",
+        "to_date": "2020-12-31"
+      },
+      {
+        "company_name": "Consulting Corp",
+        "role": "DevOps Engineer",
+        "from_date": "2021-01-01",
+        "to_date": "2023-12-31"
+      }
+    ],
+    "education": [
+      {
+        "degree_name": "Master of Science in ML",
+        "school": "State University",
+        "grad_year": "2014"
+      },
+      {
+        "degree_name": "Master of Science in ML",
+        "school": "State University",
+        "grad_year": "2010"
+      }
+    ],
+    "metadata": {
+      "salary": "$150,000",
+      "visa": "US Citizen",
+      "recruiter_notes": "Great candidate, follow up."
+    }
+  },
+  {
+    "id": "ATS-20-551",
+    "candidate_name": "Ursula Buffay",
+    "contact": {
+      "email": "ursula.buffay@example.com",
+      "phone": "+91-9811111020"
+    },
+    "location": "London",
+    "skills": [
+      "Machine Learning",
+      "React"
+    ],
+    "experience": [
+      {
+        "company_name": "Apple",
+        "role": "Product Manager",
+        "from_date": "2015-01-01",
+        "to_date": "2017-12-31"
+      }
+    ],
+    "education": [
+      {
+        "degree_name": "Online Bootcamp",
+        "school": "State University",
+        "grad_year": "2014"
+      }
+    ],
+    "metadata": {
+      "salary": "$150,000",
+      "visa": "US Citizen",
+      "recruiter_notes": "Great candidate, follow up."
+    }
+  },
+  {
+    "id": "ATS-21-930",
+    "candidate_name": "Victor Stone",
+    "contact": {
+      "email": null,
+      "phone": "+1 415 555 1021"
+    },
+    "location": "Austin",
+    "skills": [
+      "Java",
+      "kubernetes",
+      "Node.js",
+      "Javascript"
+    ],
+    "experience": [
+      {
+        "company_name": "Freelance",
+        "role": "Intern",
+        "from_date": "2015-01-01",
+        "to_date": null
+      },
+      {
+        "company_name": "Freelance",
+        "role": "Principal Engineer",
+        "from_date": "2018-01-01",
+        "to_date": "2020-12-31"
+      },
+      {
+        "company_name": "Legacy Systems LLC",
+        "role": "Software Engineer",
+        "from_date": "2021-01-01",
+        "to_date": "2023-12-31"
+      },
+      {
+        "company_name": "Consulting Corp",
+        "role": "Principal Engineer",
+        "from_date": "2024-01-01",
+        "to_date": "2026-12-31"
+      }
+    ],
+    "education": [],
+    "metadata": {
+      "salary": "$150,000",
+      "visa": "US Citizen",
+      "recruiter_notes": "Great candidate, follow up."
+    }
+  },
+  {
+    "id": "ATS-22-412",
+    "candidate_name": "Wanda X. Maximoff",
+    "contact": {
+      "email": "wanda.maximoff@example.com",
+      "phone": "09811111022"
+    },
+    "location": "New York",
+    "skills": [
+      "Security",
+      "Node.js",
+      "Leadership",
+      "React",
+      "NoSQL",
+      "Docker"
+    ],
+    "experience": [
+      {
+        "company_name": "Facebook",
+        "role": "Data Scientist",
+        "from_date": "2015-01-01",
+        "to_date": "2017-12-31"
+      },
+      {
+        "company_name": "Google LLC",
+        "role": "Data Scientist",
+        "from_date": "2018-01-01",
+        "to_date": "2020-12-31"
+      },
+      {
+        "company_name": "Legacy Systems LLC",
+        "role": "Product Manager",
+        "from_date": "2021-01-01",
+        "to_date": "2023-12-31"
+      },
+      {
+        "company_name": "Startup Inc.",
+        "role": "Principal Engineer",
+        "from_date": "2024-01-01",
+        "to_date": "2026-12-31"
+      }
+    ],
+    "education": [
+      {
+        "degree_name": "Master of Science in ML",
+        "school": "State University",
+        "grad_year": "2014"
+      },
+      {
+        "degree_name": "Online Bootcamp",
+        "school": "State University",
+        "grad_year": "2010"
+      }
+    ],
+    "metadata": {
+      "salary": "$150,000",
+      "visa": "US Citizen",
+      "recruiter_notes": "Great candidate, follow up."
+    }
+  },
+  {
+    "id": "ATS-24-823",
+    "candidate_name": "Yara Shahidi",
+    "contact": {
+      "email": null,
+      "phone": "09811111024"
+    },
+    "location": "New York",
+    "skills": [
+      "React",
+      "Rust",
+      "NoSQL"
+    ],
+    "experience": [
+      {
+        "company_name": "Amazon",
+        "role": "DevOps Engineer",
+        "from_date": "2015-01-01",
+        "to_date": "2017-12-31"
+      }
+    ],
+    "education": [
+      {
+        "degree_name": "High School Diploma",
+        "school": "State University",
+        "grad_year": "2014"
+      },
+      {
+        "degree_name": "Minor in Mathematics",
+        "school": "State University",
+        "grad_year": "2010"
+      }
+    ],
+    "metadata": {
+      "salary": "$150,000",
+      "visa": "US Citizen",
+      "recruiter_notes": "Great candidate, follow up."
+    }
   }
 ]

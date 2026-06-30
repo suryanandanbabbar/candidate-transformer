@@ -13,6 +13,66 @@ class DeterministicEntityResolutionStrategy(EntityResolutionStrategy):
     3. Exact Name match (if both have the same non-empty normalized name)
     """
 
+    def _normalize_name(self, name: str) -> dict[str, Any]:
+        import re
+        clean_name = re.sub(r'[^\w\s]', '', str(name).lower()).strip()
+        tokens = clean_name.split()
+        if not tokens:
+            return {}
+        
+        nicknames = {
+            "bob": "robert",
+            "bill": "william",
+            "dick": "richard",
+            "chuck": "charles",
+            "jim": "james",
+            "dave": "david",
+            "tom": "thomas",
+            "mike": "michael",
+            "andy": "andrew"
+        }
+        
+        first = tokens[0]
+        first = nicknames.get(first, first)
+        last = tokens[-1] if len(tokens) > 1 else ""
+        
+        middle = []
+        if len(tokens) > 2:
+            middle = tokens[1:-1]
+            
+        return {"first": first, "last": last, "middle": middle, "tokens": tokens}
+
+    def _names_match(self, name_a: str, name_b: str) -> bool:
+        if not name_a or not name_b:
+            return False
+            
+        norm_a = self._normalize_name(name_a)
+        norm_b = self._normalize_name(name_b)
+        
+        if not norm_a or not norm_b:
+            return False
+            
+        if not norm_a["last"] and not norm_b["last"]:
+            return norm_a["first"] == norm_b["first"]
+            
+        if norm_a["first"] != norm_b["first"] or norm_a["last"] != norm_b["last"]:
+            return False
+            
+        mid_a = norm_a.get("middle", [])
+        mid_b = norm_b.get("middle", [])
+        
+        if mid_a and mid_b:
+            m_a = mid_a[0]
+            m_b = mid_b[0]
+            if len(m_a) == 1 or len(m_b) == 1:
+                if m_a[0] != m_b[0]:
+                    return False
+            else:
+                if m_a != m_b:
+                    return False
+                    
+        return True
+
     def match(self, record_a: dict[str, Any], record_b: dict[str, Any]) -> bool:
         # 1. Phone Match
         phones_a = set(record_a.get("phones") or [])
@@ -27,13 +87,7 @@ class DeterministicEntityResolutionStrategy(EntityResolutionStrategy):
             return True
 
         # 3. Exact Name Match
-        name_a = record_a.get("full_name")
-        name_b = record_b.get("full_name")
-        if name_a and name_b:
-            # Simple normalization for comparison (lowercase, strip whitespace)
-            clean_a = " ".join(str(name_a).lower().split())
-            clean_b = " ".join(str(name_b).lower().split())
-            if clean_a == clean_b and clean_a != "":
-                return True
+        if self._names_match(record_a.get("full_name"), record_b.get("full_name")):
+            return True
 
         return False

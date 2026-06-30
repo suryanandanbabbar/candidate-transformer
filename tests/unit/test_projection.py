@@ -123,8 +123,7 @@ def test_analytics_deduplication():
     
     assert result["companies_worked_at"] == [
         "TechCorp",
-        "Legacy Systems LLC",
-        "TechCorp Inc."
+        "Legacy Systems LLC"
     ]
     
     assert result["degrees"] == [

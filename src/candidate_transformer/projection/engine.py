@@ -7,22 +7,83 @@ from candidate_transformer.exceptions import ProjectionError
 from candidate_transformer.normalizers import normalizer_registry
 
 
+from dateutil import parser
+
 class ProjectionEngine:
     """
     Reshapes a Candidate domain model into a final output dictionary
     based on a user-provided OutputConfig.
     """
 
+    def _compute_experience(self, candidate: Candidate) -> float | None:
+        return candidate.computed_experience
+
+    def _compute_unique_companies(self, candidate: Candidate) -> list[str]:
+        seen = set()
+        unique = []
+        
+        def norm_company(c: str) -> str:
+            c = c.lower()
+            c = re.sub(r'\b(inc\.?|llc\.?|ltd\.?|corp\.?|corporation)\b', '', c)
+            c = re.sub(r'[^\w\s]', '', c)
+            return " ".join(c.split())
+            
+        for exp in candidate.experience:
+            if not exp.company:
+                continue
+            comp = exp.company.strip()
+            # Filter out bullet points that bled into company field
+            if comp.startswith(('*', '-', '•')) or len(comp) > 50:
+                continue
+            
+            norm = norm_company(comp)
+            if norm and norm not in seen:
+                seen.add(norm)
+                unique.append(comp)
+        return unique
+
+    def _compute_unique_skills(self, candidate: Candidate) -> list[str]:
+        seen = set()
+        unique = []
+        for skill in candidate.skills:
+            if not skill.name:
+                continue
+            norm = skill.name.strip().lower()
+            if norm and norm not in seen:
+                seen.add(norm)
+                unique.append(skill.name.strip())
+        return unique
+
+    def _compute_unique_degrees(self, candidate: Candidate) -> list[str]:
+        seen = set()
+        unique = []
+        for ed in candidate.education:
+            if not ed.degree:
+                continue
+            norm = ed.degree.strip().lower()
+            if norm and norm not in seen:
+                seen.add(norm)
+                unique.append(ed.degree.strip())
+        return unique
+
     def project(self, candidate: Candidate, config: OutputConfig) -> dict[str, Any]:
         result: dict[str, Any] = {}
         data = candidate.model_dump()
 
-        for field_config in config.fields:
-            # Determine source path
-            source_path = field_config.from_path if field_config.from_path else field_config.path
+        derivations = {
+            "total_experience": self._compute_experience,
+            "companies_worked_at": self._compute_unique_companies,
+            "skill_names": self._compute_unique_skills,
+            "degrees": self._compute_unique_degrees
+        }
 
-            # Extract value
-            value = self._extract_value(data, source_path)
+        for field_config in config.fields:
+            # Check if this field should be derived by BI rules
+            if field_config.path in derivations:
+                value = derivations[field_config.path](candidate)
+            else:
+                source_path = field_config.from_path if field_config.from_path else field_config.path
+                value = self._extract_value(data, source_path)
 
             # Apply normalizer if requested
             # Bypass normalization for companies_worked_at to preserve original strings

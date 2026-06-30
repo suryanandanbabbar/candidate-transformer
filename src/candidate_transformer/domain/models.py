@@ -79,7 +79,68 @@ class Candidate(BaseModel):
     projects: list[Project] = Field(default_factory=list)
     languages: list[str] = Field(default_factory=list)
     provenance: list[Provenance] = Field(default_factory=list)
-    overall_confidence: float = 0.0
+    overall_confidence: float = Field(
+        default=0.0,
+        description="Represents confidence in the merged candidate profile after source reconciliation. "
+                    "This is not the arithmetic average of individual field confidences. "
+                    "It reflects the overall quality and completeness of the merged canonical profile."
+    )
+
+    @property
+    def computed_experience(self) -> float | None:
+        import datetime
+        from dateutil import parser
+        import re
+        intervals = []
+        for exp in self.experience:
+            start_str = exp.start
+            end_str = exp.end
+            if not start_str:
+                continue
+            
+            try:
+                start_dt = parser.parse(start_str)
+            except Exception:
+                continue
+                
+            end_dt = datetime.datetime.now(datetime.UTC).replace(tzinfo=None)
+            if end_str and end_str.lower() not in ("present", "current", "now", ""):
+                try:
+                    end_dt = parser.parse(end_str)
+                except Exception:
+                    pass
+            
+            if start_dt.tzinfo: start_dt = start_dt.replace(tzinfo=None)
+            if end_dt.tzinfo: end_dt = end_dt.replace(tzinfo=None)
+            
+            if start_dt > end_dt:
+                start_dt, end_dt = end_dt, start_dt
+                
+            intervals.append((start_dt, end_dt))
+            
+        if not intervals:
+            if self.years_experience is not None:
+                return float(self.years_experience)
+            if self.summary:
+                match = re.search(r'(\d+)\+?\s*years?\s*of\s*(?:expertise|experience)', self.summary, re.IGNORECASE)
+                if match:
+                    return float(match.group(1))
+            return None
+            
+        intervals.sort(key=lambda x: x[0])
+        merged = []
+        for current in intervals:
+            if not merged:
+                merged.append(current)
+            else:
+                last = merged[-1]
+                if current[0] <= last[1]:
+                    merged[-1] = (last[0], max(last[1], current[1]))
+                else:
+                    merged.append(current)
+                    
+        total_days = sum((e - s).days for s, e in merged)
+        return round(total_days / 365.25, 2)
 
 class CanonicalDataset(BaseModel):
     """

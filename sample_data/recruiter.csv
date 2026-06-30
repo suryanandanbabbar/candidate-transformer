@@ -1,6 +1,22 @@
-name,primary_email,secondary_email,primary_phone,secondary_phone,current_company,title,skills,years_experience,city,region,country,linkedin,github,portfolio,headline
-"Alice Smith","alice.smith@example.com","alice@techcorp.com","+14155551234","555-555-1234","TechCorp","Senior Engineer","Python; Kubernetes; Docker",7,"San Francisco","CA","US","https://linkedin.com/in/alicesmith","https://github.com/alicesmith","https://alicesmith.dev","Senior Backend Engineer building scalable systems"
-"Robert Jones","bobjones@gmail.com","","555-987-6543","","StartUp Inc","Data Scientist","Machine Learning; Pandas; SQL",3,"New York","NY","US","https://linkedin.com/in/bobjones","","",
-"Alice Smith-Doe","alice@techcorp.com","","(415) 555-1234","","TechCorp Inc.","Staff Engineer","Python; Go; AWS",8,"","","","","","",
-"Carol White","","","1234567890","","Unknown","Developer","","","London","ENG","GB","","","",
-"Dave","dave.dev@example.org","","+44 20 7123 4567","","","Backend Developer","Java",5,"","","","","","",
+Candidate Name,Email Address,Phone Number,Location,Years Experience,Skills,Priority Score,Current Company,Title,LinkedIn
+Robert Jones,robert.jones@example.com,+91-9811111000,New York,2,"python, DevOps",2,Consulting Corp,Senior Engineer,https://linkedin.com/in/robertjones
+Alice Smith,alicesmith@company.com,09811111001,Seattle,4,"Machine Learning, Data Engineering",4,Freelance,Data Scientist,https://linkedin.com/in/alicesmith
+Carol White,carol.white@example.com,+91-9811111002,San Francisco CA,2,"Leadership, DevOps, Docker, Machine Learning, NoSQL",2,Microsoft,Product Manager,https://linkedin.com/in/carolwhite
+Dave Johnson,dave.johnson@gmail.com,+1 415 555 1003,Austin,4,"NoSQL, PostgreSQL, Javascript, Machine Learning",4,Amazon,DevOps Engineer,https://linkedin.com/in/davejohnson
+Eve Adams,eveadams@company.com,+91-9811111004,Seattle,4,"""postgres, AWS""",3,Consulting Corp,Principal Engineer,https://linkedin.com/in/eveadams
+Frank Wright,frank.wright@gmail.com,4155551005,London,6,"Leadership, React",4,Netflix,Intern,https://linkedin.com/in/frankwright
+Grace Hopper,gracehopper@company.com,09811111006,New York,8,"Java, Kubernetes",4,Amazon,Intern,https://linkedin.com/in/gracehopper
+Ivan Q. Drago,ivandrago@company.com,+1 415 555 1008,New Delhi,6,"""PostgreSQL, Leadership""",4,Startup Inc.,Senior Engineer,https://linkedin.com/in/ivandrago
+Judy Garland,judy.garland@example.com,4155551009,Austin,8,"""machine learning, Azure, NoSQL, Security, React""",1,Netflix,Software Engineer,https://linkedin.com/in/judygarland
+Ken Thompson,ken.thompson@gmail.com,4155551010,Seattle,8,"Leadership, Go",5,Amazon,DevOps Engineer,https://linkedin.com/in/kenthompson
+Mia Wallace,miawallace@company.com,09811111012,Delhi,8,"Rust, ML, React, Java, AWS",4,Freelance,Intern,https://linkedin.com/in/miawallace
+Noah Carter,noah.carter@example.com,(415)5551013,New York,2,"Rust, GCP, Postgres, AWS, Java, Go",3,Netflix,DevOps Engineer,https://linkedin.com/in/noahcarter
+Olivia Pope,olivia.pope@example.com,(415)5551014,"""New Delhi, India""",6,"Leadership, DevOps, Machine Learning, NoSQL, Data Engineering, postgres",4,Freelance,Senior Engineer,https://linkedin.com/in/oliviapope
+Quinn W. Fabray,quinn.fabray@gmail.com,09811111016,London,4,"kubernetes, NoSQL, Azure, Docker",4,Apple,Intern,https://linkedin.com/in/quinnfabray
+Steve Rogers,steverogers@company.com,+1 415 555 1018,New York,6,"SQL, Azure, Docker, Node.js",2,Consulting Corp,DevOps Engineer,https://linkedin.com/in/steverogers
+Steve Rogers,steverogers@company.com,4155551018,New York,6,"SQL, Azure, Docker, Node.js",1,Consulting Corp,DevOps Engineer,https://linkedin.com/in/steverogers
+Tony Stark,tony.stark@example.com,+1-415-555-1019,Austin,8,"""Node.js, PYTHON, AWS""",1,Startup Inc.,Product Manager,https://linkedin.com/in/tonystark
+Ursula Buffay,ursula.buffay@example.com,(415)5551020,London,2,"Machine Learning, React",5,Apple,Product Manager,https://linkedin.com/in/ursulabuffay
+Victor Stone,victor.stone@example.com,+1-415-555-1021,Austin,8,"""Java, kubernetes, Node.js, Javascript""",2,Consulting Corp,Principal Engineer,https://linkedin.com/in/victorstone
+Xavier F. Charles,xavier.charles@example.com,+1-415-555-1023,New York,4,"GCP, Postgres, Leadership, Go",1,Netflix,CTO,https://linkedin.com/in/xaviercharles
+Yara Shahidi,yara.shahidi@gmail.com,4155551024,New York,2,"""React, Rust, NoSQL""",2,Amazon,DevOps Engineer,https://linkedin.com/in/yarashahidi

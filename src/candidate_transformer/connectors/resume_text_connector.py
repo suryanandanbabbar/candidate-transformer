@@ -23,66 +23,145 @@ class ResumeTextConnector(BaseConnector):
     def fetch(self) -> Iterator[RawRecord]:
         try:
             text = self.file_stream.read()
-            lines = [line.strip() for line in text.split("\n") if line.strip()]
-            if not lines:
-                return
+            # Split into individual resumes by delimiter
+            import re
+            raw_resumes = re.split(r'\*{5,}', text)
+            
+            for resume_text in raw_resumes:
+                resume_text = resume_text.strip()
+                if not resume_text:
+                    continue
 
-            email_match = re.search(r"[\w\.-]+@[\w\.-]+\.\w+", text)
-            phone_match = re.search(r"\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}", text)
-            name = lines[0] if len(lines[0]) < 50 else None
+                lines = [line.strip() for line in resume_text.split("\n") if line.strip()]
+                if not lines:
+                    continue
 
-            sections: dict[str, list[str]] = {}
-            current_section = None
+                email_match = re.search(r"[\w\.-]+@[\w\.-]+\.\w+", resume_text)
+                phone_match = re.search(r"\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}", resume_text)
+                
+                name = None
+                for line in lines[:10]:
+                    # Plausible human name heuristic
+                    clean_line = re.sub(r'[^a-zA-Z0-9]', '', line)
+                    if not clean_line: continue
+                    if "@" in line or "http" in line or "www." in line: continue
+                    
+                    lower_line = line.lower()
+                    if "page " in lower_line or "resume" in lower_line or "curriculum vitae" in lower_line: continue
+                    if "contact" in lower_line or "summary" in lower_line or "skills" in lower_line: continue
+                    if not any(c.isalpha() for c in line): continue
+                    
+                    if lower_line.startswith("name:"):
+                        name = line[5:].strip()
+                    else:
+                        name = line
+                    break
 
-            for line in lines[1:]:
-                # Heuristic for section headers (all caps, short)
-                if line.isupper() and len(line) < 30:
-                    current_section = line
-                    sections[current_section] = []
-                elif current_section:
-                    sections[current_section].append(line)
+                # Extract location from a pipe-delimited contact line
+                contact_location = None
+                for line in lines[:15]:
+                    if "|" in line:
+                        parts = [p.strip() for p in line.split("|")]
+                        for part in parts:
+                            if "@" not in part and not re.search(r"\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}", part):
+                                # It's not an email and not a phone, so it's likely the location
+                                if len(part) > 2 and len(part) < 50:
+                                    contact_location = part
+                                    break
+                        if contact_location:
+                            break
 
-            from typing import Any
+                sections: dict[str, list[str]] = {}
+                current_section = None
+                
+                section_aliases = {
+                    "WORK": "EXPERIENCE",
+                    "EMPLOYMENT": "EXPERIENCE",
+                    "CAREER HISTORY": "EXPERIENCE",
+                    "WORK EXPERIENCE": "EXPERIENCE",
+                    "EXPERIENCE": "EXPERIENCE",
+                    "EMPLOYMENT HISTORY": "EXPERIENCE",
+                    "SKILLS": "SKILLS",
+                    "TECHNICAL SKILLS": "SKILLS",
+                    "CORE COMPETENCIES": "SKILLS",
+                    "EDUCATION": "EDUCATION",
+                    "ACADEMICS": "EDUCATION",
+                    "PROJECTS": "PROJECTS",
+                    "SUMMARY": "PROFESSIONAL SUMMARY",
+                    "PROFESSIONAL SUMMARY": "PROFESSIONAL SUMMARY",
+                    "CERTIFICATIONS": "CERTIFICATIONS",
+                    "LANGUAGES": "LANGUAGES",
+                    "LINKS": "LINKS",
+                    "LOCATION": "LOCATION",
+                    "HEADLINE": "HEADLINE",
+                    "TITLE": "HEADLINE",
+                }
 
-            extracted_data: dict[str, Any] = {
-                "extracted_email": email_match.group(0) if email_match else None,
-                "extracted_phone": phone_match.group(0) if phone_match else None,
-                "extracted_name": name,
-                "raw_text": text,
-            }
+                for line in lines:
+                    if line == name: continue
+                    # Normalize header: remove punctuation, trim, uppercase
+                    clean_header = re.sub(r'[^\w\s]', '', line).strip().upper()
+                    if len(clean_header) > 0 and len(clean_header) < 30 and clean_header in section_aliases:
+                        current_section = section_aliases[clean_header]
+                        if current_section not in sections:
+                            sections[current_section] = []
+                    elif current_section:
+                        sections[current_section].append(line)
 
-            if "LOCATION" in sections and sections["LOCATION"]:
-                extracted_data["extracted_location"] = sections["LOCATION"][0]
+                from typing import Any
 
-            if "LINKS" in sections:
-                extracted_data["extracted_links"] = sections["LINKS"]
+                extracted_data: dict[str, Any] = {
+                    "extracted_email": email_match.group(0) if email_match else None,
+                    "extracted_phone": phone_match.group(0) if phone_match else None,
+                    "extracted_name": name,
+                    "raw_text": resume_text,
+                }
 
-            if "PROFESSIONAL SUMMARY" in sections:
-                extracted_data["extracted_summary"] = " ".join(sections["PROFESSIONAL SUMMARY"])
+                if "LOCATION" in sections and sections["LOCATION"]:
+                    extracted_data["extracted_location"] = sections["LOCATION"][0]
+                elif contact_location:
+                    extracted_data["extracted_location"] = contact_location
 
-            if "PROJECTS" in sections:
-                extracted_data["extracted_projects"] = sections["PROJECTS"]
+                if "HEADLINE" in sections and sections["HEADLINE"]:
+                    extracted_data["headline"] = sections["HEADLINE"][0]
 
-            if "CERTIFICATIONS" in sections:
-                extracted_data["extracted_certifications"] = sections["CERTIFICATIONS"]
+                # Extract all URLs from the resume text using regex
+                url_matches = re.findall(r'https?://[^\s]+|www\.[^\s]+', resume_text)
+                if url_matches:
+                    extracted_data["extracted_links"] = url_matches
 
-            if "LANGUAGES" in sections:
-                extracted_data["extracted_languages"] = sections["LANGUAGES"]
+                if "LINKS" in sections:
+                    if "extracted_links" not in extracted_data:
+                        extracted_data["extracted_links"] = []
+                    extracted_data["extracted_links"].extend(sections["LINKS"])
 
-            if "SKILLS" in sections:
-                extracted_data["extracted_skills"] = " ".join(sections["SKILLS"])
+                if "PROFESSIONAL SUMMARY" in sections:
+                    extracted_data["extracted_summary"] = " ".join(sections["PROFESSIONAL SUMMARY"])
 
-            if "EXPERIENCE" in sections:
-                extracted_data["extracted_experience"] = sections["EXPERIENCE"]
+                if "PROJECTS" in sections:
+                    extracted_data["extracted_projects"] = sections["PROJECTS"]
 
-            if "EDUCATION" in sections:
-                extracted_data["extracted_education"] = sections["EDUCATION"]
+                if "CERTIFICATIONS" in sections:
+                    extracted_data["extracted_certifications"] = sections["CERTIFICATIONS"]
 
-            yield RawRecord(
-                source_name=self.source_name,
-                source_type="resume_text",
-                timestamp=datetime.utcnow().isoformat(),
-                raw_data={k: v for k, v in extracted_data.items() if v},
-            )
+                if "LANGUAGES" in sections:
+                    extracted_data["extracted_languages"] = sections["LANGUAGES"]
+
+                if "SKILLS" in sections:
+                    # Keep as list instead of joining
+                    extracted_data["extracted_skills"] = sections["SKILLS"]
+
+                if "EXPERIENCE" in sections:
+                    extracted_data["extracted_experience"] = sections["EXPERIENCE"]
+
+                if "EDUCATION" in sections:
+                    extracted_data["extracted_education"] = sections["EDUCATION"]
+
+                yield RawRecord(
+                    source_name=self.source_name,
+                    source_type="resume_text",
+                    timestamp=datetime.utcnow().isoformat(),
+                    raw_data={k: v for k, v in extracted_data.items() if v},
+                )
         except Exception as e:
             raise ConnectorError(f"Failed to read text from {self.source_name}: {e}") from e

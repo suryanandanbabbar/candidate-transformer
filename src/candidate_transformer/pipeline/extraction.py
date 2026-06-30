@@ -55,25 +55,22 @@ class ExtractionStage(PipelineStage):
             }
 
             # Map Name
-            if data.get("full_name"):
-                record["full_name"] = data.get("full_name")
-            elif data.get("name"):
-                record["full_name"] = data.get("name")
-            elif data.get("extracted_name"):
-                record["full_name"] = data.get("extracted_name")
-            elif data.get("first_name") and data.get("last_name"):
+            name_keys = ["full_name", "name", "Candidate Name", "candidate_name", "extracted_name"]
+            for k in name_keys:
+                if data.get(k):
+                    record["full_name"] = data.get(k)
+                    break
+            
+            if "full_name" not in record and data.get("first_name") and data.get("last_name"):
                 record["full_name"] = f"{data.get('first_name')} {data.get('last_name')}"
 
             # Map Emails
             emails = []
-            if data.get("email"):
-                emails.append(data.get("email"))
-            if data.get("primary_email"):
-                emails.append(data.get("primary_email"))
-            if data.get("secondary_email"):
-                emails.append(data.get("secondary_email"))
-            if data.get("extracted_email"):
-                emails.append(data.get("extracted_email"))
+            email_keys = ["email", "primary_email", "secondary_email", "extracted_email", "Email Address", "email_address"]
+            for k in email_keys:
+                if data.get(k):
+                    emails.append(data.get(k))
+                    
             if data.get("contact") and isinstance(data["contact"], dict):
                 if data["contact"].get("email"):
                     emails.append(data["contact"]["email"])
@@ -83,16 +80,11 @@ class ExtractionStage(PipelineStage):
 
             # Map Phones
             phones = []
-            if data.get("phone"):
-                phones.append(data.get("phone"))
-            if data.get("primary_phone"):
-                phones.append(data.get("primary_phone"))
-            if data.get("secondary_phone"):
-                phones.append(data.get("secondary_phone"))
-            if data.get("mobile"):
-                phones.append(data.get("mobile"))
-            if data.get("extracted_phone"):
-                phones.append(data.get("extracted_phone"))
+            phone_keys = ["phone", "primary_phone", "secondary_phone", "mobile", "extracted_phone", "Phone Number", "phone_number"]
+            for k in phone_keys:
+                if data.get(k):
+                    phones.append(data.get(k))
+                    
             if data.get("contact") and isinstance(data["contact"], dict):
                 if data["contact"].get("mobile"):
                     phones.append(data["contact"]["mobile"])
@@ -105,18 +97,22 @@ class ExtractionStage(PipelineStage):
             # Map Skills
             if data.get("skills"):
                 if isinstance(data["skills"], list):
-                    record["skills"] = data["skills"]
+                    record["skills"] = [s.lstrip('- ').strip() for s in data["skills"] if s.strip()]
                 elif isinstance(data["skills"], str):
                     record["skills"] = [s.strip() for s in data["skills"].replace(";", ",").split(",") if s.strip()]
             elif data.get("extracted_skills"):
-                record["skills"] = [
-                    s.strip() for s in data.get("extracted_skills", "").replace(";", ",").split(",") if s.strip()
-                ]
+                if isinstance(data["extracted_skills"], list):
+                    record["skills"] = [s.lstrip('- ').strip() for s in data["extracted_skills"] if s.strip()]
+                else:
+                    record["skills"] = [
+                        s.strip() for s in data.get("extracted_skills", "").replace(";", ",").split(",") if s.strip()
+                    ]
 
             # Map Experience
             experiences = []
-            exp_years = data.get("years_experience")
-            if exp_years:
+            exp_keys = ["years_experience", "Years Experience", "Experience (Years)", "experience_years", "Years of Experience"]
+            exp_years = next((data.get(k) for k in exp_keys if data.get(k) is not None), None)
+            if exp_years is not None:
                 try:
                     record["years_experience"] = float(exp_years)
                 except ValueError:
@@ -136,10 +132,43 @@ class ExtractionStage(PipelineStage):
                         }
                     )
             if data.get("extracted_experience"):
+                import re
+                current_exp = None
                 for line in data.get("extracted_experience", []):
-                    if "-" in line:
+                    line = line.strip()
+                    if not line:
+                        continue
+                    
+                    if line.startswith(('*', '-', '•')):
+                        if current_exp is not None:
+                            bullet = line.lstrip('*-•').strip()
+                            if current_exp.get("summary"):
+                                current_exp["summary"] += f"\n- {bullet}"
+                            else:
+                                current_exp["summary"] = f"- {bullet}"
+                        continue
+
+                    # Try to parse "Title at Company (Date)" format
+                    match = re.search(r"(.+?) at (.+?) \((.+?)\)", line)
+                    if match:
+                        current_exp = {"title": match.group(1).strip(), "company": match.group(2).strip()}
+                        date_str = match.group(3).strip()
+                        if " - " in date_str:
+                            start, end = date_str.split(" - ", 1)
+                            current_exp["start"] = start.strip()
+                            current_exp["end"] = end.strip()
+                        elif "-" in date_str:
+                            start, end = date_str.split("-", 1)
+                            current_exp["start"] = start.strip()
+                            current_exp["end"] = end.strip()
+                        experiences.append(current_exp)
+                    elif "-" in line:
                         parts = line.split("-", 1)
-                        experiences.append({"company": parts[0].strip(), "title": parts[1].strip()})
+                        current_exp = {"company": parts[0].strip(), "title": parts[1].strip()}
+                        experiences.append(current_exp)
+                    else:
+                        current_exp = {"company": line.strip(), "title": ""}
+                        experiences.append(current_exp)
             record["experience"] = experiences
 
             # Map Education
@@ -156,8 +185,12 @@ class ExtractionStage(PipelineStage):
                     )
             if data.get("extracted_education"):
                 lines = data.get("extracted_education", [])
-                if len(lines) >= 2:
-                    education.append({"institution": lines[0], "degree": lines[1]})
+                for line in lines:
+                    parts = line.split(",", 1)
+                    if len(parts) == 2:
+                        education.append({"degree": parts[0].strip(), "institution": parts[1].strip()})
+                    else:
+                        education.append({"institution": line.strip(), "degree": ""})
             record["education"] = education
 
             # Map New Fields
@@ -232,12 +265,12 @@ class ExtractionStage(PipelineStage):
                 else:
                     links["other"].append(u)  # noqa: B023
 
-            if data.get("linkedin"):
-                add_link(data["linkedin"])
-            if data.get("github"):
-                add_link(data["github"])
-            if data.get("portfolio"):
-                add_link(data["portfolio"])
+            if data.get("linkedin") or data.get("LinkedIn"):
+                add_link(data.get("linkedin") or data.get("LinkedIn"))
+            if data.get("github") or data.get("GitHub"):
+                add_link(data.get("github") or data.get("GitHub"))
+            if data.get("portfolio") or data.get("Portfolio"):
+                add_link(data.get("portfolio") or data.get("Portfolio"))
 
             if data.get("extracted_links"):
                 for link in data["extracted_links"]:
@@ -247,33 +280,44 @@ class ExtractionStage(PipelineStage):
                 record["links"] = links
 
             # Map Location
-            location = {}
+            location = {"city": None, "region": None, "country": None}
+            has_location = False
+            
             if data.get("city"):
                 location["city"] = data["city"].title()
+                has_location = True
             if data.get("region"):
                 location["region"] = norm_region(data["region"])
+                has_location = True
             if data.get("country"):
                 location["country"] = norm_country(data["country"])
+                has_location = True
 
             if data.get("contact") and data["contact"].get("location"):
                 loc_dict = data["contact"]["location"]
                 if loc_dict.get("city") and not location.get("city"):
                     location["city"] = loc_dict["city"].title()
+                    has_location = True
                 if loc_dict.get("region") and not location.get("region"):
                     location["region"] = norm_region(loc_dict["region"])
+                    has_location = True
                 if loc_dict.get("country") and not location.get("country"):
                     location["country"] = norm_country(loc_dict["country"])
+                    has_location = True
 
             if data.get("extracted_location"):
                 parts = [p.strip() for p in data["extracted_location"].split(",")]
                 if len(parts) >= 1 and not location.get("city"):
                     location["city"] = parts[0].title()
+                    has_location = True
                 if len(parts) >= 2 and not location.get("region"):
                     location["region"] = norm_region(parts[1])
+                    has_location = True
                 if len(parts) >= 3 and not location.get("country"):
                     location["country"] = norm_country(parts[2])
+                    has_location = True
 
-            if location:
+            if has_location:
                 record["location"] = location
             else:
                 record["location"] = None

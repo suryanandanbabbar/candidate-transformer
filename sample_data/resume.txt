@@ -1,39 +1,528 @@
-Alice Smith
-Email: alice.smith@example.com
-Phone: 415.555.1234
+BOB JONES
+robert.jones@example.com | 09811111000 | New York
+LinkedIn: https://linkedin.com/in/bobjones
+GitHub: https://github.com/bobjones
 
-LOCATION
-San Francisco, California, US
-
-LINKS
-LinkedIn
-GitHub
-Portfolio
-
-PROFESSIONAL SUMMARY
-Built highly scalable distributed microservices serving millions of requests per day.
-Led backend platform modernization resulting in 40% performance gains.
-
-EXPERIENCE
-TechCorp - Staff Software Engineer
-Developed highly scalable microservices in Python and Go.
-Deployed using Kubernetes and AWS.
-
-PROJECTS
-Fraud Detection Platform
-Built using Kafka, Spark and Python.
-
-EDUCATION
-State University
-B.S. Computer Science
-
-CERTIFICATIONS
-AWS Certified Solutions Architect
-CKA
-
-LANGUAGES
-English
-German
+SUMMARY
+Experienced professional with 2 years of expertise.
 
 SKILLS
-Python, Go, Kubernetes, AWS, Docker
+- Python
+- DevOps
+
+EMPLOYMENT HISTORY
+Senior Engineer at Consulting Corp (2015-01-01 - 2017-12-31)
+
+
+********************************************************
+
+
+ALICE I. SMITH
+alice.smith@example.com | (415)5551001 | Seattle
+LinkedIn: https://linkedin.com/in/alicei.smith
+GitHub: https://github.com/alicei.smith
+
+SUMMARY
+Experienced professional with 4 years of expertise.
+
+SKILLS
+- Machine learning
+- Data Engineering
+
+EXPERIENCE
+Senior DevOps Engineer at Consulting Corp (2015-01-01 - 2017-12-31)
+Data Scientist at Freelance (2018-01-01 - 2020-12-31)
+
+
+********************************************************
+
+
+====================
+NAME: Carol N. White
+CONTACT: carol.white@example.com | 4155551002
+====================
+sKILLS:
+Leadership, DevOps, Docker, Machine learning, NoSQL
+
+EXPERIENCE
+Product Manager at MSFT (2015-01-01 - 2017-12-31)
+
+PROJECTS
+Cloud Migration: Built with Azure, Kubernetes
+Cloud Migration: Built with Go, Azure
+--- PAGE 2 ---
+
+
+********************************************************
+
+
+DAVE JOHNSON
+dave.johnson@example.com | +91-9811111003 | Austin
+LinkedIn: https://linkedin.com/in/davejohnson
+GitHub: https://github.com/davejohnson
+
+SUMMARY
+Experienced professional with 4 years of expertise.
+
+SKILLS
+- NoSQL
+- PostgreSQL
+- JavaScript
+- Machine Learning
+
+EXPERIENCE
+Senior Engineer at Apple (2015-01-01 - 2017-12-31)
+  * Led a team of engineers.
+  * Delivered major architectural milestones.
+Senior DevOps Engineer at Amazon (2018-01-01 - 2020-12-31)
+  * Led a team of engineers.
+  * Delivered major architectural milestones.
+
+EDUCATION
+PhD in Computer Vision, State University (2014)
+Master of Science in ML, State University (2010)
+
+PROJECTS
+ML Feature Store: Built with Machine Learning, DevOps
+
+
+********************************************************
+
+
+FRANK WRIGHT
+frank.wright@example.com | +1 415 555 1005 | London
+LinkedIn: https://linkedin.com/in/frankwright
+GitHub: https://github.com/frankwright
+
+SUMMARY
+Experienced professional with 6 years of expertise.
+
+SKILLS
+- Leadership
+- React
+
+work:
+CTO at Netflix (2015-01-01 - 2017-12-31)
+  * Led a team of engineers.
+  * Delivered major architectural milestones.
+Staff Engineer at Startup Inc. (2018-01-01 - 2020-12-31)
+  * Led a team of engineers.
+  * Delivered major architectural milestones.
+Senior Intern at Netflix (2021-01-01 - 2023-12-31)
+  * Led a team of engineers.
+  * Delivered major architectural milestones.
+
+EDUCATION
+High School Diploma, State University (2014)
+Minor in Mathematics, State University (2010)
+
+PROJECTS
+Cloud Migration: Built with Javascript, Data Engineering
+Large Language Model Gateway: Built with GCP, Rust
+
+
+********************************************************
+
+
+====================
+NAME: Grace Hopper
+CONTACT: grace.hopper@example.com | (415)5551006
+====================
+sKILLS:
+Java, Kubernetes
+
+EXPERIENCE
+Senior Engineer at Freelance (2015-01-01 - 2017-12-31)
+CTO at Freelance (2018-01-01 - 2020-12-31)
+Software Engineer at Consulting Corp (2021-01-01 - 2023-12-31)
+Intern at Amazon (2024-01-01 - 2026-12-31)
+
+EDUCATION
+PhD in Computer Vision, State University (2014)
+B.S. Computer Science, State University (2010)
+
+PROJECTS
+Cloud Migration: Built with AWS, C++
+--- PAGE 2 ---
+
+
+********************************************************
+
+
+HEIDI CRUZ
+heidi.cruz@example.com | 09811111007 | New York
+LinkedIn: https://linkedin.com/in/heidicruz
+GitHub: https://github.com/heidicruz
+
+SUMMARY
+Experienced professional with 2 years of expertise.
+
+SKILLS
+- DevOps
+- GCP
+
+work:
+Intern at Apple (2015-01-01 - 2017-12-31)
+  * Led a team of engineers.
+  * Delivered major architectural milestones.
+
+PROJECTS
+Large Language Model Gateway: Built with Azure, GCP
+
+
+********************************************************
+
+
+IVAN DRAGO
+ivandrago@company.com | 09811111008 | New Delhi, India
+LinkedIn: https://linkedin.com/in/ivandrago
+GitHub: https://github.com/ivandrago
+
+SUMMARY
+Experienced professional with 6 years of expertise.
+
+SKILLS
+- PostgreSQL
+- Leadership
+
+work:
+Principal Engineer at Apple (2015-01-01 - Present)
+  * Led a team of engineers.
+  * Delivered major architectural milestones.
+Senior Engineer at Freelance (2018-01-01 - Present)
+  * Led a team of engineers.
+  * Delivered major architectural milestones.
+Senior Engineer at Startup Inc. (2021-01-01 - 2023-12-31)
+  * Led a team of engineers.
+  * Delivered major architectural milestones.
+
+EDUCATION
+Master of Science in ML, State University (2014)
+Master of Science in ML, State University (2010)
+
+PROJECTS
+Cloud Migration: Built with Azure, AWS
+ML Feature Store: Built with GCP, PostgreSQL
+
+
+********************************************************
+
+
+JUDY GARLAND
+judy.garland@example.com | (415)5551009 | Austin
+LinkedIn: https://linkedin.com/in/judygarland
+GitHub: https://github.com/judygarland
+
+SUMMARY
+Experienced professional with 8 years of expertise.
+
+SKILLS
+- Machine Learning
+- Azure
+- NoSQL
+- Security
+- React
+
+EXPERIENCE
+CTO at Consulting Corp (2015-01-01 - Present)
+Senior Engineer at Netflix (2018-01-01 - 2020-12-31)
+Intern at Freelance (2021-01-01 - 2023-12-31)
+Software Engineer at Netflix (2024-01-01 - Present)
+
+EDUCATION
+B.S. Computer Science, State University (2014)
+Master of Science in ML, State University (2010)
+
+
+********************************************************
+
+
+KEN THOMPSON
+ken.thompson@gmail.com | 09811111010 | Seattle
+LinkedIn: https://linkedin.com/in/kenthompson
+GitHub: https://github.com/kenthompson
+
+SUMMARY
+Experienced professional with 8 years of expertise.
+
+SKILLS
+- Leadership
+- Go
+
+EXPERIENCE
+Intern at Netflix (2015-01-01 - Present)
+CTO at Freelance (2018-01-01 - 2020-12-31)
+DevOps Engineer at Startup Inc. (2021-01-01 - Present)
+DevOps Engineer at Amazon (2024-01-01 - 2026-12-31)
+
+EDUCATION
+Minor in Mathematics, State University (2014)
+
+PROJECTS
+Fraud Detection Platform: Built with NoSQL, Kubernetes
+Fraud Detection Platform: Built with React, Leadership
+
+
+********************************************************
+
+
+LIAM NEESON
+liam.neeson@gmail.com | (415)5551011 | New York
+LinkedIn: https://linkedin.com/in/liamneeson
+GitHub: https://github.com/liamneeson
+
+SUMMARY
+Experienced professional with 4 years of expertise.
+
+SKILLS
+- Data Engineering
+- Machine Learning
+
+EXPERIENCE
+Staff Engineer at Legacy Systems LLC (2015-01-01 - 2017-12-31)
+  * Led a team of engineers.
+  * Delivered major architectural milestones.
+Senior Senior Engineer at Netflix (2018-01-01 - 2020-12-31)
+  * Led a team of engineers.
+  * Delivered major architectural milestones.
+
+EDUCATION
+B.S. Computer Science, State University (2014)
+B.S. Computer Science, State University (2010)
+
+PROJECTS
+Distributed Logging Platform: Built with Python, Go
+Large Language Model Gateway: Built with AWS, Node.js
+
+
+********************************************************
+
+
+====================
+NAME: Mia Wallace
+CONTACT: miawallace@company.com | +91-9811111012
+====================
+sKILLS:
+Rust, Machine Learning, React, Java, AWS
+
+work:
+CTO at Apple (2015-01-01 - 2017-12-31)
+Senior CTO at Consulting Corp (2018-01-01 - Present)
+Principal Engineer at Apple (2021-01-01 - 2023-12-31)
+Senior Intern at Freelance (2024-01-01 - Present)
+
+EDUCATION
+B.S. Computer Science, State University (2014)
+--- PAGE 2 ---
+
+
+********************************************************
+
+
+====================
+NAME: Noah Carter
+CONTACT: noah.carter@example.com | 4155551013
+====================
+sKILLS:
+Rust, GCP, PostgreSQL, AWS, Java, Go
+
+EXPERIENCE
+DevOps Engineer at Netflix (2015-01-01 - Present)
+
+EDUCATION
+Master of Science in ML, State University (2014)
+High School Diploma, State University (2010)
+
+PROJECTS
+Fraud Detection Platform: Built with PostgreSQL, Go
+Cloud Migration: Built with SQL, NoSQL
+--- PAGE 2 ---
+
+
+********************************************************
+
+
+OLIVIA POPE
+oliviapope@company.com | 4155551014 | New Delhi
+LinkedIn: https://linkedin.com/in/oliviapope
+GitHub: https://github.com/oliviapope
+
+SUMMARY
+Experienced professional with 6 years of expertise.
+
+SKILLS
+- Leadership
+- DevOps
+- Machine learning
+- NoSQL
+- Data Engineering
+- postgres
+
+EXPERIENCE
+Product Manager at Startup Inc. (2015-01-01 - 2017-12-31)
+  * Led a team of engineers.
+  * Delivered major architectural milestones.
+Senior Software Engineer at Amazon (2018-01-01 - 2020-12-31)
+  * Led a team of engineers.
+  * Delivered major architectural milestones.
+Senior Engineer at Freelance (2021-01-01 - Present)
+  * Led a team of engineers.
+  * Delivered major architectural milestones.
+
+PROJECTS
+ML Feature Store: Built with Docker, Javascript
+Fraud Detection Platform: Built with Data Engineering, Javascript
+
+
+********************************************************
+
+
+QUINN FABRAY
+quinn.fabray@gmail.com | 09811111016 | London
+LinkedIn: https://linkedin.com/in/quinnfabray
+GitHub: https://github.com/quinnfabray
+
+SUMMARY
+Experienced professional with 4 years of expertise.
+
+SKILLS
+- Kubernetes
+- NoSQL
+- Azure
+- Docker
+
+EXPERIENCE
+Senior Principal Engineer at Microsoft (2015-01-01 - 2017-12-31)
+  * Led a team of engineers.
+  * Delivered major architectural milestones.
+Intern at Apple (2018-01-01 - 2020-12-31)
+  * Led a team of engineers.
+  * Delivered major architectural milestones.
+
+
+********************************************************
+
+
+STEVE Z. ROGERS
+steverogers@company.com | +1-415-555-1018 | New York
+LinkedIn: https://linkedin.com/in/stevez.rogers
+GitHub: https://github.com/stevez.rogers
+
+SUMMARY
+Experienced professional with 6 years of expertise.
+
+SKILLS
+- SQL
+- Azure
+- Docker
+- Node.js
+
+EXPERIENCE
+Product Manager at Google, LLC (2015-01-01 - 2017-12-31)
+  * Led a team of engineers.
+  * Delivered major architectural milestones.
+Senior Engineer at Netflix (2018-01-01 - 2020-12-31)
+  * Led a team of engineers.
+  * Delivered major architectural milestones.
+DevOps Engineer at Consulting Corp (2021-01-01 - 2023-12-31)
+  * Led a team of engineers.
+  * Delivered major architectural milestones.
+
+EDUCATION
+Master of Science in ML, State University (2014)
+Master of Science in ML, State University (2010)
+
+
+********************************************************
+
+
+====================
+NAME: Ursula Buffay
+CONTACT: ursulabuffay@company.com | 09811111020
+====================
+sKILLS:
+Machine Learning, React
+
+EXPERIENCE
+Product Manager at Apple (2015-01-01 - 2017-12-31)
+
+EDUCATION
+Online Bootcamp, State University (2014)
+
+PROJECTS
+ML Feature Store: Built with Python, Kubernetes
+ML Feature Store: Built with AWS, SQL
+--- PAGE 2 ---
+
+
+********************************************************
+
+
+WANDA MAXIMOFF
+wanda.maximoff@example.com | +91-9811111022 | New York
+LinkedIn: https://linkedin.com/in/wandamaximoff
+GitHub: https://github.com/wandamaximoff
+
+SUMMARY
+Experienced professional with 8 years of expertise.
+
+SKILLS
+- Security
+- Node.js
+- Leadership
+- React
+- NoSQL
+- Docker
+
+EMPLOYMENT HISTORY
+Data Scientist at Facebook (2015-01-01 - 2017-12-31)
+Senior Data Scientist at Google (2018-01-01 - 2020-12-31)
+Product Manager at Legacy Systems LLC (2021-01-01 - 2023-12-31)
+Senior Principal Engineer at Startup Inc. (2024-01-01 - 2026-12-31)
+
+EDUCATION
+Master of Science in ML, State University (2014)
+Online Bootcamp, State University (2010)
+
+
+********************************************************
+
+
+====================
+NAME: Xavier Charles
+CONTACT: xaviercharles@company.com | +1 415 555 1023
+====================
+sKILLS:
+GCP, PostgreSQL, Leadership, Go
+
+work:
+Staff Engineer at Netflix (2015-01-01 - Present)
+CTO at Netflix (2018-01-01 - 2020-12-31)
+
+PROJECTS
+Cloud Migration: Built with NoSQL, SQL
+--- PAGE 2 ---
+
+
+********************************************************
+
+
+YARA SHAHIDI
+yara.shahidi@example.com | 09811111024 | New York
+LinkedIn: https://linkedin.com/in/yarashahidi
+GitHub: https://github.com/yarashahidi
+
+SUMMARY
+Experienced professional with 2 years of expertise.
+
+SKILLS
+- React
+- Rust
+- NoSQL
+
+EXPERIENCE
+Senior DevOps Engineer at Amazon (2015-01-01 - 2017-12-31)
+
+EDUCATION
+High School Diploma, State University (2014)
+Minor in Mathematics, State University (2010)
