@@ -18,7 +18,6 @@ The framework provides an intelligent entity resolution engine, deterministic de
 - [Outputs](#outputs)
 - [Command Reference](#command-reference)
 
----
 
 ## Core Features
 
@@ -36,7 +35,6 @@ The framework provides an intelligent entity resolution engine, deterministic de
 - **JSON Server**: Launch a detached, non-blocking background REST API directly from the REPL to serve your canonical dataset.
 - **Human-readable UI**: Rich terminal table visualizations for in-depth candidate inspection.
 
----
 
 ## Architecture
 
@@ -85,7 +83,6 @@ sample_data/                  # Example inputs
 tests/                        # Test suites
 ```
 
----
 
 ## Interactive Shell (ctsh)
 
@@ -101,7 +98,6 @@ It provides an isolated runtime environment for developers and data engineers to
 - Perform one-command HTTP **export** via JSON Server.
 - Achieve a pure **no restart workflow** for enterprise data engineering.
 
----
 
 ## Command-Line Interface (CLI)
 
@@ -193,7 +189,7 @@ candidate-transformer transform \
 
 _`--projection <path>` overrides the output shape without changing pipeline logic._
 
----
+
 
 ## Command Reference
 
@@ -239,7 +235,6 @@ _`--projection <path>` overrides the output shape without changing pipeline logi
 | `export <projection_name> <file>` | Export a projection to disk.        |
 | `server start`                    | Launch the background JSON Server.  |
 | `server status`                   | Show JSON Server status.            |
-| `server restart`                  | Restart the background JSON Server. |
 | `server stop`                     | Stop the background JSON Server.    |
 
 ### Workspace Management
@@ -281,11 +276,9 @@ Manage the server lifecycle natively within `ctsh`:
 
 - `server status`: View the running PID, port, and endpoint paths.
 - `server stop`: Gracefully terminate the background process.
-- `server restart`: Safely tear down and reboot the `json-server` instance.
 
 _Troubleshooting: If `json-server` fails to start, ensure it is installed globally via `npm install -g json-server`._
 
----
 
 ## Runtime Configuration
 
@@ -335,10 +328,25 @@ Within the `ctsh` REPL, output is designed for human insight:
 
 ### REST API Outputs
 
-After launching `server start`, the data is served securely over HTTP:
+After launching `server start`, data is served securely over HTTP based on available projections. Every projection placed inside `configs/projections/` is automatically published as an HTTP endpoint. 
 
-- `GET /candidates`
+For example, if you have:
+```text
+configs/projections/
+analytics.json
+minimal.json
+crm.json
+ats.json
+```
+
+It automatically becomes:
 - `GET /analytics`
+- `GET /minimal`
+- `GET /crm`
+- `GET /ats`
+
+In addition, the following built-in endpoints are always available:
+- `GET /canonical` (or `GET /candidates` as an alias)
 - `GET /metadata`
 
 ### Persisted Outputs

@@ -1,0 +1,860 @@
+[
+  {
+    "id": "4b7dd07f-e630-5793-add4-47dba617bf8c",
+    "candidate_name": "Robert Jones",
+    "email": "robert.jones@example.com",
+    "mobile": "+14155551000",
+    "all_skills": [
+      {
+        "name": "Python",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      },
+      {
+        "name": "DevOps",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      }
+    ],
+    "highest_education": null,
+    "overall_confidence": 0.93
+  },
+  {
+    "id": "ba32d29d-61eb-5d4a-b3b5-761701cea17f",
+    "candidate_name": "Alice Smith",
+    "email": "alice.smith@example.com",
+    "mobile": "+14155551001",
+    "all_skills": [
+      {
+        "name": "Machine learning",
+        "confidence": 1.0,
+        "sources": [
+          "resume_text"
+        ]
+      },
+      {
+        "name": "Data Engineering",
+        "confidence": 1.0,
+        "sources": [
+          "resume_text"
+        ]
+      }
+    ],
+    "highest_education": null,
+    "overall_confidence": 0.78
+  },
+  {
+    "id": "572382c5-5b37-54c2-b0b1-1a5a81c6a3ea",
+    "candidate_name": "Carol White",
+    "email": "carol.white@example.com",
+    "mobile": "+14155551002",
+    "all_skills": [
+      {
+        "name": "DevOps",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json"
+        ]
+      },
+      {
+        "name": "Docker",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json"
+        ]
+      },
+      {
+        "name": "Machine learning",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json"
+        ]
+      },
+      {
+        "name": "NoSQL",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json"
+        ]
+      },
+      {
+        "name": "Leadership, DevOps, Docker, Machine learning, NoSQL",
+        "confidence": 1.0,
+        "sources": [
+          "resume_text"
+        ]
+      }
+    ],
+    "highest_education": null,
+    "overall_confidence": 0.86
+  },
+  {
+    "id": "b3ad3500-f82d-5270-9ab7-f463690dfaec",
+    "candidate_name": "Dave Johnson",
+    "email": "dave.johnson@example.com",
+    "mobile": "+14155551003",
+    "all_skills": [
+      {
+        "name": "NoSQL",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      },
+      {
+        "name": "Postgres",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json"
+        ]
+      },
+      {
+        "name": "javascript",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      },
+      {
+        "name": "PostgreSQL",
+        "confidence": 1.0,
+        "sources": [
+          "resume_text"
+        ]
+      },
+      {
+        "name": "Machine Learning",
+        "confidence": 1.0,
+        "sources": [
+          "resume_text"
+        ]
+      }
+    ],
+    "highest_education": "",
+    "overall_confidence": 1.0
+  },
+  {
+    "id": "8f4833eb-c8cf-5442-b00f-9a50c32bbede",
+    "candidate_name": "Eve Adams",
+    "email": "eve.adams@gmail.com",
+    "mobile": "+14155551004",
+    "all_skills": [
+      {
+        "name": "postgres",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json"
+        ]
+      },
+      {
+        "name": "AWS",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json"
+        ]
+      }
+    ],
+    "highest_education": null,
+    "overall_confidence": 0.64
+  },
+  {
+    "id": "e2e3e17e-fc6a-53db-9ceb-5cd9b3ff442f",
+    "candidate_name": "Frank Wright",
+    "email": "frank.wright@example.com",
+    "mobile": "+14155551005",
+    "all_skills": [
+      {
+        "name": "Leadership",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      },
+      {
+        "name": "React",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      }
+    ],
+    "highest_education": "",
+    "overall_confidence": 1.0
+  },
+  {
+    "id": "2a20b350-3484-5e66-93c0-afbdba1aaedd",
+    "candidate_name": "Grace Hopper",
+    "email": "grace.hopper@example.com",
+    "mobile": "+14155551006",
+    "all_skills": [
+      {
+        "name": "Java, Kubernetes",
+        "confidence": 1.0,
+        "sources": [
+          "resume_text"
+        ]
+      }
+    ],
+    "highest_education": "PhD in Computer Vision",
+    "overall_confidence": 0.78
+  },
+  {
+    "id": "fb525520-55b5-5d27-96ad-546156140031",
+    "candidate_name": "Ivan Q. Drago",
+    "email": "ivan.drago@gmail.com",
+    "mobile": "+14155551008",
+    "all_skills": [
+      {
+        "name": "PostgreSQL",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      },
+      {
+        "name": "Leadership",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      }
+    ],
+    "highest_education": "",
+    "overall_confidence": 1.0
+  },
+  {
+    "id": "020c335c-8bc6-54d2-9e4f-a07883a65977",
+    "candidate_name": "Judy Garland",
+    "email": "judy.garland@example.com",
+    "mobile": "+14155551009",
+    "all_skills": [
+      {
+        "name": "Machine Learning",
+        "confidence": 1.0,
+        "sources": [
+          "resume_text"
+        ]
+      },
+      {
+        "name": "Azure",
+        "confidence": 1.0,
+        "sources": [
+          "resume_text"
+        ]
+      },
+      {
+        "name": "NoSQL",
+        "confidence": 1.0,
+        "sources": [
+          "resume_text"
+        ]
+      },
+      {
+        "name": "Security",
+        "confidence": 1.0,
+        "sources": [
+          "resume_text"
+        ]
+      },
+      {
+        "name": "React",
+        "confidence": 1.0,
+        "sources": [
+          "resume_text"
+        ]
+      }
+    ],
+    "highest_education": "B.S. Computer Science",
+    "overall_confidence": 0.85
+  },
+  {
+    "id": "4089fdb5-2067-5643-839b-3132c7206700",
+    "candidate_name": "Ken Thompson",
+    "email": "ken.thompson@gmail.com",
+    "mobile": "+14155551010",
+    "all_skills": [
+      {
+        "name": "Leadership",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      },
+      {
+        "name": "Go",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      }
+    ],
+    "highest_education": "",
+    "overall_confidence": 1.0
+  },
+  {
+    "id": "32bb3994-3d92-5f41-b124-6056d244e8ed",
+    "candidate_name": "Mia Wallace",
+    "email": "mia.wallace@example.com",
+    "mobile": "+919811111012",
+    "all_skills": [
+      {
+        "name": "machine learning",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json"
+        ]
+      },
+      {
+        "name": "React",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json"
+        ]
+      },
+      {
+        "name": "Java",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json"
+        ]
+      },
+      {
+        "name": "AWS",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json"
+        ]
+      },
+      {
+        "name": "Rust, Machine Learning, React, Java, AWS",
+        "confidence": 1.0,
+        "sources": [
+          "resume_text"
+        ]
+      }
+    ],
+    "highest_education": "",
+    "overall_confidence": 0.93
+  },
+  {
+    "id": "eba2b2ae-0954-59de-b701-897a9131cb7b",
+    "candidate_name": "Noah Carter",
+    "email": "noah.carter@example.com",
+    "mobile": "+14155551013",
+    "all_skills": [
+      {
+        "name": "Rust",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json"
+        ]
+      },
+      {
+        "name": "postgres",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json"
+        ]
+      },
+      {
+        "name": "AWS",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json"
+        ]
+      },
+      {
+        "name": "Go",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json"
+        ]
+      },
+      {
+        "name": "Rust, GCP, PostgreSQL, AWS, Java, Go",
+        "confidence": 1.0,
+        "sources": [
+          "resume_text"
+        ]
+      }
+    ],
+    "highest_education": "",
+    "overall_confidence": 0.93
+  },
+  {
+    "id": "4e64ba72-e45a-5423-aabd-65a27a95dddc",
+    "candidate_name": "Olivia Pope",
+    "email": "olivia.pope@example.com",
+    "mobile": "+14155551014",
+    "all_skills": [
+      {
+        "name": "Leadership",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      },
+      {
+        "name": "DevOps",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      },
+      {
+        "name": "Machine learning",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      },
+      {
+        "name": "NoSQL",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      },
+      {
+        "name": "Data Engineering",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      },
+      {
+        "name": "postgres",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      }
+    ],
+    "highest_education": null,
+    "overall_confidence": 0.93
+  },
+  {
+    "id": "d3bc8f59-86a0-538a-8957-2cef8f537f6b",
+    "candidate_name": "Quinn W. Fabray",
+    "email": "quinn.fabray@gmail.com",
+    "mobile": "+14155551016",
+    "all_skills": [
+      {
+        "name": "Kubernetes",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      },
+      {
+        "name": "NoSQL",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      },
+      {
+        "name": "Azure",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      },
+      {
+        "name": "Docker",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      }
+    ],
+    "highest_education": null,
+    "overall_confidence": 0.93
+  },
+  {
+    "id": "bde440fd-20a6-579a-b554-a3c48f02f6c5",
+    "candidate_name": "Steve Rogers",
+    "email": "steverogers@company.com",
+    "mobile": "+14155551018",
+    "all_skills": [
+      {
+        "name": "SQL",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      },
+      {
+        "name": "Docker",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      },
+      {
+        "name": "Azure",
+        "confidence": 1.0,
+        "sources": [
+          "resume_text"
+        ]
+      },
+      {
+        "name": "Node.js",
+        "confidence": 1.0,
+        "sources": [
+          "resume_text"
+        ]
+      }
+    ],
+    "highest_education": "",
+    "overall_confidence": 1.0
+  },
+  {
+    "id": "174cbab2-cfb2-5d3e-a0eb-3e380285b1cc",
+    "candidate_name": "Tony Stark",
+    "email": "tony.stark@example.com",
+    "mobile": "+14155551019",
+    "all_skills": null,
+    "highest_education": null,
+    "overall_confidence": 0.31
+  },
+  {
+    "id": "087d9e69-0b3a-5fd4-82cb-f5b26ab655d8",
+    "candidate_name": "Ursula Buffay",
+    "email": "ursula.buffay@example.com",
+    "mobile": "+14155551020",
+    "all_skills": [
+      {
+        "name": "Machine Learning",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json"
+        ]
+      },
+      {
+        "name": "React",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json"
+        ]
+      },
+      {
+        "name": "Machine Learning, React",
+        "confidence": 1.0,
+        "sources": [
+          "resume_text"
+        ]
+      }
+    ],
+    "highest_education": "",
+    "overall_confidence": 0.93
+  },
+  {
+    "id": "a84057d9-c317-5b3b-9b27-cb22b2dfec9f",
+    "candidate_name": "Victor Stone",
+    "email": "victor.stone@example.com",
+    "mobile": "+14155551021",
+    "all_skills": [
+      {
+        "name": "Java",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json"
+        ]
+      },
+      {
+        "name": "kubernetes",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json"
+        ]
+      },
+      {
+        "name": "Node.js",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json"
+        ]
+      },
+      {
+        "name": "Javascript",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json"
+        ]
+      }
+    ],
+    "highest_education": null,
+    "overall_confidence": 0.64
+  },
+  {
+    "id": "fc4d1d22-d075-53ea-9ca6-20db2ad836e6",
+    "candidate_name": "Xavier F. Charles",
+    "email": "xavier.charles@example.com",
+    "mobile": "+14155551023",
+    "all_skills": [
+      {
+        "name": "GCP, PostgreSQL, Leadership, Go",
+        "confidence": 1.0,
+        "sources": [
+          "resume_text"
+        ]
+      }
+    ],
+    "highest_education": null,
+    "overall_confidence": 0.71
+  },
+  {
+    "id": "89b49836-c40b-5dbd-a347-11522e3f9b2d",
+    "candidate_name": "Yara Shahidi",
+    "email": "yara.shahidi@example.com",
+    "mobile": "+14155551024",
+    "all_skills": [
+      {
+        "name": "React",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      },
+      {
+        "name": "Rust",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      },
+      {
+        "name": "NoSQL",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      }
+    ],
+    "highest_education": "",
+    "overall_confidence": 1.0
+  },
+  {
+    "id": "8ebc1010-9039-5f92-b3a1-796b411df124",
+    "candidate_name": "Heidi Cruz",
+    "email": "heidi.cruz@example.com",
+    "mobile": "+14155551007",
+    "all_skills": [
+      {
+        "name": "DevOps",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      },
+      {
+        "name": "GCP",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      }
+    ],
+    "highest_education": null,
+    "overall_confidence": 0.78
+  },
+  {
+    "id": "17c6788e-2662-55b3-a9ae-c3297f3c4c5a",
+    "candidate_name": "Liam Neeson",
+    "email": "liam.neeson@example.com",
+    "mobile": "+14155551011",
+    "all_skills": [
+      {
+        "name": "Data Engineering",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      },
+      {
+        "name": "machine learning",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      }
+    ],
+    "highest_education": "",
+    "overall_confidence": 0.85
+  },
+  {
+    "id": "78d2bb3d-d6f4-5948-ac8f-50c62a1db0b7",
+    "candidate_name": "Peter X. Parker",
+    "email": "peterparker@company.com",
+    "mobile": "+14155551015",
+    "all_skills": [
+      {
+        "name": "AWS",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json"
+        ]
+      },
+      {
+        "name": "C++",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json"
+        ]
+      },
+      {
+        "name": "Azure",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json"
+        ]
+      },
+      {
+        "name": "Security",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json"
+        ]
+      }
+    ],
+    "highest_education": null,
+    "overall_confidence": 0.39
+  },
+  {
+    "id": "f8a47ba4-72eb-5f9a-9c83-36bbf799258e",
+    "candidate_name": "Rachel X. Green",
+    "email": "rachel.green@example.com",
+    "mobile": null,
+    "all_skills": [
+      {
+        "name": "DevOps",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json"
+        ]
+      },
+      {
+        "name": "Java",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json"
+        ]
+      },
+      {
+        "name": "python",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json"
+        ]
+      },
+      {
+        "name": "Leadership",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json"
+        ]
+      },
+      {
+        "name": "Docker",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json"
+        ]
+      }
+    ],
+    "highest_education": "",
+    "overall_confidence": 0.39
+  },
+  {
+    "id": "40e1bb95-f68d-522b-9a59-7e1b074b65a6",
+    "candidate_name": "Wanda X. Maximoff",
+    "email": "wanda.maximoff@example.com",
+    "mobile": "9811111022",
+    "all_skills": [
+      {
+        "name": "Security",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      },
+      {
+        "name": "Node.js",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      },
+      {
+        "name": "Leadership",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      },
+      {
+        "name": "React",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      },
+      {
+        "name": "NoSQL",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      },
+      {
+        "name": "Docker",
+        "confidence": 1.0,
+        "sources": [
+          "ats_json",
+          "resume_text"
+        ]
+      }
+    ],
+    "highest_education": "",
+    "overall_confidence": 0.85
+  }
+]

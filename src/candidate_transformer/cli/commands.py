@@ -429,11 +429,14 @@ class CommandDispatcher:
             
             console.print("Endpoints")
             console.print("────────────────────────────────────")
-            console.print("GET /candidates")
-            console.print("GET /analytics")
-            console.print("GET /metadata\n")
-            
-            console.print("Server running in background.\n")
+            from candidate_transformer.export.json_server import RUNTIME_DIR
+            db_path = RUNTIME_DIR / "db.json"
+            if db_path.exists():
+                with open(db_path, "r") as f:
+                    db = json.load(f)
+                    for key in db.keys():
+                        console.print(f"GET /{key}")
+            console.print("\nServer running in background.\n")
         except Exception as e:
             console.print(f"{str(e)}")
 
@@ -462,9 +465,14 @@ class CommandDispatcher:
                 console.print()
             
             console.print("Endpoints\n")
-            console.print("GET /candidates")
-            console.print("GET /analytics")
-            console.print("GET /metadata\n")
+            from candidate_transformer.export.json_server import RUNTIME_DIR
+            db_path = RUNTIME_DIR / "db.json"
+            if db_path.exists():
+                with open(db_path, "r") as f:
+                    db = json.load(f)
+                    for key in db.keys():
+                        console.print(f"GET /{key}")
+            console.print()
             
         elif subcmd == "stop":
             console.print("Stopping JSON Server...\n")

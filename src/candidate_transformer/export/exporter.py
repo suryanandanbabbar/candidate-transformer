@@ -20,30 +20,46 @@ def export_all(context: PipelineContext, export_dir: str = "exports") -> None:
         raise RuntimeError(f"Failed to create export directory: {e}") from e
     
     try:
-        # Analytics
         engine = CandidateTransformer(context.runtime_config)
         engine._dataset = context.dataset
-        analytics_data = engine.project("analytics")
-        
-        # Metadata
-        metadata_data = generate_metadata(context, "analytics")
         
         # Candidates (Canonical dataset exactly as stored)
         candidates_dict = context.dataset.model_dump(mode="json")
         
-        # Combine into db.json for json-server
+        # Metadata
+        metadata_data = generate_metadata(context, "canonical")
+        
+        # Base db.json
         db_json = {
-            "candidates": candidates_dict,
-            "analytics": analytics_data,
+            "canonical": candidates_dict,
             "metadata": metadata_data
         }
         
+        # Discover and run all projections
+        proj_dir = os.path.join(os.getcwd(), "configs", "projections")
+        if os.path.exists(proj_dir):
+            for f_name in os.listdir(proj_dir):
+                if f_name.endswith(".json"):
+                    proj_name = f_name[:-5]  # remove .json
+                    try:
+                        proj_data = engine.project(proj_name)
+                        db_json[proj_name] = proj_data
+                        
+                        # Export individual projection files
+                        with open(os.path.join(export_dir, f_name), "w") as f:
+                            json.dump(proj_data, f, indent=2)
+                    except Exception as e:
+                        # Log or ignore invalid projections
+                        pass
+                        
+        # Ensure candidates is an exact alias for canonical
+        db_json["candidates"] = db_json.get("canonical", candidates_dict)
+                        
+        # Export base files
+        with open(os.path.join(export_dir, "canonical.json"), "w") as f:
+            json.dump(db_json["canonical"], f, indent=2)
         with open(os.path.join(export_dir, "candidates.json"), "w") as f:
-            json.dump(candidates_dict, f, indent=2)
-            
-        with open(os.path.join(export_dir, "analytics.json"), "w") as f:
-            json.dump(analytics_data, f, indent=2)
-            
+            json.dump(db_json["candidates"], f, indent=2)
         with open(os.path.join(export_dir, "metadata.json"), "w") as f:
             json.dump(metadata_data, f, indent=2)
             
