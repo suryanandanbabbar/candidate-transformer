@@ -9,6 +9,7 @@ from candidate_transformer.cli.context import PipelineContext, DirtyState
 from candidate_transformer.cli.workspace import WorkspaceManager
 from candidate_transformer.export.exporter import export_all
 from candidate_transformer.export.json_server import JsonServerManager
+from candidate_transformer.utils.formatting import format_timestamp
 
 console = Console()
 workspace_manager = WorkspaceManager()
@@ -195,7 +196,8 @@ class CommandDispatcher:
         table.add_row("Canonical Model Built?", built)
         if self.context.dataset:
             table.add_row("Build ID", self.context.dataset.build_id)
-            table.add_row("Build Timestamp", self.context.dataset.build_timestamp)
+            ts = format_timestamp(self.context.dataset.build_timestamp)
+            table.add_row("Build Timestamp", ts)
             table.add_row("Candidate Count", str(len(self.context.dataset.candidates)))
         table.add_row("Current Projection", self.context.current_projection or "None")
         table.add_row("Dirty State", self.context.dirty_state.name)
@@ -459,7 +461,11 @@ class CommandDispatcher:
             console.print(f"Status     : [green]{status_info['status']}[/green]")
             console.print(f"Workspace  : {status_info['workspace']}")
             console.print(f"PID        : {status_info['pid']}")
-            console.print(f"Port       : {status_info['port']}\n")
+            console.print(f"Port       : {status_info['port']}")
+            if "started_at" in status_info:
+                console.print(f"Started At : {format_timestamp(status_info['started_at'])}\n")
+            else:
+                console.print()
             
             console.print("Endpoints\n")
             console.print("GET /candidates")

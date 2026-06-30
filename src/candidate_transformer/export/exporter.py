@@ -20,15 +20,15 @@ def export_all(context: PipelineContext, export_dir: str = "exports") -> None:
         raise RuntimeError(f"Failed to create export directory: {e}") from e
     
     try:
-        # Generate Analytics
+        # Analytics
         engine = CandidateTransformer(context.runtime_config)
         engine._dataset = context.dataset
         analytics_data = engine.project("analytics")
         
-        # Generate Metadata
+        # Metadata
         metadata_data = generate_metadata(context, "analytics")
         
-        # Generate Candidates (Canonical dataset exactly as stored)
+        # Candidates (Canonical dataset exactly as stored)
         candidates_dict = context.dataset.model_dump(mode="json")
         
         # Combine into db.json for json-server

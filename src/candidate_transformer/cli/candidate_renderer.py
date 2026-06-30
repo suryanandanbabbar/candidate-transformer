@@ -5,6 +5,7 @@ from rich.panel import Panel
 from rich.text import Text
 
 from candidate_transformer.domain.models import Candidate
+from candidate_transformer.utils.formatting import format_timestamp
 
 console = Console()
 
@@ -211,7 +212,8 @@ class CandidateRenderer:
                 conf_text = Text(conf_str, style=self._confidence_style(prov.confidence))
                 row = [prov.field, prov.source, prov.method, conf_text]
                 if self.verbose:
-                    row.append(prov.timestamp or "N/A")
+                    ts = format_timestamp(prov.timestamp) if prov.timestamp else "N/A"
+                    row.append(ts)
                 prov_table.add_row(*row)
             sections.append(prov_table)
             sections.append(Text())

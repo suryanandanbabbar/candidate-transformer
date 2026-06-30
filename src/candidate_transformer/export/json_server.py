@@ -28,7 +28,6 @@ class JsonServerManager:
     def _is_process_alive(cls, pid: int) -> bool:
         if os.name == 'nt':
             try:
-                # Use tasklist to check for the PID on Windows
                 result = subprocess.run(
                     ['tasklist', '/FI', f'PID eq {pid}', '/NH'],
                     capture_output=True, text=True
