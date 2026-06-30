@@ -1,4 +1,9 @@
 # Candidate Transformer
+![Python](https://img.shields.io/badge/Python-3.11+-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
+![CLI](https://img.shields.io/badge/CLI-Typer-orange)
+![REPL](https://img.shields.io/badge/Shell-ctsh-purple)
+![REST API](https://img.shields.io/badge/REST-JSON_Server-red)
 
 An enterprise-grade, production-ready Python framework for canonical candidate normalization. Candidate Transformer processes heterogeneous candidate profiles (resumes, ATS exports, recruiter spreadsheets) into a unified, highly structured canonical candidate dataset.
 
@@ -57,7 +62,35 @@ flowchart LR
     N --> D
 ```
 
+### Pipeline Lifecycle
+
+```text
+Load Sources
+      ↓
+Connector Parsing
+      ↓
+Normalization
+      ↓
+Entity Resolution
+      ↓
+Conflict Resolution
+      ↓
+Canonical Dataset
+      ↓
+Projection Engine
+      ↓
+CLI / ctsh / JSON Server
+```
+
 ---
+
+## Supported Connectors
+
+| Connector | Input Format |
+|-----------|--------------|
+| recruiter_csv | CSV |
+| ats_json | JSON |
+| resume_text | Plain Text |
 
 ## Project Structure
 
@@ -293,6 +326,16 @@ Without restarting the application, users can:
 
 This mirrors enterprise data engineering workflows where datasets evolve iteratively.
 
+### Example
+
+```text
+ctsh> config begin
+ctsh> config set include_provenance false
+ctsh> config set include_confidence false
+ctsh> config apply
+ctsh> build
+```
+
 ---
 
 ## Outputs
@@ -356,3 +399,7 @@ In addition, the following built-in endpoints are always available:
 - Persisted SQLite/JSON workspace states across sessions
 
 ---
+
+## License
+
+This project is licensed under the MIT License.
