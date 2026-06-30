@@ -2,7 +2,7 @@
 
 An enterprise-grade, production-ready Python framework for canonical candidate normalization. Candidate Transformer processes heterogeneous candidate profiles (resumes, ATS exports, recruiter spreadsheets) into a unified, highly structured canonical candidate dataset.
 
-The framework provides an intelligent entity resolution engine, deterministic deduplication, configurable merge strategies, and an advanced projection engine to serve multiple downstream consumers from a single source of truth.
+The framework provides an intelligent entity resolution engine, deterministic deduplication, configurable merge strategies, and an advanced projection engine to serve multiple downstream consumers from a single source of truth. At runtime, users can iteratively ingest additional data sources, modify pipeline configuration, rebuild the canonical dataset, and switch downstream projections without restarting the interactive workspace.
 
 It includes both a production-ready batch CLI (`candidate-transformer`) and a professional interactive REPL workspace (`ctsh`).
 
@@ -34,9 +34,26 @@ Every single merged field automatically tracks:
 
 ---
 
+## Advanced Features (Project Twist)
+
+Beyond the assignment requirements, Candidate Transformer introduces:
+
+- Interactive REPL workspace (ctsh)
+- Runtime ingestion of additional data sources
+- Runtime configuration editing and rebuilds
+- Persistent workspaces
+- Rich terminal UI with tabular inspection
+- JSON and human-readable inspection modes
+- Dynamic projection switching
+- Plugin-based connector registry
+
+---
+
 ## Projection Engine
 
 Projections allow multiple downstream consumers to seamlessly reuse the same canonical dataset without modifying the transformation engine. Output shapes can be dynamically altered at runtime.
+
+Projections are applied after canonicalization. The canonical dataset remains unchanged while multiple downstream representations can be generated from the same transformed data.
 
 Available Built-in Projections:
 * **Minimal**: Outputs only essential identity fields (Name, Contact).
@@ -45,10 +62,37 @@ Available Built-in Projections:
 * **Analytics**: Flattens nested data for downstream data warehouses and reporting tools.
 
 ---
+## Installation
+
+Installing from source provides both the `candidate-transformer` CLI and the interactive `ctsh` shell.
+
+**From GitHub (Development & Source)**
+```bash
+git clone https://github.com/suryanandanbabbar/candidate-transformer.git
+cd candidate-transformer
+python -m venv venv
+source venv/bin/activate
+pip install -e .
+```
+
+### Launch
+
+Start the interactive workspace:
+```bash
+ctsh
+```
+
+Run a one-shot batch transformation:
+```bash
+candidate-transformer transform --source recruiter_csv=sample_data/recruiter.csv
+```
+---
 
 ## Interactive Shell (`ctsh`)
 
 Candidate Transformer features `ctsh`, a powerful interactive REPL workspace similar to `cqlsh`, `psql`, or `mongosh`. It provides an isolated runtime environment for developers and data engineers to experiment with candidate data.
+
+Workspace state is persisted locally, allowing users to save, reopen, and continue previous transformation sessions.
 
 With `ctsh`, you can load sources, build canonical datasets, explore Candidates using beautifully formatted **Rich tables**, switch active projections dynamically, and manage persistent workspaces—all without restarting the application.
 
@@ -121,13 +165,17 @@ ctsh> export analytics output.json
 
 ## Runtime Configuration
 
-The `ctsh` shell supports powerful runtime configuration. After loading data, you can seamlessly modify the behavior of the framework without restarting:
-* Switch active projections to preview different downstream outputs.
-* Load additional connectors on the fly.
-* Re-run transformations (`build`) to instantly see the impact of new data.
-* Manage, save, and switch between persistent Workspace states (`workspace new`, `workspace open`).
+The interactive `ctsh` workspace supports true runtime pipeline evolution.
 
-This interactive tuning loop drastically reduces the iteration cycle when onboarding new heterogeneous data sources in production.
+Without restarting the application, users can:
+
+* Load additional data sources into the current workspace.
+* Modify merge priorities, projection selection, connector configuration, and rebuild the canonical dataset without restarting.
+* Rebuild the canonical dataset using the updated inputs.
+* Switch projections instantly for different downstream consumers.
+* Save and reopen complete workspaces for future sessions.
+
+This mirrors enterprise data engineering workflows where datasets evolve over time rather than being fully specified before execution.
 
 ---
 
@@ -154,38 +202,46 @@ candidate-transformer transform \
 
 ---
 
+## Output
+
+The framework can generate multiple outputs from the same canonical dataset:
+
+* Canonical Candidate Dataset
+* Minimal Projection
+* Recruiter Projection
+* ATS Projection
+* Analytics Projection
+
+---
+
 ## Architecture
 
-The framework enforces a strict separation of concerns, decoupling raw ingestion from canonicalization and final downstream projection.
-
 ```mermaid
-flowchart TD
-    A[Recruiter CSV] --> |RawRecord| D
-    B[ATS JSON] --> |RawRecord| D
-    C[Resume Text] --> |RawRecord| D
-    D[Connector Registry] --> E[Individual Connectors]
-    E --> F[Raw Candidate Records]
-    F --> G[Canonical Transformer]
-    G --> H[Entity Resolution Engine]
-    H --> I[Merge Engine]
-    I --> J[Canonical Candidate Model]
-    J --> K[Provenance Generator]
-    K --> L[Projection Engine]
-    L --> M[CLI]
-    L --> N[Interactive ctsh Workspace]
+flowchart LR
+    A[Data Sources] --> B[Connector Registry]
+    B --> C[Connectors]
+    C --> D[Raw Candidate Records]
+    D --> E[Extraction & Normalization]
+    E --> F[Entity Resolution]
+    F --> G[Merge Engine]
+    G --> H[Canonical Candidate Dataset]
+    H --> I[Provenance]
+    H --> J[Projection Engine]
+    J --> K[CLI Output]
+    J --> L[ctsh Workspace]
+    L --> M[Runtime Config Updates]
+    M --> G
+    L --> N[Load Additional Sources]
+    N --> D
 ```
 
 ---
 
 ## Extending the Framework
 
-Candidate Transformer is highly modular and heavily utilizes a Plugin Registry pattern. Developers can easily extend functionality by dropping new Python classes into the source tree. 
+Candidate Transformer is highly modular and follows a plugin-based architecture. Developers can extend the framework by implementing new connectors or merge strategies and registering them with the plugin registry.
 
-The framework automatically discovers extensions wrapped in decorators:
-* **Connectors** (`@connector_registry("name")`)
-* **Merge Strategies** (`@strategy_registry("name")`)
-
-Adding a new connector simply requires inheriting from `BaseConnector` and implementing the `fetch()` iterator. Similarly, projections are purely JSON-driven, meaning you can add entirely new schemas without writing any Python code.
+Adding a new connector requires inheriting from `BaseConnector` and implementing the `fetch()` iterator. Likewise, merge strategies can be registered independently, while projections remain JSON-driven so entirely new downstream schemas can be introduced without modifying the transformation pipeline.
 
 ---
 
@@ -211,33 +267,21 @@ tests/                        # Test suites
 
 ---
 
+
 ## Production Features
 
-This framework is built strictly for production enterprise environments:
-* **Deterministic Candidate IDs**: UUIDv5 ensures exact reproducibility.
-* **Provenance Tracking**: Absolute auditability back to raw origins.
-* **Confidence Scoring**: Heuristics to grade merged reliability.
-* **Connector Registry**: Scalable plugin discovery.
-* **Runtime Workspace**: Persisted REPL state using local `.ctsh/workspaces`.
-* **Configurable Projections**: Schema adaptability without code changes.
-* **Modular Architecture**: Decoupled ingestion, transformation, and presentation.
+* Deterministic Candidate IDs: UUIDv5 ensures exact reproducibility.
+* Entity Resolution: Deterministic identity reconciliation across heterogeneous sources.
+* Provenance Tracking: Absolute auditability back to raw origins.
+* Runtime Workspace: Persisted REPL state using local `.ctsh/workspaces`.
+* Configurable Projections: Schema adaptability without code changes.
+* Connector Registry: Scalable plugin discovery.
+* Confidence Scoring: Heuristics to grade merged reliability.
+* Modular Architecture: Decoupled ingestion, transformation, and presentation.
+* Runtime pipeline evolution without restart.
+* Interactive workspace supporting iterative data ingestion.
+* Human-readable Rich table visualizations for candidate inspection.
+* Identical inputs always produce identical canonical outputs.
 
 ---
-
-## Installation
-
-Both installation methods securely provide access to the `candidate-transformer` CLI and the `ctsh` interactive shell.
-
-**From GitHub (Development & Source)**
-```bash
-git clone https://github.com/example/candidate-transformer.git
-cd candidate-transformer
-python -m venv venv
-source venv/bin/activate
-pip install -e .
-```
-
-**From PyPI (Future)**
-```bash
-pip install candidate-transformer
-```
+</file>
