@@ -48,20 +48,28 @@ The framework provides an intelligent entity resolution engine, deterministic de
 
 ```mermaid
 flowchart LR
-    A[Data Sources] --> B[Connector Registry]
-    B --> C[Connectors]
-    C --> D[Raw Candidate Records]
-    D --> E[Extraction & Normalization]
-    E --> F[Entity Resolution]
-    F --> G[Merge Engine]
-    G --> H[Canonical Candidate Dataset]
-    H --> I[Provenance]
-    H --> J[Projection Engine]
-    J --> K[CLI Output]
-    J --> L[ctsh Workspace]
-    L --> M[Runtime Config Updates]
+
+    A["Data Sources"] --> B["Connector Registry"]
+    B --> C["Connectors"]
+    C --> D["Raw Candidate Records"]
+
+    D --> E["Extraction & Normalization"]
+    E --> F["Entity Resolution"]
+    F --> G["Merge Engine"]
+
+    G --> H["Canonical Candidate Dataset"]
+
+    H --> I["Provenance Tracking"]
+    H --> J["Projection Engine"]
+
+    J --> K["Batch CLI (profilefusion)"]
+    J --> L["ctsh Workspace"]
+    J --> O["JSON Server"]
+
+    L --> M["Runtime Configuration"]
     M --> G
-    L --> N[Load Additional Sources]
+
+    L --> N["Load Additional Sources"]
     N --> D
 ```
 
