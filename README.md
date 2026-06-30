@@ -237,7 +237,7 @@ _`--projection <path>` overrides the output shape without changing pipeline logi
 | `save canonical <file>`           | Persist the canonical dataset.      |
 | `loadcanonical <file>`            | Load a saved canonical dataset.     |
 | `export <projection_name> <file>` | Export a projection to disk.        |
-| `export server`                   | Launch the background JSON Server.  |
+| `server start`                    | Launch the background JSON Server.  |
 | `server status`                   | Show JSON Server status.            |
 | `server restart`                  | Restart the background JSON Server. |
 | `server stop`                     | Stop the background JSON Server.    |
@@ -268,7 +268,7 @@ _`--projection <path>` overrides the output shape without changing pipeline logi
 You can export the canonical dataset and launch a non-blocking, persistent REST API directly from the workspace.
 
 ```bash
-ctsh> export server
+ctsh> server start
 ```
 
 This will automatically:
@@ -335,7 +335,7 @@ Within the `ctsh` REPL, output is designed for human insight:
 
 ### REST API Outputs
 
-After launching `export server`, the data is served securely over HTTP:
+After launching `server start`, the data is served securely over HTTP:
 
 - `GET /candidates`
 - `GET /analytics`

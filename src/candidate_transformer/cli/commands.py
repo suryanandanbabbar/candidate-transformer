@@ -369,14 +369,6 @@ class CommandDispatcher:
             console.print(f"[red]Failed to load:[/red] {str(e)}")
 
     def handle_export(self, args: list[str]) -> None:
-        if len(args) == 0:
-            console.print("[red]Usage:[/red] export <projection_name> <filename> OR export server")
-            return
-            
-        if args[0] == "server":
-            self._handle_export_server()
-            return
-            
         if len(args) < 2:
             console.print("[red]Usage:[/red] export <projection_name> <filename>")
             return
@@ -398,7 +390,7 @@ class CommandDispatcher:
         except Exception as e:
             console.print(f"[red]Export failed:[/red] {str(e)}")
 
-    def _handle_export_server(self) -> None:
+    def _handle_server_start(self) -> None:
         status_info = JsonServerManager.status()
         if status_info["status"] == "Running":
             console.print("JSON Server is already running.\n")
@@ -447,11 +439,13 @@ class CommandDispatcher:
 
     def handle_server(self, args: list[str]) -> None:
         if not args:
-            console.print("[red]Usage:[/red] server [status|stop|restart]")
+            console.print("[red]Usage:[/red] server [start|status|stop|restart]")
             return
             
         subcmd = args[0]
-        if subcmd == "status":
+        if subcmd == "start":
+            self._handle_server_start()
+        elif subcmd == "status":
             status_info = JsonServerManager.status()
             if status_info["status"] == "Stopped":
                 console.print("JSON Server is not running.")
@@ -481,7 +475,7 @@ class CommandDispatcher:
                 
         elif subcmd == "restart":
             JsonServerManager.stop()
-            self._handle_export_server()
+            self._handle_server_start()
         else:
             console.print(f"[red]Unknown server command:[/red] {subcmd}")
 
@@ -565,10 +559,17 @@ config apply
 save canonical <file>
 loadcanonical <file>
 export <projection_name> <file>
-export server
+
+[bold cyan]Server Management[/bold cyan]
+-----------------
+server start
+Start the background JSON Server.
+
 server status
+Display JSON Server status.
+
 server stop
-server restart
+Stop the background JSON Server.
 
 [bold cyan]Workspace[/bold cyan]
 ---------

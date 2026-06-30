@@ -2,7 +2,7 @@ import os
 import sys
 
 from prompt_toolkit import PromptSession
-from prompt_toolkit.completion import WordCompleter
+from prompt_toolkit.completion import NestedCompleter
 from prompt_toolkit.history import FileHistory
 from rich.console import Console
 
@@ -11,11 +11,28 @@ from candidate_transformer.cli.context import PipelineContext
 
 console = Console()
 
-COMMANDS = [
-    "load", "build", "project", "status", "stats", "show", "sources",
-    "projections", "connectors", "config", "save", "loadcanonical",
-    "export", "workspace", "help", "history", "reset", "clear", "exit"
-]
+COMMANDS = {
+    "load": None,
+    "build": None,
+    "project": None,
+    "status": None,
+    "stats": None,
+    "show": None,
+    "sources": None,
+    "projections": None,
+    "connectors": None,
+    "config": {"show": None, "begin": None, "set": None, "apply": None},
+    "save": {"canonical": None},
+    "loadcanonical": None,
+    "export": None,
+    "workspace": {"new": None, "open": None, "list": None, "delete": None},
+    "server": {"start": None, "status": None, "stop": None},
+    "help": None,
+    "history": None,
+    "reset": None,
+    "clear": None,
+    "exit": None
+}
 
 def main() -> None:
     console.print("[cyan bold]Candidate Transformer Shell[/cyan bold]")
@@ -34,7 +51,7 @@ def main() -> None:
     dispatcher = CommandDispatcher(context)
     
     history_file = os.path.expanduser("~/.ctsh_history")
-    completer = WordCompleter(COMMANDS, ignore_case=True)
+    completer = NestedCompleter.from_nested_dict(COMMANDS)
     
     session: PromptSession[str] = PromptSession(
         history=FileHistory(history_file),
