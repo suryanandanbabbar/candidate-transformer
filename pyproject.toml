@@ -1,16 +1,39 @@
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
 
 [project]
-name = "candidate-transformer"
-version = "0.1.0"
+name = "profilefusion"
+dynamic = ["version"]
 description = "A production-grade Python framework for converting heterogeneous candidate information into canonical profiles."
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 license = { text = "MIT" }
 authors = [
     { name = "Principal Engineer", email = "engineering@example.com" },
+]
+keywords = [
+    "candidate",
+    "resume",
+    "ats",
+    "entity-resolution",
+    "canonical-model",
+    "data-engineering",
+    "hr-tech",
+    "recruitment",
+    "cli",
+    "json-server"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities"
 ]
 dependencies = [
     "pydantic>=2.0.0",
@@ -19,6 +42,7 @@ dependencies = [
     "phonenumbers>=8.13.0",
     "prompt_toolkit>=3.0.0",
     "rich>=13.0.0",
+    "python-dateutil>=2.8.2",
 ]
 
 [project.optional-dependencies]
@@ -28,14 +52,27 @@ dev = [
     "ruff>=0.1.0",
     "mypy>=1.5.0",
     "black>=23.0.0",
+    "build",
+    "twine"
 ]
 
 [project.scripts]
-candidate-transformer = "candidate_transformer.cli.main:app"
+profilefusion = "candidate_transformer.cli.main:app"
 ctsh = "candidate_transformer.cli.shell:main"
 
-[tool.hatch.build.targets.wheel]
-packages = ["src/candidate_transformer"]
+[project.urls]
+Homepage = "https://github.com/suryanandanbabbar/candidate-transformer"
+Repository = "https://github.com/suryanandanbabbar/candidate-transformer.git"
+Issues = "https://github.com/suryanandanbabbar/candidate-transformer/issues"
+
+[tool.setuptools.dynamic]
+version = {attr = "candidate_transformer.__version__"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools]
+include-package-data = true
 
 [tool.ruff]
 line-length = 120
@@ -47,7 +84,7 @@ ignore = ["E501", "B904", "B024", "SIM105", "B008"]
 
 [tool.mypy]
 strict = true
-python_version = "3.10"
+python_version = "3.11"
 warn_return_any = true
 warn_unused_configs = true
 

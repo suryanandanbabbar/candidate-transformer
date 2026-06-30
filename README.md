@@ -7,7 +7,7 @@
 
 An enterprise-grade, production-ready Python framework for canonical candidate normalization. Candidate Transformer processes heterogeneous candidate profiles (resumes, ATS exports, recruiter spreadsheets) into a unified, highly structured canonical candidate dataset.
 
-The framework provides an intelligent entity resolution engine, deterministic deduplication, configurable merge strategies, and an advanced projection engine to serve multiple downstream consumers from a single source of truth. It includes both a production-ready batch CLI (`candidate-transformer`) and a professional interactive REPL workspace (`ctsh`).
+The framework provides an intelligent entity resolution engine, deterministic deduplication, configurable merge strategies, and an advanced projection engine to serve multiple downstream consumers from a single source of truth. It includes both a production-ready batch CLI (`profilefusion`) and a professional interactive REPL workspace (`ctsh`).
 
 ## Table of Contents
 
@@ -134,7 +134,7 @@ It provides an isolated runtime environment for developers and data engineers to
 
 ## Command-Line Interface (CLI)
 
-The batch CLI (`candidate-transformer`) is intended for automation, scripting, CI/CD pipelines, scheduled jobs, and headless execution.
+The batch CLI (`profilefusion`) is intended for automation, scripting, CI/CD pipelines, scheduled jobs, and headless execution.
 
 It exposes core commands tailored for non-interactive pipelines:
 
@@ -145,7 +145,17 @@ It exposes core commands tailored for non-interactive pipelines:
 
 ## Getting Started
 
-### Installation from GitHub (Development & Source)
+### Installation from PyPI 
+
+```bash
+pip install profilefusion
+```
+The package automatically exposes two commands:
+- `profilefusion`: The batch CLI.
+- `ctsh`: The interactive REPL environment.
+
+
+### Installation from GitHub 
 
 ```bash
 git clone https://github.com/suryanandanbabbar/candidate-transformer.git
@@ -204,7 +214,7 @@ sample_data/
 Run a one-shot batch transformation from the command line:
 
 ```bash
-candidate-transformer transform \
+profilefusion transform \
   --source recruiter_csv=sample_data/recruiter.csv \
   --source ats_json=sample_data/ats.json \
   --source resume_text=sample_data/resume.txt
@@ -215,7 +225,7 @@ _`--source <connector>=<filepath>` defines the parser and file._
 **Applying a specific projection:**
 
 ```bash
-candidate-transformer transform \
+profilefusion transform \
   --source recruiter_csv=sample_data/recruiter.csv \
   --projection configs/projections/recruiter.json
 ```
