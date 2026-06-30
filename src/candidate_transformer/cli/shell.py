@@ -36,7 +36,7 @@ COMMANDS = {
 
 def main() -> None:
     console.print("[cyan bold]Candidate Transformer Shell[/cyan bold]")
-    console.print("Version 1.0.0")
+    console.print("Version 1.0.1")
     
     # Initialize workspace
     # Load default or create it
